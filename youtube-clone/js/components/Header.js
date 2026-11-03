@@ -16,6 +16,19 @@ import {
   Close
 } from './Icons.js';
 
+// Resolve from imports or fallback to window.YT
+const YT_HEADER = (typeof window !== 'undefined' && window.YT) || {};
+const SafeMenu = typeof Menu !== 'undefined' ? Menu : YT_HEADER.Menu;
+const SafeLogo = typeof Logo !== 'undefined' ? Logo : YT_HEADER.Logo;
+const SafeSearch = typeof Search !== 'undefined' ? Search : YT_HEADER.Search;
+const SafeMic = typeof Mic !== 'undefined' ? Mic : YT_HEADER.Mic;
+const SafeVideo = typeof Video !== 'undefined' ? Video : YT_HEADER.Video;
+const SafeBell = typeof Bell !== 'undefined' ? Bell : YT_HEADER.Bell;
+const SafeMoon = typeof Moon !== 'undefined' ? Moon : YT_HEADER.Moon;
+const SafeSun = typeof Sun !== 'undefined' ? Sun : YT_HEADER.Sun;
+const SafeUser = typeof User !== 'undefined' ? User : YT_HEADER.User;
+const SafeClose = typeof Close !== 'undefined' ? Close : YT_HEADER.Close;
+
 // Global React reference for in-browser Babel / UMD / React 18
 const React = window.React || (typeof globalThis !== 'undefined' ? globalThis.React : null);
 const { useState, useRef, useEffect } = React || {};
@@ -528,3 +541,10 @@ export function Header({
 }
 
 export default Header;
+
+// Dual-compatibility: attach exports to global YT namespace
+if (typeof window !== 'undefined') {
+  window.YT = window.YT || {};
+  window.YT.Header = Header;
+}
+

@@ -1,6 +1,7 @@
 # YouTube Web Clone
 
-A modern, responsive, zero-build YouTube web clone built with **React 18**, **Tailwind CSS**, **Lucide Icons**, and in-browser **Babel Standalone**. It replicates the complete core YouTube experience: video playback with rich custom controls, responsive multi-view navigation, feeds, instant search, interactive comments, channel profiles, dark/light themes, and persistent state stored in `localStorage`.
+A modern, responsive, zero-build YouTube web clone built with **React 18 / 19**, **Tailwind CSS**, **SVG Icons**, and in-browser **Babel Standalone**. It replicates the complete core YouTube experience: video playback powered by YouTube's responsive embedded player with HTML5 fallback, responsive multi-view navigation, feeds, instant search, interactive comments, channel profiles, dark/light themes, and persistent state stored in `localStorage`.
+
 
 ---
 
@@ -65,16 +66,13 @@ You can also use any standard static file server:
 ## Features Overview
 
 ### Custom Video Player
-- **HTML5 Video Core**: High-definition video playback using standard HTML5 `<video>` tags with fallbacks.
-- **Custom Player Controls**:
-  - **Play / Pause**: Smooth click-to-play overlay with center play icon animation.
-  - **Scrubbing & Seek Bar**: Custom progress bar with played progress, buffered progress, and hover time preview tooltip.
-  - **Time Elapsed & Duration**: Live timestamp format (`MM:SS` / `HH:MM:SS`).
-  - **Volume Slider & Mute Toggle**: Dynamic volume slider with muted/low/high volume icons.
-  - **Playback Speed Selector**: Choose between `0.5x`, `0.75x`, `1x` (normal), `1.25x`, `1.5x`, and `2x`.
-  - **Theater Mode**: Expand video to full window width while keeping the page content accessible below.
-  - **Fullscreen API**: Toggle native browser fullscreen with Esc/F key support.
-  - **Autoplay Next**: Automatically transitions to the next related video upon playback completion.
+- **YouTube Responsive Embedded Player**: Primary playback is powered by YouTube's responsive embedded iframe player (`autoplay=1&rel=0&modestbranding=1&enablejsapi=1`) inside a 16:9 aspect ratio container (`aspect-video`).
+- **HTML5 Video Fallback**: When an `embedId` is absent or the embed encounters an error, the player gracefully falls back to a native HTML5 `<video controls>` element with smooth recovery.
+- **Custom Player & Watch Controls**:
+  - **Theater Mode**: Expand video to full window width while keeping the page content accessible below (`t` shortcut).
+  - **Error Recovery**: Dedicated playback error banner with "Retry Playback", "Try HTML5 Player", and "Watch on YouTube" links.
+  - **Autoplay & Audio Controls**: Standard responsive embed controls with fullscreen support.
+
 
 ### Feeds & Navigation
 - **Home Feed**: Dynamic grid of trending and recommended videos.
@@ -144,23 +142,27 @@ All user interactions are saved locally:
 
 ## Keyboard Shortcuts
 
-The video player and root application support standard YouTube keyboard shortcuts:
+The application separates keyboard shortcuts into **Global Shortcuts** (active anywhere across the app) and **Player Shortcuts** (operating within the embedded video player):
 
-| Shortcut | Action |
-|:---------|:-------|
-| `Space` or `k` | Toggle Play / Pause |
-| `f` | Toggle Fullscreen |
-| `m` | Toggle Mute / Unmute |
-| `t` | Toggle Theater Mode |
-| `Arrow Left` | Seek backward 5 seconds |
-| `Arrow Right` | Seek forward 5 seconds |
-| `j` | Seek backward 10 seconds |
-| `l` | Seek forward 10 seconds |
-| `Arrow Up` | Increase volume by 5% |
-| `Arrow Down` | Decrease volume by 5% |
-| `0` - `9` | Seek to 0% - 90% of video duration |
-| `/` | Focus Search input from anywhere |
-| `Escape` | Clear Search input and blur / Exit Fullscreen |
+### Global Application Shortcuts (Work Everywhere)
+
+| Shortcut | Scope | Action |
+|:---------|:------|:-------|
+| `/` | Global | Focus Search input from anywhere on the page |
+| `t` or `T` | Global | Toggle Theater Mode (widescreen player expansion) |
+| `Escape` | Global | Blur Search input, clear search query, or dismiss menus |
+
+### Standard Player Shortcuts (Operate Inside Embedded Player)
+
+| Shortcut | Scope | Action |
+|:---------|:------|:-------|
+| `Space` or `k` | Player | Toggle Play / Pause |
+| `f` | Player | Toggle Fullscreen |
+| `m` | Player | Toggle Mute / Unmute |
+| `Arrow Left` / `j` | Player | Seek backward 5s / 10s |
+| `Arrow Right` / `l` | Player | Seek forward 5s / 10s |
+| `Arrow Up` / `Down` | Player | Increase / Decrease volume |
+| `0` - `9` | Player | Jump to 0% - 90% of video timeline |
 
 ---
 
@@ -180,13 +182,13 @@ youtube-clone/
 │   ├── store/
 │   │   └── state.js           # Central state manager, localStorage sync & event bus
 │   └── components/
-│       ├── Icons.js           # Lightweight Lucide SVG icon collection
+│       ├── Icons.js           # Lightweight SVG icon collection
 │       ├── Header.js          # Top navigation bar, search input, theme toggle
 │       ├── Sidebar.js         # Full and mini sidebar navigation links
 │       ├── CategoryPills.js   # Horizontal scrollable category filters
 │       ├── VideoCard.js       # Video preview thumbnail card with metadata
 │       ├── VideoGrid.js       # Responsive multi-column grid layout
-│       ├── VideoPlayer.js     # Custom HTML5 player with full controls & shortcuts
+│       ├── VideoPlayer.js     # YouTube responsive embed player with HTML5 fallback
 │       ├── WatchPage.js       # Two-column watch layout with action bar & related list
 │       ├── CommentSection.js  # Add, like, reply, and sort comments
 │       ├── SearchResults.js   # Search results list view
@@ -196,10 +198,11 @@ youtube-clone/
 ```
 
 ### Key Technical Highlights
-- **Zero Build Step**: Native browser ES modules loaded via `<script type="text/babel" data-type="module">`.
-- **Pure React 18**: Uses modern React hooks (`useState`, `useEffect`, `useRef`, `useCallback`, `useMemo`).
-- **Tailwind CSS**: Atomic utility classes with dark mode support (`dark:` classes).
+- **Zero Build Step**: In-browser JSX transformation via Babel Standalone with sequential script loading and dual-compatibility `window.YT` global namespace.
+- **React 18 & 19 Ready**: Built with standard React hooks (`useState`, `useEffect`, `useRef`, `useCallback`, `useMemo`) and UMD runtime compatibility across React 18 and 19.
+- **Tailwind CSS**: Atomic utility classes with responsive dark/light mode contrast (`dark:` classes).
 - **Reactive State Bus**: `state.js` dispatches custom DOM events on state mutation, allowing components to subscribe to state updates without heavyweight third-party state libraries.
+
 
 ---
 

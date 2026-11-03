@@ -47,11 +47,33 @@
   <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
   <!-- Babel Standalone for in-browser JSX transformation -->
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <!-- Global YT Namespace & Module Interop Shim -->
+  <script>
+    window.YT = window.YT || {};
+    window.exports = window.YT;
+    window.require = function(modulePath) {
+      return window.YT;
+    };
+  </script>
 </head>
-<body class="bg-[#0F0F0F] text-[#F1F1F1] min-h-screen">
+<body class="bg-white dark:bg-[#0F0F0F] text-neutral-900 dark:text-[#F1F1F1] min-h-screen">
   <div id="root"></div>
 
-  <!-- Main Application Script -->
-  <script type="text/babel" data-type="module" src="js/app.js"></script>
+  <!-- Application Modules & Components in Dependency Order -->
+  <script type="text/babel" data-plugins="transform-modules-commonjs" src="js/data/videos.js"></script>
+  <script type="text/babel" data-plugins="transform-modules-commonjs" src="js/store/state.js"></script>
+  <script type="text/babel" data-plugins="transform-modules-commonjs" src="js/components/Icons.js"></script>
+  <script type="text/babel" data-plugins="transform-modules-commonjs" src="js/components/Header.js"></script>
+  <script type="text/babel" data-plugins="transform-modules-commonjs" src="js/components/Sidebar.js"></script>
+  <script type="text/babel" data-plugins="transform-modules-commonjs" src="js/components/CategoryPills.js"></script>
+  <script type="text/babel" data-plugins="transform-modules-commonjs" src="js/components/VideoCard.js"></script>
+  <script type="text/babel" data-plugins="transform-modules-commonjs" src="js/components/VideoGrid.js"></script>
+  <script type="text/babel" data-plugins="transform-modules-commonjs" src="js/components/VideoPlayer.js"></script>
+  <script type="text/babel" data-plugins="transform-modules-commonjs" src="js/components/CommentSection.js"></script>
+  <script type="text/babel" data-plugins="transform-modules-commonjs" src="js/components/WatchPage.js"></script>
+  <script type="text/babel" data-plugins="transform-modules-commonjs" src="js/components/SearchResults.js"></script>
+  <script type="text/babel" data-plugins="transform-modules-commonjs" src="js/components/ChannelPage.js"></script>
+  <script type="text/babel" data-plugins="transform-modules-commonjs" src="js/app.js"></script>
 </body>
 </html>

@@ -7,6 +7,12 @@
 import { Verified, MoreVertical } from './Icons.js';
 import { CHANNELS } from '../data/videos.js';
 
+// Resolve from imports or fallback to window.YT
+const YT_CARD = (typeof window !== 'undefined' && window.YT) || {};
+const SafeVerified = typeof Verified !== 'undefined' ? Verified : YT_CARD.Verified;
+const SafeMoreVertical = typeof MoreVertical !== 'undefined' ? MoreVertical : YT_CARD.MoreVertical;
+const SafeCHANNELS = (typeof CHANNELS !== 'undefined' && CHANNELS) || YT_CARD.CHANNELS || [];
+
 // Global React reference for in-browser Babel / UMD / React 18
 const React = window.React || (typeof globalThis !== 'undefined' ? globalThis.React : null);
 
@@ -28,8 +34,8 @@ export function VideoCard({
   if (!video) return null;
 
   // Resolve channel info if not explicitly passed
-  const resolvedChannel = channel || (Array.isArray(CHANNELS)
-    ? CHANNELS.find((c) => c.id === video.channelId)
+  const resolvedChannel = channel || (Array.isArray(SafeCHANNELS)
+    ? SafeCHANNELS.find((c) => c.id === video.channelId)
     : null) || {
       id: video.channelId || 'unknown',
       name: 'Creator',
@@ -67,7 +73,7 @@ export function VideoCard({
       className="group flex flex-col w-full text-left cursor-pointer focus:outline-none select-none transition-transform duration-200"
     >
       {/* Thumbnail Container (16:9 Aspect Ratio) */}
-      <div className="relative aspect-video w-full overflow-hidden rounded-xl bg-[#272727] shadow-sm mb-3">
+      <div className="relative aspect-video w-full overflow-hidden rounded-xl bg-neutral-100 dark:bg-[#272727] shadow-sm mb-3">
         <img
           src={video.thumbnailUrl}
           alt={video.title}
@@ -102,7 +108,7 @@ export function VideoCard({
               handleChannelClick(e);
             }
           }}
-          className="flex-shrink-0 w-9 h-9 rounded-full overflow-hidden bg-neutral-800 ring-1 ring-white/10 hover:ring-white/40 transition-all cursor-pointer mt-0.5"
+          className="flex-shrink-0 w-9 h-9 rounded-full overflow-hidden bg-neutral-200 dark:bg-neutral-800 ring-1 ring-black/10 dark:ring-white/10 hover:ring-black/30 dark:hover:ring-white/40 transition-all cursor-pointer mt-0.5"
         >
           <img
             src={resolvedChannel.avatarUrl}
@@ -121,7 +127,7 @@ export function VideoCard({
           {/* Title */}
           <h3
             title={video.title}
-            className="font-medium text-sm sm:text-base leading-snug line-clamp-2 text-[#F1F1F1] group-hover:text-blue-400 transition-colors"
+            className="font-medium text-sm sm:text-base leading-snug line-clamp-2 text-neutral-900 dark:text-[#F1F1F1] group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors"
           >
             {video.title}
           </h3>
@@ -129,18 +135,18 @@ export function VideoCard({
           {/* Channel Name with Verified Badge */}
           <div
             onClick={handleChannelClick}
-            className="inline-flex items-center gap-1.5 mt-1 text-xs sm:text-sm text-[#AAAAAA] hover:text-[#F1F1F1] transition-colors cursor-pointer w-fit"
+            className="inline-flex items-center gap-1.5 mt-1 text-xs sm:text-sm text-neutral-600 dark:text-[#AAAAAA] hover:text-neutral-900 dark:hover:text-[#F1F1F1] transition-colors cursor-pointer w-fit"
           >
             <span className="truncate max-w-[200px]">{resolvedChannel.name}</span>
             {resolvedChannel.verified && (
-              <Verified className="w-3.5 h-3.5 text-[#AAAAAA] flex-shrink-0" />
+              <SafeVerified className="w-3.5 h-3.5 text-neutral-500 dark:text-[#AAAAAA] flex-shrink-0" />
             )}
           </div>
 
           {/* Views & Relative Timestamp */}
-          <div className="flex items-center gap-1 text-xs sm:text-sm text-[#AAAAAA] mt-0.5">
+          <div className="flex items-center gap-1 text-xs sm:text-sm text-neutral-600 dark:text-[#AAAAAA] mt-0.5">
             <span>{video.views}</span>
-            <span className="mx-0.5 text-neutral-500">•</span>
+            <span className="mx-0.5 text-neutral-400 dark:text-neutral-500">•</span>
             <span>{video.timestamp}</span>
           </div>
         </div>
@@ -153,9 +159,9 @@ export function VideoCard({
             onClick={(e) => {
               e.stopPropagation();
             }}
-            className="opacity-0 group-hover:opacity-100 p-1 text-[#AAAAAA] hover:text-white hover:bg-white/10 rounded-full transition-opacity"
+            className="opacity-0 group-hover:opacity-100 p-1 text-neutral-500 dark:text-[#AAAAAA] hover:text-neutral-900 dark:hover:text-white hover:bg-neutral-200 dark:hover:bg-white/10 rounded-full transition-opacity"
           >
-            <MoreVertical className="w-5 h-5" />
+            <SafeMoreVertical className="w-5 h-5" />
           </button>
         </div>
       </div>
@@ -164,3 +170,10 @@ export function VideoCard({
 }
 
 export default VideoCard;
+
+// Dual-compatibility: attach exports to global YT namespace
+if (typeof window !== 'undefined') {
+  window.YT = window.YT || {};
+  window.YT.VideoCard = VideoCard;
+}
+

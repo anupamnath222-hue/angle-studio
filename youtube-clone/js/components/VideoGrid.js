@@ -6,6 +6,12 @@
 import { VideoCard } from './VideoCard.js';
 import { VIDEOS, CHANNELS } from '../data/videos.js';
 
+// Resolve from imports or fallback to window.YT
+const YT_GRID = (typeof window !== 'undefined' && window.YT) || {};
+const SafeVideoCard = typeof VideoCard !== 'undefined' ? VideoCard : YT_GRID.VideoCard;
+const SafeVIDEOS = (typeof VIDEOS !== 'undefined' && VIDEOS) || YT_GRID.VIDEOS || [];
+const SafeCHANNELS = (typeof CHANNELS !== 'undefined' && CHANNELS) || YT_GRID.CHANNELS || [];
+
 // Global React reference for in-browser Babel / UMD / React 18
 const React = window.React || (typeof globalThis !== 'undefined' ? globalThis.React : null);
 const { useMemo } = React || {};
@@ -14,19 +20,20 @@ const { useMemo } = React || {};
  * Responsive Video Grid Component.
  *
  * @param {Object} props
- * @param {Array} [props.videos=VIDEOS] - List of video objects to render.
- * @param {Array} [props.channels=CHANNELS] - List of channel objects for metadata mapping.
+ * @param {Array} [props.videos=SafeVIDEOS] - List of video objects to render.
+ * @param {Array} [props.channels=SafeCHANNELS] - List of channel objects for metadata mapping.
  * @param {function} [props.onSelectVideo] - Callback when a video is clicked.
  * @param {function} [props.onSelectChannel] - Callback when a channel is clicked.
  */
 export function VideoGrid({
-  videos = VIDEOS,
-  channels = CHANNELS,
+  videos = SafeVIDEOS,
+  channels = SafeCHANNELS,
   onSelectVideo,
   onSelectChannel
 }) {
-  const videoList = Array.isArray(videos) ? videos : VIDEOS;
-  const channelList = Array.isArray(channels) ? channels : CHANNELS;
+  const videoList = Array.isArray(videos) ? videos : SafeVIDEOS;
+  const channelList = Array.isArray(channels) ? channels : SafeCHANNELS;
+
 
   // Build a lookup map of channelId -> channel for fast O(1) resolution
   const channelMap = useMemo(() => {
@@ -50,13 +57,15 @@ export function VideoGrid({
             <path d="M21 6H3V5h18v1zm0 5H3v1h18v-1zm0 6H3v1h18v-1z" />
           </svg>
         </div>
-        <h3 className="text-xl font-semibold text-white mb-2">No videos found</h3>
-        <p className="text-sm text-neutral-400 max-w-md">
+        <h3 className="text-xl font-semibold text-neutral-900 dark:text-white mb-2">No videos found</h3>
+        <p className="text-sm text-neutral-600 dark:text-neutral-400 max-w-md">
           Try selecting another category or check back later for new recommendations.
         </p>
       </div>
     );
   }
+
+  const ResolvedCard = SafeVideoCard || VideoCard;
 
   return (
     <div className="w-full">
@@ -79,3 +88,10 @@ export function VideoGrid({
 }
 
 export default VideoGrid;
+
+// Dual-compatibility: attach exports to global YT namespace
+if (typeof window !== 'undefined') {
+  window.YT = window.YT || {};
+  window.YT.VideoGrid = VideoGrid;
+}
+

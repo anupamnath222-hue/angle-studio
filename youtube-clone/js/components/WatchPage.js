@@ -27,6 +27,13 @@ import {
 } from './Icons.js';
 import { VIDEOS, CHANNELS } from '../data/videos.js';
 
+// Resolve from imports or fallback to window.YT
+const YT_WATCH = (typeof window !== 'undefined' && window.YT) || {};
+const SafeVideoPlayer = typeof VideoPlayer !== 'undefined' ? VideoPlayer : YT_WATCH.VideoPlayer;
+const SafeCommentSection = typeof CommentSection !== 'undefined' ? CommentSection : YT_WATCH.CommentSection;
+const SafeVIDEOS = (typeof VIDEOS !== 'undefined' && VIDEOS) || YT_WATCH.VIDEOS || [];
+const SafeCHANNELS = (typeof CHANNELS !== 'undefined' && CHANNELS) || YT_WATCH.CHANNELS || [];
+
 // Global React reference for in-browser Babel / UMD / React 18
 const React = window.React || (typeof globalThis !== 'undefined' ? globalThis.React : null);
 const { useState, useEffect, useMemo, useCallback } = React || {};
@@ -88,122 +95,6 @@ function formatCount(num) {
     return (num / 1000).toFixed(1).replace(/\.0$/, '') + 'K';
   }
   return String(num);
-}
-
-/**
- * Fallback comment section component rendered if CommentSection module is unavailable.
- */
-function CommentSectionFallback({
-  videoId,
-  comments = [],
-  onAddComment,
-  onToggleCommentLike
-}) {
-  const [commentInput, setCommentInput] = useState('');
-  const [isFocused, setIsFocused] = useState(false);
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (!commentInput.trim()) return;
-    if (onAddComment) {
-      onAddComment(videoId, commentInput.trim());
-    }
-    setCommentInput('');
-    setIsFocused(false);
-  };
-
-  return (
-    <div className="w-full mt-6">
-      <div className="flex items-center gap-4 mb-5">
-        <h2 className="text-xl font-bold text-[#f1f1f1]">
-          {comments.length} Comments
-        </h2>
-      </div>
-
-      {/* Add comment input */}
-      <form onSubmit={handleSubmit} className="flex gap-4 mb-6 items-start">
-        <div className="w-10 h-10 rounded-full bg-neutral-700 flex-shrink-0 flex items-center justify-center text-sm font-semibold text-white">
-          Y
-        </div>
-        <div className="flex-1">
-          <input
-            type="text"
-            value={commentInput}
-            onChange={(e) => setCommentInput(e.target.value)}
-            onFocus={() => setIsFocused(true)}
-            placeholder="Add a comment..."
-            className="w-full bg-transparent border-b border-[#3f3f3f] focus:border-white outline-none py-1.5 text-sm text-[#f1f1f1] transition-colors"
-          />
-          {isFocused && (
-            <div className="flex justify-end gap-2 mt-2">
-              <button
-                type="button"
-                onClick={() => {
-                  setCommentInput('');
-                  setIsFocused(false);
-                }}
-                className="px-3 py-1.5 rounded-full text-xs font-medium text-[#f1f1f1] hover:bg-[#272727]"
-              >
-                Cancel
-              </button>
-              <button
-                type="submit"
-                disabled={!commentInput.trim()}
-                className={`px-4 py-1.5 rounded-full text-xs font-semibold ${
-                  commentInput.trim()
-                    ? 'bg-[#3ea6ff] text-black hover:bg-[#65b8ff]'
-                    : 'bg-[#272727] text-neutral-500 cursor-not-allowed'
-                }`}
-              >
-                Comment
-              </button>
-            </div>
-          )}
-        </div>
-      </form>
-
-      {/* Comment list */}
-      <div className="flex flex-col gap-4">
-        {comments.map((comment) => (
-          <div key={comment.id} className="flex gap-4 text-sm">
-            <img
-              src={comment.avatar || 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=100&auto=format&fit=crop&q=80'}
-              alt={comment.author}
-              className="w-10 h-10 rounded-full object-cover flex-shrink-0"
-            />
-            <div className="flex-1 min-w-0">
-              <div className="flex items-center gap-2 mb-1">
-                <span className="font-semibold text-xs text-[#f1f1f1]">
-                  @{comment.author}
-                </span>
-                <span className="text-xs text-[#aaaaaa]">
-                  {comment.timestamp}
-                </span>
-              </div>
-              <p className="text-[#f1f1f1] text-sm leading-relaxed break-words">
-                {comment.text}
-              </p>
-              <div className="flex items-center gap-3 mt-2 text-xs text-[#aaaaaa]">
-                <button
-                  onClick={() => onToggleCommentLike?.(videoId, comment.id)}
-                  className="flex items-center gap-1.5 hover:text-white"
-                >
-                  <Like className="w-4 h-4" active={comment.isLiked} />
-                  <span>{comment.likes || 0}</span>
-                </button>
-                <button className="hover:text-white">
-                  <Dislike className="w-4 h-4" active={comment.isDisliked} />
-                </button>
-                <button className="font-semibold hover:text-white ml-2">
-                  Reply
-                </button>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
 }
 
 /**
@@ -397,10 +288,9 @@ export function WatchPage({
     );
   }
 
-  // Active CommentSection component (uses imported module or fallback)
-  const ActiveCommentSection = typeof CommentSection === 'function'
-    ? CommentSection
-    : CommentSectionFallback;
+  // Active CommentSection component
+  const ActiveCommentSection = SafeCommentSection || CommentSection;
+
 
   return (
     <div className="w-full min-h-screen bg-[#0f0f0f] text-[#f1f1f1]">
@@ -708,3 +598,10 @@ export function WatchPage({
 }
 
 export default WatchPage;
+
+// Dual-compatibility: attach exports to global YT namespace
+if (typeof window !== 'undefined') {
+  window.YT = window.YT || {};
+  window.YT.WatchPage = WatchPage;
+}
+

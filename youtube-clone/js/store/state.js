@@ -393,3 +393,27 @@ export function isSubscribed(channelId) {
   const state = getStoredState();
   return state.subscribedChannelIds.includes(channelId);
 }
+
+// Dual-compatibility: attach exports to global YT namespace
+if (typeof window !== 'undefined') {
+  window.YT = window.YT || {};
+  window.YT.STORAGE_KEY = STORAGE_KEY;
+  window.YT.DEFAULT_STATE = DEFAULT_STATE;
+  window.YT.getStoredState = getStoredState;
+  window.YT.saveState = saveState;
+  window.YT.toggleLike = toggleLike;
+  window.YT.toggleDislike = toggleDislike;
+  window.YT.toggleSubscribe = toggleSubscribe;
+  window.YT.addComment = addComment;
+  window.YT.toggleCommentLike = toggleCommentLike;
+  window.YT.toggleCommentDislike = toggleCommentDislike;
+  window.YT.addToHistory = addToHistory;
+  window.YT.clearHistory = clearHistory;
+  window.YT.setTheme = setTheme;
+  window.YT.toggleTheme = toggleTheme;
+  window.YT.getComments = getComments;
+  window.YT.isLiked = isLiked;
+  window.YT.isDisliked = isDisliked;
+  window.YT.isSubscribed = isSubscribed;
+}
+

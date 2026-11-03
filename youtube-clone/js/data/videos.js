@@ -263,3 +263,12 @@ export const VIDEOS = [
     duration: "3:32"
   }
 ];
+
+// Dual-compatibility: attach exports to global YT namespace
+if (typeof window !== 'undefined') {
+  window.YT = window.YT || {};
+  window.YT.CATEGORIES = CATEGORIES;
+  window.YT.CHANNELS = CHANNELS;
+  window.YT.VIDEOS = VIDEOS;
+}
+

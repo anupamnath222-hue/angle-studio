@@ -12,6 +12,15 @@
 import { Search, Verified, Bell, Check } from './Icons.js';
 import { VIDEOS, CHANNELS } from '../data/videos.js';
 
+// Resolve from imports or fallback to window.YT
+const YT_SEARCH = (typeof window !== 'undefined' && window.YT) || {};
+const SafeSearch = typeof Search !== 'undefined' ? Search : YT_SEARCH.Search;
+const SafeVerified = typeof Verified !== 'undefined' ? Verified : YT_SEARCH.Verified;
+const SafeBell = typeof Bell !== 'undefined' ? Bell : YT_SEARCH.Bell;
+const SafeCheck = typeof Check !== 'undefined' ? Check : YT_SEARCH.Check;
+const SafeVIDEOS = (typeof VIDEOS !== 'undefined' && VIDEOS) || YT_SEARCH.VIDEOS || [];
+const SafeCHANNELS = (typeof CHANNELS !== 'undefined' && CHANNELS) || YT_SEARCH.CHANNELS || [];
+
 // Global React reference for in-browser Babel / UMD / React 18
 const React = window.React || (typeof globalThis !== 'undefined' ? globalThis.React : null);
 const { useState, useMemo } = React || {};
@@ -449,3 +458,10 @@ export function SearchResults({
 }
 
 export default SearchResults;
+
+// Dual-compatibility: attach exports to global YT namespace
+if (typeof window !== 'undefined') {
+  window.YT = window.YT || {};
+  window.YT.SearchResults = SearchResults;
+}
+

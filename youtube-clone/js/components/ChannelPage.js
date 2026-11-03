@@ -15,6 +15,17 @@ import { VideoCard } from './VideoCard.js';
 import { Verified, Bell, Check, Share, Play } from './Icons.js';
 import { VIDEOS, CHANNELS } from '../data/videos.js';
 
+// Resolve from imports or fallback to window.YT
+const YT_CHANNEL = (typeof window !== 'undefined' && window.YT) || {};
+const SafeVideoCard = typeof VideoCard !== 'undefined' ? VideoCard : YT_CHANNEL.VideoCard;
+const SafeVerified = typeof Verified !== 'undefined' ? Verified : YT_CHANNEL.Verified;
+const SafeBell = typeof Bell !== 'undefined' ? Bell : YT_CHANNEL.Bell;
+const SafeCheck = typeof Check !== 'undefined' ? Check : YT_CHANNEL.Check;
+const SafeShare = typeof Share !== 'undefined' ? Share : YT_CHANNEL.Share;
+const SafePlay = typeof Play !== 'undefined' ? Play : YT_CHANNEL.Play;
+const SafeVIDEOS = (typeof VIDEOS !== 'undefined' && VIDEOS) || YT_CHANNEL.VIDEOS || [];
+const SafeCHANNELS = (typeof CHANNELS !== 'undefined' && CHANNELS) || YT_CHANNEL.CHANNELS || [];
+
 // Global React reference for in-browser Babel / UMD / React 18
 const React = window.React || (typeof globalThis !== 'undefined' ? globalThis.React : null);
 const { useState, useMemo } = React || {};
@@ -513,3 +524,10 @@ export function ChannelPage({
 }
 
 export default ChannelPage;
+
+// Dual-compatibility: attach exports to global YT namespace
+if (typeof window !== 'undefined') {
+  window.YT = window.YT || {};
+  window.YT.ChannelPage = ChannelPage;
+}
+

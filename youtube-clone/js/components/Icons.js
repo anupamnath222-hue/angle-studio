@@ -372,3 +372,11 @@ const Icons = {
 };
 
 export default Icons;
+
+// Dual-compatibility: attach exports to global YT namespace
+if (typeof window !== 'undefined') {
+  window.YT = window.YT || {};
+  window.YT.Icons = Icons;
+  Object.assign(window.YT, Icons);
+}
+

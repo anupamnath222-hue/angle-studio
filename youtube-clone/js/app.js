@@ -34,6 +34,23 @@ import {
   setTheme
 } from './store/state.js';
 
+// Resolve dependencies from imports or fallback to window.YT
+const YT_APP = (typeof window !== 'undefined' && window.YT) || {};
+const SafeHeader = typeof Header !== 'undefined' ? Header : YT_APP.Header;
+const SafeSidebar = typeof Sidebar !== 'undefined' ? Sidebar : YT_APP.Sidebar;
+const SafeCategoryPills = typeof CategoryPills !== 'undefined' ? CategoryPills : YT_APP.CategoryPills;
+const SafeVideoGrid = typeof VideoGrid !== 'undefined' ? VideoGrid : YT_APP.VideoGrid;
+const SafeWatchPage = typeof WatchPage !== 'undefined' ? WatchPage : YT_APP.WatchPage;
+const SafeSearchResults = typeof SearchResults !== 'undefined' ? SearchResults : YT_APP.SearchResults;
+const SafeChannelPage = typeof ChannelPage !== 'undefined' ? ChannelPage : YT_APP.ChannelPage;
+const SafeHistoryIcon = typeof HistoryIcon !== 'undefined' ? HistoryIcon : YT_APP.History;
+const SafeLikeIcon = typeof LikeIcon !== 'undefined' ? LikeIcon : YT_APP.Like;
+const SafeSubscriptionsIcon = typeof SubscriptionsIcon !== 'undefined' ? SubscriptionsIcon : YT_APP.Subscriptions;
+const SafePlayIcon = typeof PlayIcon !== 'undefined' ? PlayIcon : YT_APP.Play;
+const SafeVIDEOS = (typeof VIDEOS !== 'undefined' && VIDEOS) || YT_APP.VIDEOS || [];
+const SafeCHANNELS = (typeof CHANNELS !== 'undefined' && CHANNELS) || YT_APP.CHANNELS || [];
+const SafeCATEGORIES = (typeof CATEGORIES !== 'undefined' && CATEGORIES) || YT_APP.CATEGORIES || [];
+
 // Global React reference for in-browser Babel / UMD / React 18
 const React = window.React || (typeof globalThis !== 'undefined' ? globalThis.React : null);
 const ReactDOM = window.ReactDOM || (typeof globalThis !== 'undefined' ? globalThis.ReactDOM : null);
@@ -783,6 +800,12 @@ export function App() {
 }
 
 export default App;
+
+// Dual-compatibility: attach exports to global YT namespace
+if (typeof window !== 'undefined') {
+  window.YT = window.YT || {};
+  window.YT.App = App;
+}
 
 // --------------------------------------------------------------------------
 // Root Mount Execution

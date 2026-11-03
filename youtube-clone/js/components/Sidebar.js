@@ -20,6 +20,10 @@ import {
 } from './Icons.js';
 import { CHANNELS } from '../data/videos.js';
 
+// Resolve from imports or fallback to window.YT
+const YT_SIDEBAR = (typeof window !== 'undefined' && window.YT) || {};
+const SafeCHANNELS = (typeof CHANNELS !== 'undefined' && CHANNELS) || YT_SIDEBAR.CHANNELS || [];
+
 // Global React reference for in-browser Babel / UMD / React 18
 const React = window.React || (typeof globalThis !== 'undefined' ? globalThis.React : null);
 const { useState } = React || {};
@@ -38,12 +42,13 @@ export function Sidebar({
     return subscriptions
       .map((sub) => {
         if (typeof sub === 'string') {
-          return CHANNELS.find((c) => c.id === sub) || { id: sub, name: `Channel ${sub}`, avatarUrl: '' };
+          return SafeCHANNELS.find((c) => c.id === sub) || { id: sub, name: `Channel ${sub}`, avatarUrl: '' };
         }
         return sub;
       })
       .filter(Boolean);
   }, [subscriptions]);
+
 
   const displayedSubs = showAllSubs
     ? resolvedSubscriptions
@@ -81,8 +86,8 @@ export function Sidebar({
                 onClick={() => handleItemClick(key)}
                 className={`w-[64px] h-[74px] rounded-xl flex flex-col items-center justify-center space-y-1.5 transition-colors ${
                   isActive
-                    ? 'bg-neutral-800 text-white font-medium'
-                    : 'text-neutral-300 hover:bg-neutral-800/60 hover:text-white'
+                    ? 'bg-neutral-100 dark:bg-neutral-800 text-neutral-900 dark:text-white font-medium'
+                    : 'text-neutral-600 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-800/60 hover:text-neutral-900 dark:hover:text-white'
                 }`}
                 title={label}
               >
@@ -113,8 +118,8 @@ export function Sidebar({
           onClick={() => handleItemClick('home')}
           className={`w-full flex items-center space-x-6 px-3 py-2.5 rounded-xl transition-colors text-left ${
             currentView === 'home'
-              ? 'bg-[#272727] text-white font-semibold'
-              : 'text-neutral-200 hover:bg-[#272727] hover:text-white'
+              ? 'bg-neutral-100 dark:bg-[#272727] text-neutral-900 dark:text-white font-semibold'
+              : 'text-neutral-700 dark:text-neutral-200 hover:bg-neutral-100 dark:hover:bg-[#272727] hover:text-neutral-900 dark:hover:text-white'
           }`}
         >
           <Home className="w-5 h-5 shrink-0" active={currentView === 'home'} />
@@ -126,8 +131,8 @@ export function Sidebar({
           onClick={() => handleItemClick('shorts')}
           className={`w-full flex items-center space-x-6 px-3 py-2.5 rounded-xl transition-colors text-left ${
             currentView === 'shorts'
-              ? 'bg-[#272727] text-white font-semibold'
-              : 'text-neutral-200 hover:bg-[#272727] hover:text-white'
+              ? 'bg-neutral-100 dark:bg-[#272727] text-neutral-900 dark:text-white font-semibold'
+              : 'text-neutral-700 dark:text-neutral-200 hover:bg-neutral-100 dark:hover:bg-[#272727] hover:text-neutral-900 dark:hover:text-white'
           }`}
         >
           <Shorts className="w-5 h-5 shrink-0" active={currentView === 'shorts'} />
@@ -139,8 +144,8 @@ export function Sidebar({
           onClick={() => handleItemClick('subscriptions')}
           className={`w-full flex items-center space-x-6 px-3 py-2.5 rounded-xl transition-colors text-left ${
             currentView === 'subscriptions'
-              ? 'bg-[#272727] text-white font-semibold'
-              : 'text-neutral-200 hover:bg-[#272727] hover:text-white'
+              ? 'bg-neutral-100 dark:bg-[#272727] text-neutral-900 dark:text-white font-semibold'
+              : 'text-neutral-700 dark:text-neutral-200 hover:bg-neutral-100 dark:hover:bg-[#272727] hover:text-neutral-900 dark:hover:text-white'
           }`}
         >
           <Subscriptions className="w-5 h-5 shrink-0" active={currentView === 'subscriptions'} />
@@ -148,14 +153,14 @@ export function Sidebar({
         </button>
       </div>
 
-      <div className="border-t border-[#3F3F3F]/60 my-2" />
+      <div className="border-t border-neutral-200 dark:border-[#3F3F3F]/60 my-2" />
 
       {/* SECTION 2: You / Library & History */}
       <div className="space-y-0.5">
         <button
           type="button"
           onClick={() => handleItemClick('library')}
-          className="w-full flex items-center justify-between px-3 py-2 rounded-xl text-neutral-100 hover:bg-[#272727] font-semibold text-base transition-colors"
+          className="w-full flex items-center justify-between px-3 py-2 rounded-xl text-neutral-900 dark:text-neutral-100 hover:bg-neutral-100 dark:hover:bg-[#272727] font-semibold text-base transition-colors"
         >
           <span>You</span>
           <span className="text-sm font-bold text-neutral-400">›</span>
@@ -166,8 +171,8 @@ export function Sidebar({
           onClick={() => handleItemClick('history')}
           className={`w-full flex items-center space-x-6 px-3 py-2.5 rounded-xl transition-colors text-left ${
             currentView === 'history'
-              ? 'bg-[#272727] text-white font-semibold'
-              : 'text-neutral-200 hover:bg-[#272727] hover:text-white'
+              ? 'bg-neutral-100 dark:bg-[#272727] text-neutral-900 dark:text-white font-semibold'
+              : 'text-neutral-700 dark:text-neutral-200 hover:bg-neutral-100 dark:hover:bg-[#272727] hover:text-neutral-900 dark:hover:text-white'
           }`}
         >
           <History className="w-5 h-5 shrink-0" />
@@ -179,8 +184,8 @@ export function Sidebar({
           onClick={() => handleItemClick('liked')}
           className={`w-full flex items-center space-x-6 px-3 py-2.5 rounded-xl transition-colors text-left ${
             currentView === 'liked'
-              ? 'bg-[#272727] text-white font-semibold'
-              : 'text-neutral-200 hover:bg-[#272727] hover:text-white'
+              ? 'bg-neutral-100 dark:bg-[#272727] text-neutral-900 dark:text-white font-semibold'
+              : 'text-neutral-700 dark:text-neutral-200 hover:bg-neutral-100 dark:hover:bg-[#272727] hover:text-neutral-900 dark:hover:text-white'
           }`}
         >
           <Like className="w-5 h-5 shrink-0" active={currentView === 'liked'} />
@@ -192,8 +197,8 @@ export function Sidebar({
           onClick={() => handleItemClick('library')}
           className={`w-full flex items-center space-x-6 px-3 py-2.5 rounded-xl transition-colors text-left ${
             currentView === 'library'
-              ? 'bg-[#272727] text-white font-semibold'
-              : 'text-neutral-200 hover:bg-[#272727] hover:text-white'
+              ? 'bg-neutral-100 dark:bg-[#272727] text-neutral-900 dark:text-white font-semibold'
+              : 'text-neutral-700 dark:text-neutral-200 hover:bg-neutral-100 dark:hover:bg-[#272727] hover:text-neutral-900 dark:hover:text-white'
           }`}
         >
           <Library className="w-5 h-5 shrink-0" active={currentView === 'library'} />
@@ -201,11 +206,11 @@ export function Sidebar({
         </button>
       </div>
 
-      <div className="border-t border-[#3F3F3F]/60 my-2" />
+      <div className="border-t border-neutral-200 dark:border-[#3F3F3F]/60 my-2" />
 
       {/* SECTION 3: Subscribed Channels List */}
       <div className="space-y-1">
-        <h3 className="px-3 py-1 text-sm font-semibold text-neutral-100">
+        <h3 className="px-3 py-1 text-sm font-semibold text-neutral-900 dark:text-neutral-100">
           Subscriptions
         </h3>
 
@@ -225,8 +230,8 @@ export function Sidebar({
                 onClick={() => handleItemClick('channel', channel)}
                 className={`w-full flex items-center justify-between px-3 py-2 rounded-xl transition-colors text-left ${
                   isSelected
-                    ? 'bg-[#272727] text-white font-semibold'
-                    : 'text-neutral-200 hover:bg-[#272727] hover:text-white'
+                    ? 'bg-neutral-100 dark:bg-[#272727] text-neutral-900 dark:text-white font-semibold'
+                    : 'text-neutral-700 dark:text-neutral-200 hover:bg-neutral-100 dark:hover:bg-[#272727] hover:text-neutral-900 dark:hover:text-white'
                 }`}
                 title={channel.name}
               >
@@ -265,7 +270,7 @@ export function Sidebar({
           <button
             type="button"
             onClick={() => setShowAllSubs(!showAllSubs)}
-            className="w-full flex items-center space-x-6 px-3 py-2 rounded-xl text-neutral-300 hover:bg-[#272727] transition-colors"
+            className="w-full flex items-center space-x-6 px-3 py-2 rounded-xl text-neutral-700 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-[#272727] transition-colors"
           >
             {showAllSubs ? (
               <>
@@ -282,11 +287,11 @@ export function Sidebar({
         )}
       </div>
 
-      <div className="border-t border-[#3F3F3F]/60 my-2" />
+      <div className="border-t border-neutral-200 dark:border-[#3F3F3F]/60 my-2" />
 
       {/* SECTION 4: Explore Topics */}
       <div className="space-y-0.5">
-        <h3 className="px-3 py-1 text-sm font-semibold text-neutral-100">
+        <h3 className="px-3 py-1 text-sm font-semibold text-neutral-900 dark:text-neutral-100">
           Explore
         </h3>
 
@@ -295,8 +300,8 @@ export function Sidebar({
           onClick={() => handleItemClick('explore', 'trending')}
           className={`w-full flex items-center space-x-6 px-3 py-2.5 rounded-xl transition-colors text-left ${
             currentView === 'explore:trending'
-              ? 'bg-[#272727] text-white font-semibold'
-              : 'text-neutral-200 hover:bg-[#272727] hover:text-white'
+              ? 'bg-neutral-100 dark:bg-[#272727] text-neutral-900 dark:text-white font-semibold'
+              : 'text-neutral-700 dark:text-neutral-200 hover:bg-neutral-100 dark:hover:bg-[#272727] hover:text-neutral-900 dark:hover:text-white'
           }`}
         >
           <Flame className="w-5 h-5 shrink-0 text-amber-500" />
@@ -306,7 +311,7 @@ export function Sidebar({
         <button
           type="button"
           onClick={() => handleItemClick('explore', 'music')}
-          className="w-full flex items-center space-x-6 px-3 py-2.5 rounded-xl text-neutral-200 hover:bg-[#272727] hover:text-white transition-colors text-left"
+          className="w-full flex items-center space-x-6 px-3 py-2.5 rounded-xl text-neutral-700 dark:text-neutral-200 hover:bg-neutral-100 dark:hover:bg-[#272727] hover:text-neutral-900 dark:hover:text-white transition-colors text-left"
         >
           <Compass className="w-5 h-5 shrink-0" />
           <span className="truncate">Music</span>
@@ -315,7 +320,7 @@ export function Sidebar({
         <button
           type="button"
           onClick={() => handleItemClick('explore', 'gaming')}
-          className="w-full flex items-center space-x-6 px-3 py-2.5 rounded-xl text-neutral-200 hover:bg-[#272727] hover:text-white transition-colors text-left"
+          className="w-full flex items-center space-x-6 px-3 py-2.5 rounded-xl text-neutral-700 dark:text-neutral-200 hover:bg-neutral-100 dark:hover:bg-[#272727] hover:text-neutral-900 dark:hover:text-white transition-colors text-left"
         >
           <Compass className="w-5 h-5 shrink-0" />
           <span className="truncate">Gaming</span>
@@ -324,14 +329,14 @@ export function Sidebar({
         <button
           type="button"
           onClick={() => handleItemClick('explore', 'news')}
-          className="w-full flex items-center space-x-6 px-3 py-2.5 rounded-xl text-neutral-200 hover:bg-[#272727] hover:text-white transition-colors text-left"
+          className="w-full flex items-center space-x-6 px-3 py-2.5 rounded-xl text-neutral-700 dark:text-neutral-200 hover:bg-neutral-100 dark:hover:bg-[#272727] hover:text-neutral-900 dark:hover:text-white transition-colors text-left"
         >
           <Compass className="w-5 h-5 shrink-0" />
           <span className="truncate">News</span>
         </button>
       </div>
 
-      <div className="border-t border-[#3F3F3F]/60 my-2" />
+      <div className="border-t border-neutral-200 dark:border-[#3F3F3F]/60 my-2" />
 
       {/* SECTION 5: Footer & Copyright */}
       <div className="px-3 py-2 text-[11px] text-neutral-500 leading-relaxed space-y-2">
@@ -356,3 +361,10 @@ export function Sidebar({
 }
 
 export default Sidebar;
+
+// Dual-compatibility: attach exports to global YT namespace
+if (typeof window !== 'undefined') {
+  window.YT = window.YT || {};
+  window.YT.Sidebar = Sidebar;
+}
+

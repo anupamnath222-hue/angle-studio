@@ -241,3 +241,10 @@ export function VideoPlayer({
 }
 
 export default VideoPlayer;
+
+// Dual-compatibility: attach exports to global YT namespace
+if (typeof window !== 'undefined') {
+  window.YT = window.YT || {};
+  window.YT.VideoPlayer = VideoPlayer;
+}
+

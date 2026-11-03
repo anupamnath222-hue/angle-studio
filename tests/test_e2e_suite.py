@@ -187,6 +187,83 @@ def test_all_unit_and_integration_suites_pass():
         )
 
 
+def test_http_server_and_script_loading():
+    """Start local HTTP server, fetch index.html and every <script type="text/babel" src="..."> tag via HTTP,
+    verifying HTTP 200 OK, non-empty payload, and zero broken links."""
+    import http.server
+    import threading
+    import urllib.request
+
+    class CloneHandler(http.server.SimpleHTTPRequestHandler):
+        def __init__(self, *args, **kwargs):
+            super().__init__(*args, directory=PROJECT_DIR, **kwargs)
+
+        def log_message(self, format, *args):
+            pass  # Suppress console logging during test execution
+
+    # Ephemeral free port (port 0)
+    server = http.server.HTTPServer(("127.0.0.1", 0), CloneHandler)
+    host, port = server.server_address
+
+    server_thread = threading.Thread(target=server.serve_forever, daemon=True)
+    server_thread.start()
+
+    try:
+        base_url = f"http://127.0.0.1:{port}"
+
+        # 1. Fetch index.html
+        with urllib.request.urlopen(f"{base_url}/index.html", timeout=5) as response:
+            assert response.status == 200, f"index.html returned status {response.status}"
+            html_content = response.read().decode("utf-8")
+            assert len(html_content) > 0, "index.html returned empty payload"
+            assert '<div id="root">' in html_content, "index.html missing <div id='root'> container"
+
+        # 2. Extract all <script type="text/babel" ... src="..."> tags
+        script_sources = re.findall(
+            r'<script\s+[^>]*type=["\']text/babel["\'][^>]*src=["\']([^"\']+)["\']',
+            html_content
+        )
+        if not script_sources:
+            script_sources = re.findall(
+                r'<script\s+[^>]*src=["\']([^"\']+)["\'][^>]*type=["\']text/babel["\']',
+                html_content
+            )
+
+        assert len(script_sources) >= 12, (
+            f"Expected at least 12 babel scripts in index.html, found {len(script_sources)}: {script_sources}"
+        )
+
+        # Expected core scripts in dependency order
+        expected_scripts = [
+            "js/data/videos.js",
+            "js/store/state.js",
+            "js/components/Icons.js",
+            "js/components/CategoryPills.js",
+            "js/components/VideoCard.js",
+            "js/components/VideoGrid.js",
+            "js/components/VideoPlayer.js",
+            "js/components/CommentSection.js",
+            "js/components/WatchPage.js",
+            "js/components/SearchResults.js",
+            "js/components/ChannelPage.js",
+            "js/app.js",
+        ]
+        for exp in expected_scripts:
+            assert any(exp in s for s in script_sources), f"Missing required babel script tag for '{exp}'"
+
+        # 3. Fetch each script via HTTP and verify 200 OK and non-empty body
+        for src in script_sources:
+            clean_src = src.lstrip("/")
+            script_url = f"{base_url}/{clean_src}"
+            with urllib.request.urlopen(script_url, timeout=5) as resp:
+                assert resp.status == 200, f"Script {src} returned HTTP status {resp.status}"
+                body = resp.read()
+                assert len(body) > 0, f"Script {src} returned empty body"
+    finally:
+        server.shutdown()
+        server.server_close()
+
+
 if __name__ == "__main__":
     print("Running test_all_18_files_exist()...")
     test_all_18_files_exist()
@@ -205,5 +282,8 @@ if __name__ == "__main__":
 
     print("Running test_all_unit_and_integration_suites_pass()...")
     test_all_unit_and_integration_suites_pass()
+
+    print("Running test_http_server_and_script_loading()...")
+    test_http_server_and_script_loading()
 
     print("ALL TESTS PASSED")

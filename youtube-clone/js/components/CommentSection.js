@@ -36,6 +36,20 @@ import {
   toggleCommentDislike as storeToggleCommentDislike
 } from '../store/state.js';
 
+// Resolve from imports or fallback to window.YT
+const YT_COMMENTS = (typeof window !== 'undefined' && window.YT) || {};
+const SafeLike = typeof Like !== 'undefined' ? Like : YT_COMMENTS.Like;
+const SafeDislike = typeof Dislike !== 'undefined' ? Dislike : YT_COMMENTS.Dislike;
+const SafeVerified = typeof Verified !== 'undefined' ? Verified : YT_COMMENTS.Verified;
+const SafeChevronDown = typeof ChevronDown !== 'undefined' ? ChevronDown : YT_COMMENTS.ChevronDown;
+const SafeChevronUp = typeof ChevronUp !== 'undefined' ? ChevronUp : YT_COMMENTS.ChevronUp;
+const SafeMoreVertical = typeof MoreVertical !== 'undefined' ? MoreVertical : YT_COMMENTS.MoreVertical;
+const SafeCheck = typeof Check !== 'undefined' ? Check : YT_COMMENTS.Check;
+const SafeUser = typeof User !== 'undefined' ? User : YT_COMMENTS.User;
+const safeStoreAddComment = typeof storeAddComment !== 'undefined' ? storeAddComment : YT_COMMENTS.addComment;
+const safeStoreToggleCommentLike = typeof storeToggleCommentLike !== 'undefined' ? storeToggleCommentLike : YT_COMMENTS.toggleCommentLike;
+const safeStoreToggleCommentDislike = typeof storeToggleCommentDislike !== 'undefined' ? storeToggleCommentDislike : YT_COMMENTS.toggleCommentDislike;
+
 // Global React reference for in-browser Babel / UMD / React 18
 const React = window.React || (typeof globalThis !== 'undefined' ? globalThis.React : null);
 const { useState, useEffect, useMemo, useRef, useCallback } = React || {};
@@ -745,3 +759,10 @@ export function CommentSection({
 }
 
 export default CommentSection;
+
+// Dual-compatibility: attach exports to global YT namespace
+if (typeof window !== 'undefined') {
+  window.YT = window.YT || {};
+  window.YT.CommentSection = CommentSection;
+}
+
