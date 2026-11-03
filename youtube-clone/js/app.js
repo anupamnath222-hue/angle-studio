@@ -123,7 +123,7 @@ export function buildHash(view, params = {}) {
  * Root App Component
  */
 export function App() {
-  // Store state reactivity
+  // Store state reactivity with safe defaults
   const [storeState, setStoreState] = useState(() => getStoredState());
 
   // Routing State
@@ -140,6 +140,17 @@ export function App() {
 
   const theme = storeState?.theme || 'dark';
   const isDark = theme === 'dark';
+
+  // --------------------------------------------------------------------------
+  // Reactive Store Synchronization (Window CustomEvent 'yt-state-change')
+  // --------------------------------------------------------------------------
+  useEffect(() => {
+    const handleStateChange = (e) => {
+      setStoreState(e?.detail || getStoredState());
+    };
+    window.addEventListener('yt-state-change', handleStateChange);
+    return () => window.removeEventListener('yt-state-change', handleStateChange);
+  }, []);
 
   // --------------------------------------------------------------------------
   // Theme Synchronization with document DOM
@@ -168,8 +179,8 @@ export function App() {
       const vId = params.videoId || params.id;
       if (vId) {
         setSelectedVideoId(vId);
-        const updated = addToHistory(vId);
-        setStoreState(updated);
+        addToHistory(vId);
+        setStoreState(getStoredState());
       }
       setIsSidebarOpen(false); // YouTube collapses sidebar on watch page
     } else if (view === 'channel') {
@@ -202,8 +213,8 @@ export function App() {
 
       if (route.view === 'watch' && route.videoId) {
         setSelectedVideoId(route.videoId);
-        const updated = addToHistory(route.videoId);
-        setStoreState(updated);
+        addToHistory(route.videoId);
+        setStoreState(getStoredState());
         setIsSidebarOpen(false);
       } else if (route.view === 'channel' && route.channelId) {
         setSelectedChannelId(route.channelId);
@@ -263,45 +274,47 @@ export function App() {
 
   // --------------------------------------------------------------------------
   // Store Action Callbacks
+  // Note: Store mutation functions return booleans/strings/void, not the state object.
+  // We refresh storeState using getStoredState() and yt-state-change event.
   // --------------------------------------------------------------------------
   const handleToggleLike = useCallback((videoId) => {
-    const updated = toggleLike(videoId);
-    setStoreState(updated);
+    toggleLike(videoId);
+    setStoreState(getStoredState());
   }, []);
 
   const handleToggleDislike = useCallback((videoId) => {
-    const updated = toggleDislike(videoId);
-    setStoreState(updated);
+    toggleDislike(videoId);
+    setStoreState(getStoredState());
   }, []);
 
   const handleToggleSubscribe = useCallback((channelId) => {
-    const updated = toggleSubscribe(channelId);
-    setStoreState(updated);
+    toggleSubscribe(channelId);
+    setStoreState(getStoredState());
   }, []);
 
   const handleAddComment = useCallback((videoId, text) => {
-    const updated = addComment(videoId, text);
-    setStoreState(updated);
+    addComment(videoId, text);
+    setStoreState(getStoredState());
   }, []);
 
   const handleToggleCommentLike = useCallback((videoId, commentId) => {
-    const updated = toggleCommentLike(videoId, commentId);
-    setStoreState(updated);
+    toggleCommentLike(videoId, commentId);
+    setStoreState(getStoredState());
   }, []);
 
   const handleToggleCommentDislike = useCallback((videoId, commentId) => {
-    const updated = toggleCommentDislike(videoId, commentId);
-    setStoreState(updated);
+    toggleCommentDislike(videoId, commentId);
+    setStoreState(getStoredState());
   }, []);
 
   const handleClearHistory = useCallback(() => {
-    const updated = clearHistory();
-    setStoreState(updated);
+    clearHistory();
+    setStoreState(getStoredState());
   }, []);
 
   const handleToggleTheme = useCallback(() => {
-    const updated = toggleTheme();
-    setStoreState(updated);
+    toggleTheme();
+    setStoreState(getStoredState());
   }, []);
 
   // --------------------------------------------------------------------------
@@ -355,7 +368,7 @@ export function App() {
   }, [handleSelectChannel, handleSelectVideo, navigateTo]);
 
   // --------------------------------------------------------------------------
-  // Memoized Data Resolution for Views
+  // Memoized Data Resolution for Views with Null-Safety
   // --------------------------------------------------------------------------
   const filteredHomeVideos = useMemo(() => {
     if (!selectedCategory || selectedCategory === 'All') {
@@ -415,7 +428,7 @@ export function App() {
             video={currentWatchVideo}
             channel={currentWatchChannel}
             relatedVideos={relatedWatchVideos}
-            state={storeState}
+            state={storeState || {}}
             isTheaterMode={isTheaterMode}
             onToggleTheater={() => setIsTheaterMode((prev) => !prev)}
             onToggleLike={handleToggleLike}
@@ -437,7 +450,7 @@ export function App() {
               channels={CHANNELS}
               onSelectVideo={handleSelectVideo}
               onSelectChannel={handleSelectChannel}
-              subscribedChannelIds={storeState.subscribedChannelIds}
+              subscribedChannelIds={storeState?.subscribedChannelIds || []}
               onToggleSubscribe={handleToggleSubscribe}
             />
           </div>
@@ -449,7 +462,8 @@ export function App() {
             channel={currentChannelObj}
             videos={currentChannelVideos}
             onSelectVideo={handleSelectVideo}
-            subscribedChannelIds={storeState.subscribedChannelIds}
+            isSubscribed={Boolean(storeState?.subscribedChannelIds?.includes(currentChannelObj?.id))}
+            subscribedChannelIds={storeState?.subscribedChannelIds || []}
             onToggleSubscribe={handleToggleSubscribe}
           />
         );
@@ -742,7 +756,7 @@ export function App() {
                     setIsSidebarOpen(false);
                     handleSelectSidebarView(v, p);
                   }}
-                  subscriptions={storeState.subscribedChannelIds}
+                  subscriptions={storeState?.subscribedChannelIds || []}
                 />
               </div>
             </div>
@@ -752,7 +766,7 @@ export function App() {
             isOpen={isSidebarOpen}
             currentView={currentView}
             onSelectView={handleSelectSidebarView}
-            subscriptions={storeState.subscribedChannelIds}
+            subscriptions={storeState?.subscribedChannelIds || []}
           />
         )}
 

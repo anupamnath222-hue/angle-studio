@@ -6,6 +6,9 @@ Verifies:
 - Manages active views (home, watch, search, channel, history, liked, subscriptions, shorts, library)
 - Hash routing support (#watch, #channel, #search, #history, #liked, #subscriptions, #shorts, #library)
 - Store state integration (likes, dislikes, subscriptions, history, comments, theme)
+- Window 'yt-state-change' reactive event listening and getStoredState() refreshes
+- ChannelPage isSubscribed explicit prop binding
+- Safe state access against primitive return value overwrites
 - Global keyboard shortcuts ('/' to focus search, 'Escape' to blur/clear)
 - Theme switching support (dark/light toggles html and body classes)
 - Integration in index.html with babel module script and #root element
@@ -71,6 +74,11 @@ def test_app_component_integrations():
         # Also ensure component is actually rendered as JSX tag
         assert f"<{comp}" in content, f"App must render <{comp} /> in JSX"
 
+    # ChannelPage explicit isSubscribed prop binding
+    assert re.search(r'<ChannelPage[\s\S]*?\bisSubscribed=', content), (
+        "App must explicitly pass isSubscribed prop to ChannelPage"
+    )
+
     # Required data imports
     assert "VIDEOS" in content, "App must integrate VIDEOS"
     assert "CHANNELS" in content, "App must integrate CHANNELS"
@@ -93,6 +101,19 @@ def test_app_store_binding():
     ]
     for fn in store_fns:
         assert fn in content, f"App must bind store function {fn}"
+
+    # Assert window event listener for 'yt-state-change'
+    assert "yt-state-change" in content, "App must listen for 'yt-state-change' window event"
+
+    # Assert getStoredState() is called to refresh state
+    assert "getStoredState()" in content, "App must refresh state from getStoredState()"
+
+    # Assert that primitive return values are NOT passed into setStoreState
+    bad_assignment = re.search(
+        r'const\s+\w+\s*=\s*(?:toggleLike|toggleDislike|toggleSubscribe|addToHistory|clearHistory|toggleTheme)\([^)]*\);\s*setStoreState\(\w+\)',
+        content
+    )
+    assert not bad_assignment, f"Found unsafe assignment of primitive store return value to setStoreState: {bad_assignment}"
 
 def test_app_history_and_liked_features():
     with open(APP_FILE, "r", encoding="utf-8") as f:
