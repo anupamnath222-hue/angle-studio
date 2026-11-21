@@ -1,0 +1,1107 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ANGLE. — Performance Creative Strategy & Production</title>
+  <meta name="description" content="Scale your performance marketing with dedicated creative directors and AI-powered production pipelines. 20+ ad formats delivered in 72 hours.">
+  <meta name="author" content="ANGLE. Creative Studio">
+  
+  <!-- Exact Superside Typography: Inter, Inter Tight, Instrument Serif -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Inter"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+            heading: ['"Inter Tight"', '"Inter"', 'sans-serif'],
+            serif: ['"Instrument Serif"', 'Georgia', 'serif'],
+          },
+          animation: {
+            'scroll-up-1': 'scrollUp 26s linear infinite',
+            'scroll-down-1': 'scrollDown 30s linear infinite',
+            'scroll-up-2': 'scrollUp 28s linear infinite',
+            'marquee': 'marquee 32s linear infinite',
+            'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+          },
+          keyframes: {
+            scrollUp: {
+              '0%': { transform: 'translateY(0%)' },
+              '100%': { transform: 'translateY(-50%)' }
+            },
+            scrollDown: {
+              '0%': { transform: 'translateY(-50%)' },
+              '100%': { transform: 'translateY(0%)' }
+            },
+            marquee: {
+              '0%': { transform: 'translateX(0%)' },
+              '100%': { transform: 'translateX(-50%)' }
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background-color: #FFFFFF;
+      color: #0F172A;
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+    }
+    h1, h2, h3, h4 {
+      font-family: 'Inter Tight', sans-serif;
+      letter-spacing: -0.025em;
+    }
+    .serif-italic {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-style: italic;
+      font-weight: 400;
+    }
+    /* Subtle dot grid pattern */
+    .bg-dot-pattern {
+      background-image: radial-gradient(rgba(15, 23, 42, 0.08) 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+    /* Light mode gradient masks for continuous waterfall */
+    .mask-vertical-fade-light {
+      mask-image: linear-gradient(to bottom, transparent 0%, black 12%, black 88%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 12%, black 88%, transparent 100%);
+    }
+    .mask-horizontal-fade-light {
+      mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+    }
+    .hover-pause:hover .marquee-col {
+      animation-play-state: paused;
+    }
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #F8F9FA;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #CBD5E1;
+      border-radius: 999px;
+    }
+  </style>
+</head>
+<body class="bg-white text-slate-900 antialiased selection:bg-blue-600 selection:text-white">
+
+  <!-- Top Announcement Bar -->
+  <div class="bg-[#F8F9FA] border-b border-slate-200/90 py-2.5 px-4 text-center text-xs font-medium text-slate-700 flex items-center justify-center gap-2">
+    <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold bg-blue-600 text-white uppercase tracking-wider">72h SLA</span>
+    <span>Dedicated Creative Director &middot; Multi-Angle Sprints &middot; Zero Retainer Lock-in</span>
+    <a href="#creative-sets" class="underline font-semibold text-blue-600 hover:text-blue-700 ml-1 inline-flex items-center gap-0.5">
+      See Live Sets &rarr;
+    </a>
+  </div>
+
+  <!-- Header / Navigation -->
+  <header class="sticky top-0 z-50 backdrop-blur-xl bg-white/90 border-b border-slate-200/80 transition-all">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <!-- Logo: ANGLE. -->
+      <a href="#" class="flex items-center gap-2.5 group">
+        <div class="w-9 h-9 rounded-xl bg-slate-950 flex items-center justify-center shadow-md group-hover:scale-105 transition-transform">
+          <span class="font-heading font-black text-white text-lg">A</span>
+        </div>
+        <div class="flex flex-col">
+          <span class="font-heading font-black tracking-tight text-2xl text-slate-950 leading-none">ANGLE<span class="text-blue-600">.</span></span>
+          <span class="text-[9px] uppercase tracking-widest text-slate-500 font-semibold mt-0.5">Creative Strategy</span>
+        </div>
+      </a>
+
+      <!-- Desktop Links -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-slate-600">
+        <a href="#services" class="hover:text-slate-950 transition-colors">Ad Formats</a>
+        <a href="#creative-sets" class="hover:text-slate-950 transition-colors">Creative Sets</a>
+        <a href="#why-angle" class="hover:text-slate-950 transition-colors">Why ANGLE</a>
+        <a href="#how-it-works" class="hover:text-slate-950 transition-colors">How It Works</a>
+        <a href="#plans" class="hover:text-slate-950 transition-colors">Plans</a>
+      </nav>
+
+      <!-- Action Buttons -->
+      <div class="flex items-center gap-3">
+        <a href="#creative-sets" class="hidden sm:inline-flex text-xs font-bold text-slate-700 hover:text-slate-950 px-3 py-2">
+          View Work
+        </a>
+        <button onclick="openDemoModal()" class="px-5 py-2.5 rounded-full bg-slate-950 hover:bg-slate-800 text-white font-semibold text-xs tracking-wide shadow-md transition-all">
+          Book a Demo
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================================== -->
+  <!-- HERO SECTION: VISUALLY STUNNING HERO       -->
+  <!-- ========================================== -->
+  <section class="relative pt-10 pb-20 lg:pt-16 lg:pb-28 overflow-hidden border-b border-slate-200 bg-white bg-dot-pattern">
+    <!-- Ambient Radial Glows -->
+    <div class="absolute top-0 right-1/4 w-[650px] h-[650px] bg-blue-100/40 rounded-full blur-[140px] pointer-events-none -z-10"></div>
+    <div class="absolute bottom-0 left-10 w-[550px] h-[550px] bg-indigo-50/60 rounded-full blur-[130px] pointer-events-none -z-10"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center min-h-[640px]">
+        
+        <!-- Left Column: Chunked Micro-Copy -->
+        <div class="lg:col-span-5 flex flex-col items-start text-left z-10">
+          
+          <!-- Live Indicator Badge -->
+          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-xs font-semibold text-blue-700 mb-5 tracking-wide shadow-sm">
+            <span class="w-2 h-2 rounded-full bg-blue-600 animate-pulse"></span>
+            <span>Performance Creative Subscription</span>
+          </div>
+
+          <!-- Razor-Sharp Chunked Headline -->
+          <h1 class="text-4xl sm:text-5xl lg:text-[4rem] font-black tracking-[-0.035em] leading-[1.08] text-slate-950">
+            Creative that halts the scroll.<br>
+            <span class="serif-italic font-normal text-blue-600">Strategy</span> that scales your CAC.
+          </h1>
+
+          <!-- Short Chunk Subhead -->
+          <p class="mt-5 text-base sm:text-lg text-slate-600 leading-relaxed font-normal max-w-lg">
+            We replace slow agencies and flaky freelancers with a dedicated creative strategy engine. Multi-angle <strong class="text-slate-950 font-semibold">Creative Sets delivered in 72 hours</strong>.
+          </p>
+
+          <!-- 3 Selling Chunks -->
+          <div class="mt-6 space-y-2 text-xs font-medium text-slate-700">
+            <div class="flex items-center gap-2.5">
+              <span class="w-1.5 h-1.5 rounded-full bg-blue-600"></span>
+              <span><strong>Strategy first:</strong> Built around consumer skepticism & psychological hooks.</span>
+            </div>
+            <div class="flex items-center gap-2.5">
+              <span class="w-1.5 h-1.5 rounded-full bg-blue-600"></span>
+              <span><strong>72-Hour turnaround:</strong> Full Figma, AfterEffects & raw video files delivered.</span>
+            </div>
+            <div class="flex items-center gap-2.5">
+              <span class="w-1.5 h-1.5 rounded-full bg-blue-600"></span>
+              <span><strong>Direct Slack channel:</strong> Talk straight to your creative director. No account reps.</span>
+            </div>
+          </div>
+
+          <!-- CTAs -->
+          <div class="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto">
+            <button onclick="openDemoModal()" class="px-8 py-4 rounded-full bg-slate-950 hover:bg-slate-800 text-white font-semibold text-xs tracking-wide shadow-xl shadow-slate-950/15 transition-all text-center flex items-center justify-center gap-2 group">
+              <span>Book a 15-Min Intro</span>
+              <svg class="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+              </svg>
+            </button>
+            <a href="#creative-sets" class="px-8 py-4 rounded-full bg-white hover:bg-slate-50 border border-slate-300 text-slate-800 font-semibold text-xs tracking-wide transition-all text-center shadow-sm">
+              Explore Creative Sets
+            </a>
+          </div>
+
+          <!-- Micro Stats Chunks -->
+          <div class="mt-10 pt-6 border-t border-slate-200 w-full grid grid-cols-3 gap-4">
+            <div>
+              <div class="text-2xl lg:text-3xl font-black font-heading text-slate-950">72h</div>
+              <div class="text-[11px] text-slate-500 font-medium mt-0.5">Sprint SLA</div>
+            </div>
+            <div>
+              <div class="text-2xl lg:text-3xl font-black font-heading text-blue-600">44.6%</div>
+              <div class="text-[11px] text-slate-500 font-medium mt-0.5">Avg. Thumbstop</div>
+            </div>
+            <div>
+              <div class="text-2xl lg:text-3xl font-black font-heading text-emerald-600">-32%</div>
+              <div class="text-[11px] text-slate-500 font-medium mt-0.5">Blended CAC</div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right Column: Continuous Waterfall Gallery (Real Videos & Images) -->
+        <div class="lg:col-span-7 relative h-[560px] sm:h-[640px] lg:h-[700px] overflow-hidden mask-vertical-fade-light hover-pause rounded-3xl border border-slate-200 bg-[#F8F9FA]/80 p-3 sm:p-4 shadow-xl">
+          
+          <!-- Floating Telemetry Glass Badge (Top Left) -->
+          <div class="absolute top-6 left-6 z-20 backdrop-blur-md bg-white/85 border border-slate-200/90 rounded-2xl px-4 py-2.5 shadow-lg flex items-center gap-3 pointer-events-none">
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-ping"></span>
+            <div>
+              <div class="text-[11px] font-bold text-slate-950">Active Creative Engine</div>
+              <div class="text-[9px] text-slate-500 font-mono">72h SLA &middot; 3 Teams In Flight</div>
+            </div>
+          </div>
+
+          <!-- Floating Telemetry Glass Badge (Bottom Right) -->
+          <div class="absolute bottom-6 right-6 z-20 backdrop-blur-md bg-white/85 border border-slate-200/90 rounded-2xl px-4 py-2.5 shadow-lg flex items-center gap-3 pointer-events-none">
+            <span class="text-blue-600 font-mono font-bold text-sm">44.6%</span>
+            <div>
+              <div class="text-[11px] font-bold text-slate-950">Hook Retention</div>
+              <div class="text-[9px] text-slate-500 font-mono">Tested on Meta Advantage+</div>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4 h-full">
+
+            <!-- Column 1: Scrolls UP -->
+            <div class="flex flex-col gap-4 animate-scroll-up-1 marquee-col">
+              <div class="relative group rounded-2xl overflow-hidden bg-white border border-slate-200 shadow-md aspect-[4/5] shrink-0 cursor-pointer" onclick="openLightbox('video', 'https://sanity-cdn.superside.com/824e8c02701a96a6c157a9bd62930c5e0046dffd.mp4', '3D Product Motion Ad (9:16)', 'Tactile fabric stretch test in 0-3s. Thumbstop rate: 44.6%')">
+                <video src="https://sanity-cdn.superside.com/824e8c02701a96a6c157a9bd62930c5e0046dffd.mp4" autoplay loop muted playsinline class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"></video>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent pointer-events-none"></div>
+                <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between text-xs text-white">
+                  <span class="px-2.5 py-0.5 rounded-full bg-blue-600/90 backdrop-blur-md text-[10px] font-bold uppercase">3D Motion</span>
+                  <span class="text-[10px] font-mono text-slate-200">9:16 Video</span>
+                </div>
+              </div>
+              <div class="relative group rounded-2xl overflow-hidden bg-white border border-slate-200 shadow-md aspect-[4/5] shrink-0 cursor-pointer" onclick="openLightbox('image', 'https://cdn.sanity.io/images/k0dlbavy/production/643c7f381241a1d720b8aa5eb09408dab26ce12b-770x985.png?w=1000', 'Direct Response Static (4:5)', 'Side-by-side feature comparison matrix addressing price objections.')">
+                <img src="https://cdn.sanity.io/images/k0dlbavy/production/643c7f381241a1d720b8aa5eb09408dab26ce12b-770x985.png?w=600&q=95&auto=format" alt="Performance Ad Static" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent pointer-events-none"></div>
+                <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between text-xs text-white">
+                  <span class="px-2.5 py-0.5 rounded-full bg-slate-900/90 backdrop-blur-md text-[10px] font-bold uppercase">DR Static</span>
+                  <span class="text-[10px] font-mono text-slate-200">4:5 Feed</span>
+                </div>
+              </div>
+              <div class="relative group rounded-2xl overflow-hidden bg-white border border-slate-200 shadow-md aspect-[4/5] shrink-0 cursor-pointer" onclick="openLightbox('video', 'https://sanity-cdn.superside.com/cd7b022bfbb3874faed99ba9ba591b41f736d751.mp4', 'Kinetic 2D Animation', 'Rapid kinetic typography transition for 15s hold rate.')">
+                <video src="https://sanity-cdn.superside.com/cd7b022bfbb3874faed99ba9ba591b41f736d751.mp4" autoplay loop muted playsinline class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"></video>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent pointer-events-none"></div>
+                <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between text-xs text-white">
+                  <span class="px-2.5 py-0.5 rounded-full bg-indigo-600/90 backdrop-blur-md text-[10px] font-bold uppercase">Animation</span>
+                  <span class="text-[10px] font-mono text-slate-200">Hook Cut</span>
+                </div>
+              </div>
+              <!-- Loop duplicates -->
+              <div class="relative group rounded-2xl overflow-hidden bg-white border border-slate-200 shadow-md aspect-[4/5] shrink-0">
+                <video src="https://sanity-cdn.superside.com/824e8c02701a96a6c157a9bd62930c5e0046dffd.mp4" autoplay loop muted playsinline class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"></video>
+              </div>
+            </div>
+
+            <!-- Column 2: Scrolls DOWN -->
+            <div class="flex flex-col gap-4 animate-scroll-down-1 marquee-col">
+              <div class="relative group rounded-2xl overflow-hidden bg-white border border-slate-200 shadow-md aspect-[4/5] shrink-0 cursor-pointer" onclick="openLightbox('video', 'https://sanity-cdn.superside.com/8b7171a3f5fbe86cc455505513a5b91f5131b1f3.mp4', 'Fluid Motion Graphics', 'Capillary suction fluid simulation for botanical tech.')">
+                <video src="https://sanity-cdn.superside.com/8b7171a3f5fbe86cc455505513a5b91f5131b1f3.mp4" autoplay loop muted playsinline class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"></video>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent pointer-events-none"></div>
+                <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between text-xs text-white">
+                  <span class="px-2.5 py-0.5 rounded-full bg-cyan-600/90 backdrop-blur-md text-[10px] font-bold uppercase">Motion</span>
+                  <span class="text-[10px] font-mono text-slate-200">1:1 Cut</span>
+                </div>
+              </div>
+              <div class="relative group rounded-2xl overflow-hidden bg-white border border-slate-200 shadow-md aspect-[4/5] shrink-0 cursor-pointer" onclick="openLightbox('image', 'https://cdn.sanity.io/images/k0dlbavy/production/88031f8e9b23fd0f9e4520a0d9e46fa51d61abd8-1920x1920.png', '3D Product CGI Exploder', 'Internal component teardown proving engineering superiority.')">
+                <img src="https://cdn.sanity.io/images/k0dlbavy/production/88031f8e9b23fd0f9e4520a0d9e46fa51d61abd8-1920x1920.png?w=600&q=95&auto=format" alt="3D Product CGI" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent pointer-events-none"></div>
+                <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between text-xs text-white">
+                  <span class="px-2.5 py-0.5 rounded-full bg-blue-600/90 backdrop-blur-md text-[10px] font-bold uppercase">3D CGI</span>
+                  <span class="text-[10px] font-mono text-slate-200">Exploder</span>
+                </div>
+              </div>
+              <div class="relative group rounded-2xl overflow-hidden bg-white border border-slate-200 shadow-md aspect-[4/5] shrink-0">
+                <video src="https://sanity-cdn.superside.com/4fedfabeb8aa20db6b9c9e9366842c2095c1e010.mp4" autoplay loop muted playsinline class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"></video>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent pointer-events-none"></div>
+                <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between text-xs text-white">
+                  <span class="px-2.5 py-0.5 rounded-full bg-amber-600/90 backdrop-blur-md text-[10px] font-bold uppercase">UGC Hook</span>
+                  <span class="text-[10px] font-mono text-slate-200">Ad Cut</span>
+                </div>
+              </div>
+              <!-- Loop duplicates -->
+              <div class="relative group rounded-2xl overflow-hidden bg-white border border-slate-200 shadow-md aspect-[4/5] shrink-0">
+                <video src="https://sanity-cdn.superside.com/8b7171a3f5fbe86cc455505513a5b91f5131b1f3.mp4" autoplay loop muted playsinline class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"></video>
+              </div>
+            </div>
+
+            <!-- Column 3: Scrolls UP (Desktop) -->
+            <div class="hidden md:flex flex-col gap-4 animate-scroll-up-2 marquee-col">
+              <div class="relative group rounded-2xl overflow-hidden bg-white border border-slate-200 shadow-md aspect-[4/5] shrink-0">
+                <video src="https://sanity-cdn.superside.com/df1d19432be5ee92a0d6b3fd37d820138eafe513.mp4" autoplay loop muted playsinline class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"></video>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent pointer-events-none"></div>
+                <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between text-xs text-white">
+                  <span class="px-2.5 py-0.5 rounded-full bg-teal-600/90 backdrop-blur-md text-[10px] font-bold uppercase">Product Reel</span>
+                  <span class="text-[10px] font-mono text-slate-200">Macro</span>
+                </div>
+              </div>
+              <div class="relative group rounded-2xl overflow-hidden bg-white border border-slate-200 shadow-md aspect-[4/5] shrink-0 cursor-pointer" onclick="openLightbox('image', 'https://cdn.sanity.io/images/k0dlbavy/production/e6d424323b337be2e81d6dda2d974e2dce50d273-1440x1380.png', 'CGI Packaging & Unboxing', 'Physical packaging render with tactile deboss textures.')">
+                <img src="https://cdn.sanity.io/images/k0dlbavy/production/e6d424323b337be2e81d6dda2d974e2dce50d273-1440x1380.png?w=600&q=95&auto=format" alt="CGI Packaging" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent pointer-events-none"></div>
+                <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between text-xs text-white">
+                  <span class="px-2.5 py-0.5 rounded-full bg-blue-600/90 backdrop-blur-md text-[10px] font-bold uppercase">CGI Packaging</span>
+                  <span class="text-[10px] font-mono text-slate-200">Render</span>
+                </div>
+              </div>
+              <div class="relative group rounded-2xl overflow-hidden bg-white border border-slate-200 shadow-md aspect-[4/5] shrink-0">
+                <video src="https://cdn.sanity.io/files/k0dlbavy/production/f11fcfe00edc4e508329c7bcc7f90c6b5220e1f7.mp4" autoplay loop muted playsinline class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"></video>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent pointer-events-none"></div>
+                <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between text-xs text-white">
+                  <span class="px-2.5 py-0.5 rounded-full bg-indigo-600/90 backdrop-blur-md text-[10px] font-bold uppercase">Social Ad</span>
+                  <span class="text-[10px] font-mono text-slate-200">9:16</span>
+                </div>
+              </div>
+              <!-- Loop duplicates -->
+              <div class="relative group rounded-2xl overflow-hidden bg-white border border-slate-200 shadow-md aspect-[4/5] shrink-0">
+                <video src="https://sanity-cdn.superside.com/df1d19432be5ee92a0d6b3fd37d820138eafe513.mp4" autoplay loop muted playsinline class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"></video>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- TRUST TICKER                               -->
+  <!-- ========================================== -->
+  <section class="py-10 border-b border-slate-200 bg-[#FAFAFA] overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 text-center mb-5">
+      <p class="text-[11px] uppercase tracking-widest text-slate-400 font-bold font-sans">
+        Engineered for brands spending $20k to $500k+/mo on paid acquisition
+      </p>
+    </div>
+    <div class="relative w-full mask-horizontal-fade-light overflow-hidden">
+      <div class="flex gap-20 items-center whitespace-nowrap animate-marquee font-heading font-extrabold text-lg text-slate-400">
+        <span>SHOPIFY</span>
+        <span>META ADS</span>
+        <span>STRIPE</span>
+        <span>TIKTOK ADS</span>
+        <span>GOOGLE P-MAX</span>
+        <span>AMAZON ADS</span>
+        <span>NOTION</span>
+        <span>KLAVIYO</span>
+        <span>SHOPIFY</span>
+        <span>META ADS</span>
+        <span>STRIPE</span>
+        <span>TIKTOK ADS</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================= -->
+  <!-- SECTION: BEFORE VS AFTER VISUAL STRATEGY CONTRAST       -->
+  <!-- ======================================================= -->
+  <section id="why-angle" class="py-24 border-b border-slate-200 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-200 text-xs font-semibold text-blue-700 mb-3 tracking-wider uppercase">
+          The Strategy Gap
+        </div>
+        <h2 class="text-3xl sm:text-5xl font-black text-slate-950 leading-tight">
+          Why traditional creative <span class="serif-italic text-rose-600 font-normal">fails to scale</span>
+        </h2>
+        <p class="mt-3 text-slate-600 text-sm">
+          A side-by-side breakdown of the difference between an agency ad and an ANGLE performance creative set.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+        
+        <!-- Left: The Traditional Agency Ad -->
+        <div class="rounded-3xl bg-slate-50 border border-slate-200 p-8 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between pb-4 border-b border-slate-200 mb-6">
+              <span class="px-3 py-1 rounded-full bg-rose-100 text-rose-700 text-xs font-bold uppercase font-mono">The Traditional Agency Ad</span>
+              <span class="text-xs text-slate-500 font-medium">3-Week Turnaround</span>
+            </div>
+
+            <!-- Ad Mockup Placeholder -->
+            <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm mb-6 text-center">
+              <div class="w-16 h-16 rounded-full bg-slate-100 flex items-center justify-center mx-auto mb-3 text-slate-400">
+                <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+              </div>
+              <div class="text-sm font-bold text-slate-800">Generic Studio Packshot + "15% OFF"</div>
+              <div class="text-xs text-slate-500 mt-1">Zero consumer objection handling &middot; Boring 5-second intro</div>
+            </div>
+
+            <div class="space-y-3 text-xs text-slate-600">
+              <div class="flex items-start gap-2 text-rose-700">
+                <svg class="w-4 h-4 mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                <span><strong>No hook psychology:</strong> Fails to grab attention in the first 1.5 seconds.</span>
+              </div>
+              <div class="flex items-start gap-2 text-rose-700">
+                <svg class="w-4 h-4 mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                <span><strong>Creative fatigue in 5 days:</strong> Single format cannot feed Meta Advantage+.</span>
+              </div>
+              <div class="flex items-start gap-2 text-rose-700">
+                <svg class="w-4 h-4 mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                <span><strong>High CPA:</strong> Bleeds ad budget on passive scrollers.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-8 pt-6 border-t border-slate-200 grid grid-cols-2 gap-4 text-center">
+            <div class="bg-white py-3 rounded-xl border border-slate-200">
+              <div class="text-xs text-slate-400 font-medium">Avg. Thumbstop</div>
+              <div class="text-xl font-bold font-heading text-rose-600 mt-0.5">14.2%</div>
+            </div>
+            <div class="bg-white py-3 rounded-xl border border-slate-200">
+              <div class="text-xs text-slate-400 font-medium">Customer Acquisition</div>
+              <div class="text-xl font-bold font-heading text-slate-800 mt-0.5">High CPA</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: The ANGLE Strategic Creative Set -->
+        <div class="rounded-3xl bg-blue-50/50 border-2 border-blue-600 p-8 flex flex-col justify-between relative shadow-xl shadow-blue-500/10">
+          <div class="absolute -top-3.5 right-8 px-4 py-1 rounded-full bg-blue-600 text-[10px] font-bold text-white uppercase tracking-wider font-mono shadow-md">
+            The ANGLE Standard
+          </div>
+          <div>
+            <div class="flex items-center justify-between pb-4 border-b border-blue-200 mb-6">
+              <span class="px-3 py-1 rounded-full bg-blue-600 text-white text-xs font-bold uppercase font-mono">ANGLE 72h Creative Set</span>
+              <span class="text-xs font-bold text-blue-700 font-mono">72h SLA Delivered</span>
+            </div>
+
+            <!-- Active Asset Mini Showcase -->
+            <div class="grid grid-cols-2 gap-3 mb-6">
+              <div class="rounded-2xl overflow-hidden aspect-[9/12] bg-slate-950 shadow-md relative">
+                <video src="https://sanity-cdn.superside.com/824e8c02701a96a6c157a9bd62930c5e0046dffd.mp4" autoplay loop muted playsinline class="w-full h-full object-cover"></video>
+                <div class="absolute bottom-2 left-2 px-2 py-0.5 rounded bg-black/70 backdrop-blur-md text-[9px] font-bold text-white uppercase">
+                  Tactile Hook A
+                </div>
+              </div>
+              <div class="rounded-2xl overflow-hidden aspect-[9/12] bg-white border border-blue-200 shadow-md relative">
+                <img src="https://cdn.sanity.io/images/k0dlbavy/production/643c7f381241a1d720b8aa5eb09408dab26ce12b-770x985.png?w=600" alt="DR Static" class="w-full h-full object-cover">
+                <div class="absolute bottom-2 left-2 px-2 py-0.5 rounded bg-white/90 backdrop-blur-md text-[9px] font-bold text-slate-900 border border-slate-200 uppercase">
+                  DR Matrix
+                </div>
+              </div>
+            </div>
+
+            <div class="space-y-3 text-xs text-slate-800">
+              <div class="flex items-start gap-2 text-blue-700">
+                <svg class="w-4 h-4 mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span><strong>Tactile proof in frame 0:</strong> Halts scrollers with physical stress tests and tension sound.</span>
+              </div>
+              <div class="flex items-start gap-2 text-blue-700">
+                <svg class="w-4 h-4 mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span><strong>Multi-angle diversity:</strong> 4 videos + 6 statics feed ad algorithms simultaneously.</span>
+              </div>
+              <div class="flex items-start gap-2 text-blue-700">
+                <svg class="w-4 h-4 mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span><strong>-34% Lower CAC:</strong> Skepticism busters convert high-intent buyers.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-8 pt-6 border-t border-blue-200 grid grid-cols-2 gap-4 text-center">
+            <div class="bg-white py-3 rounded-xl border border-blue-200 shadow-sm">
+              <div class="text-xs text-slate-500 font-medium">Avg. Thumbstop</div>
+              <div class="text-xl font-bold font-heading text-blue-600 mt-0.5">44.6% (+30%)</div>
+            </div>
+            <div class="bg-white py-3 rounded-xl border border-blue-200 shadow-sm">
+              <div class="text-xs text-slate-500 font-medium">Blended CAC</div>
+              <div class="text-xl font-bold font-heading text-emerald-600 mt-0.5">-34% Reduction</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ======================================================= -->
+  <!-- SECTION: "20+ AD FORMATS" WITH INTERACTIVE FILTER TABS  -->
+  <!-- ======================================================= -->
+  <section id="services" class="py-24 border-b border-slate-200 bg-[#F8F9FA] relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6">
+        <div>
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-200 text-xs font-semibold text-blue-700 mb-3 tracking-wider uppercase">
+            Creative Capabilities
+          </div>
+          <h2 class="text-3xl sm:text-5xl font-black text-slate-950 leading-tight">
+            Move fast with <span class="serif-italic text-blue-600 font-normal">20+ scalable ad formats</span>
+          </h2>
+        </div>
+        <p class="text-slate-600 text-sm max-w-sm">
+          Click any format filter below to inspect how we engineer assets for Meta, TikTok, and YouTube.
+        </p>
+      </div>
+
+      <!-- Interactive Filter Tabs -->
+      <div class="flex flex-wrap items-center gap-2 mb-10">
+        <button onclick="filterFormats('all')" id="tab-all" class="format-tab px-4 py-2 rounded-full text-xs font-bold transition-all bg-slate-950 text-white shadow-sm">
+          All Formats (20+)
+        </button>
+        <button onclick="filterFormats('video')" id="tab-video" class="format-tab px-4 py-2 rounded-full text-xs font-semibold transition-all bg-white hover:bg-slate-100 text-slate-700 border border-slate-200">
+          9:16 Vertical Video
+        </button>
+        <button onclick="filterFormats('cgi')" id="tab-cgi" class="format-tab px-4 py-2 rounded-full text-xs font-semibold transition-all bg-white hover:bg-slate-100 text-slate-700 border border-slate-200">
+          3D CGI Exploders
+        </button>
+        <button onclick="filterFormats('static')" id="tab-static" class="format-tab px-4 py-2 rounded-full text-xs font-semibold transition-all bg-white hover:bg-slate-100 text-slate-700 border border-slate-200">
+          Us vs Them Statics
+        </button>
+        <button onclick="filterFormats('motion')" id="tab-motion" class="format-tab px-4 py-2 rounded-full text-xs font-semibold transition-all bg-white hover:bg-slate-100 text-slate-700 border border-slate-200">
+          Kinetic Motion
+        </button>
+        <button onclick="filterFormats('packaging')" id="tab-packaging" class="format-tab px-4 py-2 rounded-full text-xs font-semibold transition-all bg-white hover:bg-slate-100 text-slate-700 border border-slate-200">
+          Packaging & Unboxing
+        </button>
+      </div>
+
+      <!-- Formats Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="formats-grid">
+
+        <!-- Card 1 (Video) -->
+        <div class="format-item group rounded-3xl bg-white border border-slate-200 hover:shadow-xl transition-all p-5 flex flex-col justify-between shadow-sm cursor-pointer" data-category="video" onclick="openLightbox('video', 'https://cdn.sanity.io/files/k0dlbavy/production/462517a4f6342ad8ef6633f06750d0f80bb153a4.mp4', 'Social Video Ads & Hooks (9:16)', 'Problem-agitation hook cut for Reels & TikTok.')">
+          <div class="rounded-2xl overflow-hidden aspect-[16/10] bg-slate-100 relative mb-4">
+            <video src="https://cdn.sanity.io/files/k0dlbavy/production/462517a4f6342ad8ef6633f06750d0f80bb153a4.mp4" autoplay loop muted playsinline class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"></video>
+            <div class="absolute top-3 left-3 px-2.5 py-0.5 rounded-full bg-white/90 backdrop-blur-md text-[10px] font-bold text-slate-900 uppercase">
+              9:16 Video
+            </div>
+            <div class="absolute bottom-3 right-3 w-8 h-8 rounded-full bg-white/90 flex items-center justify-center text-slate-900 shadow-md">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M6.3 2.841A1.5 1.5 0 004 4.11v11.78a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z"/></svg>
+            </div>
+          </div>
+          <div>
+            <div class="flex items-center justify-between mb-1.5">
+              <h3 class="text-lg font-bold text-slate-950 group-hover:text-blue-600 transition-colors">Social Video & Hook Testing</h3>
+              <span class="text-[11px] font-mono font-semibold text-blue-600 bg-blue-50 px-2 py-0.5 rounded">72h SLA</span>
+            </div>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              3s thumbstop testing, UGC mashups, problem-agitation cuts for Reels & TikTok.
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 2 (CGI) -->
+        <div class="format-item group rounded-3xl bg-white border border-slate-200 hover:shadow-xl transition-all p-5 flex flex-col justify-between shadow-sm cursor-pointer" data-category="cgi" onclick="openLightbox('image', 'https://cdn.sanity.io/images/k0dlbavy/production/88031f8e9b23fd0f9e4520a0d9e46fa51d61abd8-1920x1920.png', '3D Product Anatomy Exploders', 'Photorealistic exploded views that visually prove internal mechanism differentiation.')">
+          <div class="rounded-2xl overflow-hidden aspect-[16/10] bg-slate-100 relative mb-4">
+            <img src="https://cdn.sanity.io/images/k0dlbavy/production/88031f8e9b23fd0f9e4520a0d9e46fa51d61abd8-1920x1920.png?w=800&q=95&auto=format" alt="3D CGI" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute top-3 left-3 px-2.5 py-0.5 rounded-full bg-white/90 backdrop-blur-md text-[10px] font-bold text-slate-900 uppercase">
+              3D CGI
+            </div>
+          </div>
+          <div>
+            <div class="flex items-center justify-between mb-1.5">
+              <h3 class="text-lg font-bold text-slate-950 group-hover:text-blue-600 transition-colors">3D Product Anatomy Exploders</h3>
+              <span class="text-[11px] font-mono font-semibold text-blue-600 bg-blue-50 px-2 py-0.5 rounded">Blender 4K</span>
+            </div>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Photorealistic exploded views that visually prove internal mechanism differentiation.
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 3 (Static) -->
+        <div class="format-item group rounded-3xl bg-white border border-slate-200 hover:shadow-xl transition-all p-5 flex flex-col justify-between shadow-sm cursor-pointer" data-category="static" onclick="openLightbox('image', 'https://cdn.sanity.io/images/k0dlbavy/production/643c7f381241a1d720b8aa5eb09408dab26ce12b-770x985.png', 'Us vs Them Comparison Cards', 'Side-by-side matrices, skepticism busters, and review callouts in 4:5 & 1:1.')">
+          <div class="rounded-2xl overflow-hidden aspect-[16/10] bg-slate-100 relative mb-4">
+            <img src="https://cdn.sanity.io/images/k0dlbavy/production/643c7f381241a1d720b8aa5eb09408dab26ce12b-770x985.png?w=800&q=95&auto=format" alt="DR Static" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute top-3 left-3 px-2.5 py-0.5 rounded-full bg-white/90 backdrop-blur-md text-[10px] font-bold text-slate-900 uppercase">
+              DR Statics
+            </div>
+          </div>
+          <div>
+            <div class="flex items-center justify-between mb-1.5">
+              <h3 class="text-lg font-bold text-slate-950 group-hover:text-blue-600 transition-colors">Us vs Them Comparison Cards</h3>
+              <span class="text-[11px] font-mono font-semibold text-blue-600 bg-blue-50 px-2 py-0.5 rounded">High ROAS</span>
+            </div>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Side-by-side matrices, skepticism busters, and review callouts in 4:5 & 1:1.
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 4 (Motion) -->
+        <div class="format-item group rounded-3xl bg-white border border-slate-200 hover:shadow-xl transition-all p-5 flex flex-col justify-between shadow-sm cursor-pointer" data-category="motion" onclick="openLightbox('video', 'https://cdn.sanity.io/files/k0dlbavy/production/65d58246181067ebef9e024cd8668899103cf4ae.mp4', 'Kinetic Motion & Animation', 'Fluid AfterEffects typography and transition video loop.')">
+          <div class="rounded-2xl overflow-hidden aspect-[16/10] bg-slate-100 relative mb-4">
+            <video src="https://cdn.sanity.io/files/k0dlbavy/production/65d58246181067ebef9e024cd8668899103cf4ae.mp4" autoplay loop muted playsinline class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"></video>
+            <div class="absolute top-3 left-3 px-2.5 py-0.5 rounded-full bg-white/90 backdrop-blur-md text-[10px] font-bold text-slate-900 uppercase">
+              Motion
+            </div>
+          </div>
+          <div>
+            <div class="flex items-center justify-between mb-1.5">
+              <h3 class="text-lg font-bold text-slate-950 group-hover:text-blue-600 transition-colors">Kinetic Motion & Animation</h3>
+              <span class="text-[11px] font-mono font-semibold text-blue-600 bg-blue-50 px-2 py-0.5 rounded">AfterEffects</span>
+            </div>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Kinetic typography stings, UI walk-through motion, and custom sound design.
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 5 (Packaging) -->
+        <div class="format-item group rounded-3xl bg-white border border-slate-200 hover:shadow-xl transition-all p-5 flex flex-col justify-between shadow-sm cursor-pointer" data-category="packaging" onclick="openLightbox('image', 'https://cdn.sanity.io/images/k0dlbavy/production/e6d424323b337be2e81d6dda2d974e2dce50d273-1440x1380.png', 'Packaging & Unboxing Renders', 'Physical packaging renders, tactile deboss textures, and luxury unboxing appeal.')">
+          <div class="rounded-2xl overflow-hidden aspect-[16/10] bg-slate-100 relative mb-4">
+            <img src="https://cdn.sanity.io/images/k0dlbavy/production/e6d424323b337be2e81d6dda2d974e2dce50d273-1440x1380.png?w=800&q=95&auto=format" alt="Packaging" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute top-3 left-3 px-2.5 py-0.5 rounded-full bg-white/90 backdrop-blur-md text-[10px] font-bold text-slate-900 uppercase">
+              Packaging
+            </div>
+          </div>
+          <div>
+            <div class="flex items-center justify-between mb-1.5">
+              <h3 class="text-lg font-bold text-slate-950 group-hover:text-blue-600 transition-colors">Packaging & Unboxing Renders</h3>
+              <span class="text-[11px] font-mono font-semibold text-blue-600 bg-blue-50 px-2 py-0.5 rounded">Dielines + CGI</span>
+            </div>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Physical D2C unboxing visuals, tactile textures, and high-AOV gift appeal.
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 6 (Static/Web) -->
+        <div class="format-item group rounded-3xl bg-white border border-slate-200 hover:shadow-xl transition-all p-5 flex flex-col justify-between shadow-sm cursor-pointer" data-category="static" onclick="openLightbox('image', 'https://cdn.sanity.io/images/k0dlbavy/production/2670ee18e6e38e9a4f51fb3c811c9bc28e58625f-1920x690.png', 'High-Converting Advertorials & PDPs', 'Mobile listicles, comparison landers, and high-converting Shopify PDPs.')">
+          <div class="rounded-2xl overflow-hidden aspect-[16/10] bg-slate-100 relative mb-4">
+            <img src="https://cdn.sanity.io/images/k0dlbavy/production/2670ee18e6e38e9a4f51fb3c811c9bc28e58625f-1920x690.png?w=800&q=95&auto=format" alt="Landing Pages" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute top-3 left-3 px-2.5 py-0.5 rounded-full bg-white/90 backdrop-blur-md text-[10px] font-bold text-slate-900 uppercase">
+              Landing Pages
+            </div>
+          </div>
+          <div>
+            <div class="flex items-center justify-between mb-1.5">
+              <h3 class="text-lg font-bold text-slate-950 group-hover:text-blue-600 transition-colors">High-Converting Advertorials</h3>
+              <span class="text-[11px] font-mono font-semibold text-blue-600 bg-blue-50 px-2 py-0.5 rounded">Figma System</span>
+            </div>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Mobile listicles, comparison landers, and high-converting Shopify PDPs.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ======================================================= -->
+  <!-- SECTION: "FEATURED CREATIVE SETS" (CLICK TO NEXT PAGE)  -->
+  <!-- ======================================================= -->
+  <section id="creative-sets" class="py-24 border-b border-slate-200 bg-white relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-200 text-xs font-semibold text-blue-700 mb-3 tracking-wider uppercase">
+          Production Sprints
+        </div>
+        <h2 class="text-3xl sm:text-5xl font-black text-slate-950 leading-tight">
+          Featured <span class="serif-italic text-blue-600 font-normal">Creative Sets</span>
+        </h2>
+        <p class="mt-3 text-slate-600 text-sm">
+          Click any set to explore the full strategic breakdown, psychological angles, and all ready-to-test assets.
+        </p>
+      </div>
+
+      <!-- Set 01 -->
+      <div class="mb-12 rounded-3xl bg-[#F8F9FA] border border-slate-200 p-6 lg:p-10 relative overflow-hidden shadow-sm hover:shadow-lg transition-all">
+        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6 pb-8 border-b border-slate-200">
+          <div>
+            <div class="flex items-center gap-3">
+              <span class="px-3 py-1 rounded-full bg-slate-950 text-white font-mono text-xs font-bold uppercase">Project #01</span>
+              <span class="text-slate-500 text-xs font-medium">72-Hour Turnaround</span>
+            </div>
+            <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-950 mt-2">
+              <a href="project-01.html" class="hover:text-blue-600 transition-colors flex items-center gap-2">
+                Heavyweight Streetwear Living Motion Set
+                <svg class="w-5 h-5 text-blue-600 inline" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+              </a>
+            </h3>
+            <p class="text-slate-600 text-xs mt-1">
+              <strong>The Angle:</strong> 0-3s Tactile Fabric Stress Test beats cinematic fluff. Destroys shrinkage skepticism.
+            </p>
+          </div>
+          <div class="flex flex-wrap items-center gap-3">
+            <div class="flex items-center gap-4 bg-white px-4 py-2.5 rounded-2xl border border-slate-200 shadow-sm text-xs">
+              <div>
+                <span class="text-slate-400 font-medium">Scope:</span>
+                <span class="font-bold text-slate-950 ml-1">4 Videos + 6 Statics</span>
+              </div>
+              <div class="h-4 w-px bg-slate-200"></div>
+              <div>
+                <span class="text-slate-400 font-medium">Thumbstop:</span>
+                <span class="font-bold text-blue-600 font-mono ml-1">44.6%</span>
+              </div>
+            </div>
+            <a href="project-01.html" class="px-5 py-2.5 rounded-full bg-blue-600 hover:bg-blue-700 text-white font-semibold text-xs tracking-wide shadow-md transition-all flex items-center gap-1.5">
+              <span>View Case Study & 10 Creatives</span>
+              <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Media Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-6 mt-8 items-center">
+          <a href="project-01.html" class="md:col-span-5 rounded-2xl overflow-hidden bg-slate-950 border border-slate-200 aspect-[9/14] relative group shadow-md block cursor-pointer">
+            <video src="https://sanity-cdn.superside.com/824e8c02701a96a6c157a9bd62930c5e0046dffd.mp4" autoplay loop muted playsinline class="w-full h-full object-cover"></video>
+            <div class="absolute bottom-4 left-4 right-4 bg-white/90 backdrop-blur-md rounded-xl p-3 border border-slate-200 text-xs shadow-md">
+              <div class="font-bold text-slate-950 flex items-center justify-between">
+                <span>Core Hook: "Fabric Weight Test"</span>
+                <span class="text-blue-600 font-mono font-semibold">0:15 Cut</span>
+              </div>
+              <div class="text-slate-600 text-[11px] mt-0.5">Captures immediate tactile quality in first 1.8 seconds.</div>
+            </div>
+          </a>
+
+          <div class="md:col-span-7 grid grid-cols-2 gap-4">
+            <a href="project-01.html" class="rounded-xl overflow-hidden bg-white border border-slate-200 aspect-square relative group shadow-sm block">
+              <img src="https://cdn.sanity.io/images/k0dlbavy/production/643c7f381241a1d720b8aa5eb09408dab26ce12b-770x985.png?w=600&q=95&auto=format" alt="Static Ad" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <div class="absolute bottom-2 left-2 px-2 py-0.5 rounded bg-white/90 backdrop-blur-md text-[10px] font-medium text-slate-900 border border-slate-200">GSM Matrix</div>
+            </a>
+            <a href="project-01.html" class="rounded-xl overflow-hidden bg-white border border-slate-200 aspect-square relative group shadow-sm block">
+              <img src="https://cdn.sanity.io/images/k0dlbavy/production/bab0442adb666da58fb574fe04383a1996c54a48-1080x1080.png?w=600&q=95&auto=format" alt="Static Ad" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <div class="absolute bottom-2 left-2 px-2 py-0.5 rounded bg-white/90 backdrop-blur-md text-[10px] font-medium text-slate-900 border border-slate-200">Social Proof</div>
+            </a>
+            <a href="project-01.html" class="rounded-xl overflow-hidden bg-white border border-slate-200 aspect-square relative group shadow-sm block">
+              <img src="https://cdn.sanity.io/images/k0dlbavy/production/f8be166e63d8351c417cb04cf3c40fe409dd914c-1080x1080.png?w=600&q=95&auto=format" alt="Static Ad" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <div class="absolute bottom-2 left-2 px-2 py-0.5 rounded bg-white/90 backdrop-blur-md text-[10px] font-medium text-slate-900 border border-slate-200">Collar Ribbing</div>
+            </a>
+            <a href="project-01.html" class="rounded-xl overflow-hidden bg-white border border-slate-200 aspect-square relative group shadow-sm block">
+              <img src="https://cdn.sanity.io/images/k0dlbavy/production/03ecf80e02f200c68247212a39e0f45f20c958cc-1080x1080.png?w=600&q=95&auto=format" alt="Static Ad" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <div class="absolute bottom-2 left-2 px-2 py-0.5 rounded bg-white/90 backdrop-blur-md text-[10px] font-medium text-slate-900 border border-slate-200">Styling Guide</div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Set 02 -->
+      <div class="rounded-3xl bg-[#F8F9FA] border border-slate-200 p-6 lg:p-10 relative overflow-hidden shadow-sm hover:shadow-lg transition-all">
+        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6 pb-8 border-b border-slate-200">
+          <div>
+            <div class="flex items-center gap-3">
+              <span class="px-3 py-1 rounded-full bg-blue-600 text-white font-mono text-xs font-bold uppercase">Project #02</span>
+              <span class="text-slate-500 text-xs font-medium">3D CGI Pipeline</span>
+            </div>
+            <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-950 mt-2">
+              <a href="project-02.html" class="hover:text-blue-600 transition-colors flex items-center gap-2">
+                Biophilic Sub-Irrigation Mechanism Set
+                <svg class="w-5 h-5 text-blue-600 inline" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+              </a>
+            </h3>
+            <p class="text-slate-600 text-xs mt-1">
+              <strong>The Angle:</strong> 3D Exploded Anatomy turns hidden engineering into tangible proof. Eradicates root-rot fear.
+            </p>
+          </div>
+          <div class="flex flex-wrap items-center gap-3">
+            <div class="flex items-center gap-4 bg-white px-4 py-2.5 rounded-2xl border border-slate-200 shadow-sm text-xs">
+              <div>
+                <span class="text-slate-400 font-medium">Scope:</span>
+                <span class="font-bold text-slate-950 ml-1">3D Exploder + 8 Hooks</span>
+              </div>
+              <div class="h-4 w-px bg-slate-200"></div>
+              <div>
+                <span class="text-slate-400 font-medium">Blended ROAS:</span>
+                <span class="font-bold text-emerald-600 font-mono ml-1">3.8x</span>
+              </div>
+            </div>
+            <a href="project-02.html" class="px-5 py-2.5 rounded-full bg-slate-950 hover:bg-slate-800 text-white font-semibold text-xs tracking-wide shadow-md transition-all flex items-center gap-1.5">
+              <span>View 3D CGI Breakdown</span>
+              <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Media Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-6 mt-8 items-center">
+          <a href="project-02.html" class="md:col-span-7 rounded-2xl overflow-hidden bg-white border border-slate-200 aspect-[16/10] relative group shadow-sm block cursor-pointer">
+            <img src="https://cdn.sanity.io/images/k0dlbavy/production/88031f8e9b23fd0f9e4520a0d9e46fa51d61abd8-1920x1920.png?w=1000&q=95&auto=format" alt="3D Exploded Anatomy" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute bottom-4 left-4 right-4 bg-white/90 backdrop-blur-md rounded-xl p-3 border border-slate-200 text-xs shadow-md">
+              <div class="font-bold text-slate-950">Internal Oxygenation Reservoir Geometry</div>
+              <div class="text-slate-600 text-[11px] mt-0.5">Demolishes buyer skepticism: proves why root rot cannot occur.</div>
+            </div>
+          </a>
+
+          <a href="project-02.html" class="md:col-span-5 rounded-2xl overflow-hidden bg-slate-950 border border-slate-200 aspect-[4/5] relative group shadow-md block cursor-pointer">
+            <video src="https://sanity-cdn.superside.com/8b7171a3f5fbe86cc455505513a5b91f5131b1f3.mp4" autoplay loop muted playsinline class="w-full h-full object-cover"></video>
+            <div class="absolute bottom-4 left-4 right-4 bg-white/90 backdrop-blur-md rounded-xl p-3 border border-slate-200 text-xs shadow-md">
+              <div class="font-bold text-slate-950 flex items-center justify-between">
+                <span>Capillary Fluid Simulator</span>
+                <span class="text-blue-600 font-mono font-semibold">1:1 Motion</span>
+              </div>
+              <div class="text-slate-600 text-[11px] mt-0.5">Visualizes 14-day water reserve capacity.</div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ======================================================= -->
+  <!-- SECTION: HOW IT WORKS (4 BITE-SIZED STEPS)              -->
+  <!-- ======================================================= -->
+  <section id="how-it-works" class="py-20 border-b border-slate-200 bg-[#F8F9FA]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-950">
+          How your team <span class="serif-italic text-blue-600 font-normal">submits & scales</span>
+        </h2>
+        <p class="mt-2 text-slate-600 text-sm">
+          A dedicated creative department inside your Slack. Zero briefing bureaucracy.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+        <div class="rounded-3xl bg-white border border-slate-200 p-6 shadow-sm">
+          <div class="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center font-heading font-extrabold text-base mb-4">01</div>
+          <h3 class="text-base font-bold text-slate-950 mb-1">Brief in 5 Mins</h3>
+          <p class="text-slate-600 text-xs leading-relaxed">Drop a product link or competitor ad into your dedicated Slack channel.</p>
+        </div>
+        <div class="rounded-3xl bg-white border border-slate-200 p-6 shadow-sm">
+          <div class="w-10 h-10 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center font-heading font-extrabold text-base mb-4">02</div>
+          <h3 class="text-base font-bold text-slate-950 mb-1">Angle Blueprint</h3>
+          <p class="text-slate-600 text-xs leading-relaxed">Your strategist maps 3-5 distinct consumer objection hooks before production.</p>
+        </div>
+        <div class="rounded-3xl bg-white border border-slate-200 p-6 shadow-sm">
+          <div class="w-10 h-10 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center font-heading font-extrabold text-base mb-4">03</div>
+          <h3 class="text-base font-bold text-slate-950 mb-1">72-Hour Delivery</h3>
+          <p class="text-slate-600 text-xs leading-relaxed">Receive 9:16 videos, 4:5 statics, and raw Figma files ready for ad accounts.</p>
+        </div>
+        <div class="rounded-3xl bg-white border border-slate-200 p-6 shadow-sm">
+          <div class="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center font-heading font-extrabold text-base mb-4">04</div>
+          <h3 class="text-base font-bold text-slate-950 mb-1">Iterate Winners</h3>
+          <p class="text-slate-600 text-xs leading-relaxed">Share ROAS data. We branch top hooks into 10 new variants to beat ad fatigue.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ======================================================= -->
+  <!-- SECTION: PLANS (CAPACITY-BASED, NO NUMBERS)             -->
+  <!-- ======================================================= -->
+  <section id="plans" class="py-24 border-b border-slate-200 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-200 text-xs font-semibold text-blue-700 mb-3 tracking-wider uppercase">
+          Flexible Retainers
+        </div>
+        <h2 class="text-3xl sm:text-5xl font-black text-slate-950 leading-tight">
+          Creative capacity <span class="serif-italic text-blue-600 font-normal">tailored to your spend</span>
+        </h2>
+        <p class="mt-3 text-slate-600 text-sm">
+          Pause, scale up, or cancel anytime. Zero long-term agency lock-in contracts.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+        
+        <!-- Plan 1 -->
+        <div class="rounded-3xl bg-white border border-slate-200 p-8 flex flex-col justify-between shadow-sm hover:shadow-md transition-all">
+          <div>
+            <div class="text-xs font-mono font-bold uppercase text-slate-500">Introductory Sprint</div>
+            <h3 class="text-2xl font-bold text-slate-950 mt-1">Creative Pilot</h3>
+            <p class="text-slate-600 text-xs mt-2">Test our turnaround speed and visual quality on 1 priority campaign.</p>
+            
+            <div class="mt-6 py-2.5 px-4 rounded-xl bg-slate-50 border border-slate-200 text-xs font-semibold text-slate-800">
+              1 Complete Creative Set &middot; 72h First Delivery
+            </div>
+
+            <ul class="mt-6 space-y-2.5 text-xs text-slate-700">
+              <li class="flex items-center gap-2"><svg class="w-4 h-4 text-blue-600 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> 4x High-Hook 9:16 Vertical Videos</li>
+              <li class="flex items-center gap-2"><svg class="w-4 h-4 text-blue-600 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> 6x Direct Response Statics & Carousels</li>
+              <li class="flex items-center gap-2"><svg class="w-4 h-4 text-blue-600 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> 100% Raw Figma & AE Source Files</li>
+            </ul>
+          </div>
+          <button onclick="openDemoModal()" class="mt-8 w-full py-3.5 rounded-full bg-white hover:bg-slate-50 border border-slate-300 text-slate-900 font-semibold text-xs shadow-sm">
+            Book Pilot Demo
+          </button>
+        </div>
+
+        <!-- Plan 2 -->
+        <div class="rounded-3xl bg-white border-2 border-blue-600 p-8 flex flex-col justify-between relative shadow-xl shadow-blue-500/10">
+          <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-blue-600 text-[10px] font-bold text-white uppercase tracking-wider">
+            Most Popular
+          </div>
+          <div>
+            <div class="text-xs font-mono font-bold uppercase text-blue-600">Monthly Subscription</div>
+            <h3 class="text-2xl font-bold text-slate-950 mt-1">Creative Engine</h3>
+            <p class="text-slate-600 text-xs mt-2">Continuous creative pipeline for active media spenders ($15k+ monthly ad spend).</p>
+            
+            <div class="mt-6 py-2.5 px-4 rounded-xl bg-blue-50 border border-blue-100 text-xs font-semibold text-blue-900">
+              3 Creative Sets / Month &middot; Continuous Testing
+            </div>
+
+            <ul class="mt-6 space-y-2.5 text-xs text-slate-700">
+              <li class="flex items-center gap-2"><svg class="w-4 h-4 text-blue-600 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> 12x 9:16 Motion Videos + 18x Statics / mo</li>
+              <li class="flex items-center gap-2"><svg class="w-4 h-4 text-blue-600 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> 3D CGI Product Modeling & Exploders</li>
+              <li class="flex items-center gap-2"><svg class="w-4 h-4 text-blue-600 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Dedicated Creative Director in Slack</li>
+              <li class="flex items-center gap-2"><svg class="w-4 h-4 text-blue-600 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Unlimited Iterations on Top Performers</li>
+            </ul>
+          </div>
+          <button onclick="openDemoModal()" class="mt-8 w-full py-3.5 rounded-full bg-slate-950 hover:bg-slate-800 text-white font-bold text-xs shadow-md">
+            Subscribe to Engine &rarr;
+          </button>
+        </div>
+
+        <!-- Plan 3 -->
+        <div class="rounded-3xl bg-white border border-slate-200 p-8 flex flex-col justify-between shadow-sm">
+          <div>
+            <div class="text-xs font-mono font-bold uppercase text-slate-500">Agency Fleet</div>
+            <h3 class="text-2xl font-bold text-slate-950 mt-1">Agency White-Label</h3>
+            <p class="text-slate-600 text-xs mt-2">Unlimited creative capacity for performance agencies handling client rosters.</p>
+            
+            <div class="mt-6 py-2.5 px-4 rounded-xl bg-slate-50 border border-slate-200 text-xs font-semibold text-slate-800">
+              Up to 5 Brands &middot; Concurrent Active Sprints
+            </div>
+
+            <ul class="mt-6 space-y-2.5 text-xs text-slate-700">
+              <li class="flex items-center gap-2"><svg class="w-4 h-4 text-blue-600 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Dedicated Multi-Brand Creative Squad</li>
+              <li class="flex items-center gap-2"><svg class="w-4 h-4 text-blue-600 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Full White-Label Client Handoff</li>
+              <li class="flex items-center gap-2"><svg class="w-4 h-4 text-blue-600 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Priority Turnaround & Emergency Ad Cuts</li>
+            </ul>
+          </div>
+          <button onclick="openDemoModal()" class="mt-8 w-full py-3.5 rounded-full bg-white hover:bg-slate-50 border border-slate-300 text-slate-900 font-semibold text-xs shadow-sm">
+            Talk to Agency Lead
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="py-20 bg-[#F8F9FA] border-b border-slate-200">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <h2 class="text-3xl sm:text-5xl font-black text-slate-950">
+        Ready to test a <span class="serif-italic text-blue-600 font-normal">72-hour creative sprint?</span>
+      </h2>
+      <p class="mt-4 text-slate-600 text-base max-w-xl mx-auto">
+        Book a 15-minute intro. We'll audit your top 3 competitor ad angles and map your first Creative Set.
+      </p>
+      <div class="mt-8 flex justify-center gap-4">
+        <button onclick="openDemoModal()" class="px-8 py-4 rounded-full bg-slate-950 hover:bg-slate-800 text-white font-bold text-sm shadow-xl transition-all">
+          Book a 15-Min Intro Call
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-10 bg-white text-slate-500 text-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-2">
+        <div class="w-6 h-6 rounded-lg bg-slate-950 flex items-center justify-center text-white font-bold text-xs">A</div>
+        <span class="font-bold text-slate-900">ANGLE.</span>
+        <span>&mdash; Performance Creative Strategy & Production</span>
+      </div>
+      <div>&copy; 2026 ANGLE Creative Studio. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <!-- LIGHTBOX MODAL FOR ASSET EXPANSION -->
+  <div id="lightbox-modal" class="fixed inset-0 z-50 hidden bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-3xl w-full p-6 relative shadow-2xl overflow-hidden border border-slate-200">
+      <button onclick="closeLightbox()" class="absolute top-5 right-5 text-slate-400 hover:text-slate-800 p-2 z-10">
+        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+      
+      <div id="lightbox-media-container" class="rounded-2xl overflow-hidden bg-slate-950 aspect-[16/10] mb-4 flex items-center justify-center">
+        <!-- Media dynamically inserted -->
+      </div>
+      
+      <div>
+        <h3 id="lightbox-title" class="text-xl font-bold text-slate-950"></h3>
+        <p id="lightbox-desc" class="text-xs text-slate-600 mt-1"></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BOOK A DEMO MODAL -->
+  <div id="demo-modal" class="fixed inset-0 z-50 hidden bg-slate-950/60 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-white border border-slate-200 rounded-3xl max-w-lg w-full p-6 sm:p-8 relative shadow-2xl">
+      <button onclick="closeDemoModal()" class="absolute top-5 right-5 text-slate-400 hover:text-slate-700 p-2">
+        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+      <div class="text-left">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-200 text-xs font-semibold text-blue-700 mb-3">
+          15-Min Strategy Session
+        </div>
+        <h3 class="text-2xl font-bold text-slate-950">Book a Demo with ANGLE.</h3>
+        <p class="text-slate-600 text-xs mt-1">Tell us about your brand. We'll map your first Creative Set.</p>
+
+        <form onsubmit="handleDemoSubmit(event)" class="mt-6 space-y-4">
+          <div>
+            <label class="block text-xs font-semibold uppercase text-slate-700 mb-1">Full Name</label>
+            <input type="text" required placeholder="e.g. Rahul Sharma" class="w-full px-4 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 text-sm focus:border-blue-600 focus:bg-white focus:outline-none">
+          </div>
+          <div>
+            <label class="block text-xs font-semibold uppercase text-slate-700 mb-1">Work Email</label>
+            <input type="email" required placeholder="name@brand.com" class="w-full px-4 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 text-sm focus:border-blue-600 focus:bg-white focus:outline-none">
+          </div>
+          <div class="grid grid-cols-2 gap-3">
+            <div>
+              <label class="block text-xs font-semibold uppercase text-slate-700 mb-1">Brand URL</label>
+              <input type="text" required placeholder="brand.com" class="w-full px-4 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 text-sm focus:border-blue-600 focus:bg-white focus:outline-none">
+            </div>
+            <div>
+              <label class="block text-xs font-semibold uppercase text-slate-700 mb-1">Monthly Spend</label>
+              <select class="w-full px-4 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 text-sm focus:border-blue-600 focus:bg-white focus:outline-none">
+                <option>Early Stage (< $25k /mo)</option>
+                <option>Growth Stage ($25k - $100k /mo)</option>
+                <option>Enterprise ($100k+ /mo)</option>
+                <option>Agency Fleet</option>
+              </select>
+            </div>
+          </div>
+          <button type="submit" class="w-full mt-2 py-3.5 rounded-xl bg-slate-950 hover:bg-slate-800 text-white font-bold text-sm shadow-md transition-colors">
+            Confirm & Reserve Intro Call
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function openDemoModal() {
+      document.getElementById('demo-modal').classList.remove('hidden');
+    }
+    function closeDemoModal() {
+      document.getElementById('demo-modal').classList.add('hidden');
+    }
+    function handleDemoSubmit(e) {
+      e.preventDefault();
+      alert('Thank you! Your strategy session request has been received. Our Creative Director will contact you within 2 hours.');
+      closeDemoModal();
+    }
+
+    // Interactive Format Filter
+    function filterFormats(category) {
+      const tabs = document.querySelectorAll('.format-tab');
+      tabs.forEach(t => {
+        t.className = 'format-tab px-4 py-2 rounded-full text-xs font-semibold transition-all bg-white hover:bg-slate-100 text-slate-700 border border-slate-200';
+      });
+      const activeTab = document.getElementById('tab-' + category);
+      if (activeTab) {
+        activeTab.className = 'format-tab px-4 py-2 rounded-full text-xs font-bold transition-all bg-slate-950 text-white shadow-sm';
+      }
+
+      const items = document.querySelectorAll('.format-item');
+      items.forEach(item => {
+        if (category === 'all' || item.getAttribute('data-category') === category) {
+          item.style.display = 'flex';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    }
+
+    // Lightbox Modal
+    function openLightbox(type, src, title, desc) {
+      const modal = document.getElementById('lightbox-modal');
+      const container = document.getElementById('lightbox-media-container');
+      const titleEl = document.getElementById('lightbox-title');
+      const descEl = document.getElementById('lightbox-desc');
+
+      titleEl.textContent = title;
+      descEl.textContent = desc;
+
+      if (type === 'video') {
+        container.innerHTML = `<video src="${src}" controls autoplay loop class="w-full h-full object-contain"></video>`;
+      } else {
+        container.innerHTML = `<img src="${src}" class="w-full h-full object-contain">`;
+      }
+
+      modal.classList.remove('hidden');
+    }
+
+    function closeLightbox() {
+      const modal = document.getElementById('lightbox-modal');
+      const container = document.getElementById('lightbox-media-container');
+      container.innerHTML = '';
+      modal.classList.add('hidden');
+    }
+  </script>
+</body>
+</html>
