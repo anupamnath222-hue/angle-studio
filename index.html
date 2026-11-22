@@ -68,6 +68,9 @@
     .glow-radial {
       background: radial-gradient(circle at 50% 15%, rgba(37, 99, 235, 0.07) 0%, rgba(255, 255, 255, 0) 70%);
     }
+    details summary::-webkit-details-marker {
+      display: none;
+    }
   </style>
 </head>
 <body class="selection:bg-blue-600 selection:text-white">
@@ -75,16 +78,19 @@
   <!-- TOP BAR -->
   <div class="bg-neutral-950 text-white text-xs py-2 px-4 text-center font-medium tracking-wide flex items-center justify-center gap-2 border-b border-neutral-800">
     <span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-    <span><strong>Need better ads this week?</strong> Get your first fresh batch of creatives delivered in 48–72 hours.</span>
-    <a href="#pilot" class="underline underline-offset-2 ml-1 text-neutral-300 hover:text-white">Start a 72h Sprint &rarr;</a>
+    <span><strong>Need better ads this week?</strong> Get fresh creative variations delivered in 48–72 hours.</span>
+    <button onclick="openBookingModal('72-Hour Sprint')" class="underline underline-offset-2 ml-1 text-neutral-300 hover:text-white font-semibold cursor-pointer">Start a 72h Sprint &rarr;</button>
   </div>
 
   <!-- NAVIGATION -->
   <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-neutral-200/80">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
       
-      <!-- Brand Logo -->
+      <!-- Brand Logo with Geometric Angle Icon -->
       <a href="index.html" class="flex items-center gap-2.5 group">
+        <div class="w-8 h-8 rounded-lg bg-neutral-950 text-white flex items-center justify-center font-bold text-sm shadow-xs group-hover:bg-blue-600 transition">
+          <svg class="w-4 h-4 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4 20h16M4 20L20 4"/></svg>
+        </div>
         <span class="font-heading font-black text-2xl tracking-tighter text-neutral-950 group-hover:text-blue-600 transition">ANGLE.</span>
         <span class="text-[10px] font-bold tracking-widest uppercase px-2.5 py-0.5 rounded-full bg-blue-50 border border-blue-200 text-blue-700 hidden sm:inline-block">Creative Engine</span>
       </a>
@@ -99,17 +105,17 @@
         <a href="#pilot" class="hover:text-neutral-950 transition">Pricing & Sprints</a>
       </nav>
 
-      <!-- Action Button -->
+      <!-- Action Button (Opens Modal) -->
       <div class="flex items-center gap-4">
-        <a href="#pilot" class="inline-flex items-center justify-center px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold text-white bg-neutral-950 hover:bg-blue-600 transition duration-200 shadow-sm">
+        <button onclick="openBookingModal('Header Consultation')" class="inline-flex items-center justify-center px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold text-white bg-neutral-950 hover:bg-blue-600 transition duration-200 shadow-sm cursor-pointer">
           Start 72-Hour Sprint
           <svg class="w-3.5 h-3.5 ml-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
-        </a>
+        </button>
       </div>
     </div>
   </header>
 
-  <!-- HERO SECTION: CLEAR, ACCESSIBLE, POWERFUL -->
+  <!-- HERO SECTION -->
   <section class="relative pt-16 pb-20 md:pt-24 md:pb-28 overflow-hidden bg-grid glow-radial">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
       
@@ -132,10 +138,10 @@
 
       <!-- Action Buttons -->
       <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
-        <a href="#pilot" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 rounded-full text-base font-semibold text-white bg-neutral-950 hover:bg-blue-600 transition shadow-lg hover:shadow-xl">
+        <button onclick="openBookingModal('Hero Primary CTA')" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 rounded-full text-base font-semibold text-white bg-neutral-950 hover:bg-blue-600 transition shadow-lg hover:shadow-xl cursor-pointer">
           Get Started — 72-Hour Delivery
           <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-        </a>
+        </button>
         <a href="#work" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 rounded-full text-base font-semibold text-neutral-800 bg-white border border-neutral-300 hover:border-neutral-900 hover:bg-neutral-50 transition">
           <svg class="w-4 h-4 mr-2 text-neutral-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
           See Our Ad Creatives
@@ -165,7 +171,7 @@
     </div>
   </section>
 
-  <!-- HERO VISUAL SHOWCASE (3D PRODUCT VISUALS & PINTEREST-GRADE CREATIVES) -->
+  <!-- HERO VISUAL SHOWCASE (3D PRODUCT VISUALS & LIVING MOTION) -->
   <section class="pb-20 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="p-4 bg-neutral-100 rounded-3xl border border-neutral-200/80 shadow-inner">
@@ -218,7 +224,7 @@
     </div>
   </section>
 
-  <!-- SECTION 1: HOW MEDIA BUYING CHANGED (EXPLAINED IN PLAIN ENGLISH) -->
+  <!-- SECTION 1: HOW MEDIA BUYING CHANGED (WITH VISUAL DIAGRAM) -->
   <section class="py-24 bg-neutral-950 text-white relative overflow-hidden">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       
@@ -228,17 +234,68 @@
           Why your creative is now your targeting.
         </h2>
         <p class="text-neutral-400 text-base sm:text-lg leading-relaxed">
-          You don't need a media buyer playing with 50 different audience settings. Meta and TikTok's algorithms are now smart enough to do that automatically. Here is how it actually works:
+          You don't need a media buyer playing with 50 different audience settings. Meta and TikTok's algorithms are now smart enough to do that automatically.
         </p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <!-- VISUAL COMPARISON DIAGRAM -->
+      <div class="mb-16 grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-5xl mx-auto">
         
+        <!-- Old Diagram: Broken Audience Stacking -->
+        <div class="p-6 sm:p-8 rounded-3xl bg-neutral-900/60 border border-red-500/30">
+          <div class="flex items-center justify-between pb-3 mb-4 border-b border-neutral-800 text-xs font-mono">
+            <span class="text-red-400 font-bold uppercase">The Old Way (2020)</span>
+            <span class="px-2 py-0.5 rounded bg-red-500/20 text-red-400 text-[10px]">High CAC & Fatigue</span>
+          </div>
+          <div class="space-y-3 font-mono text-xs text-neutral-400">
+            <div class="p-3 rounded-xl bg-neutral-950 border border-neutral-800 flex items-center justify-between">
+              <span>Audience Stacking & 1% LAL</span>
+              <span class="text-red-400">Manual Guesswork</span>
+            </div>
+            <div class="text-center text-neutral-600 text-sm">↓</div>
+            <div class="p-3 rounded-xl bg-neutral-950 border border-neutral-800 flex items-center justify-between">
+              <span>Only 1 or 2 Generic Ads Running</span>
+              <span class="text-red-400">Ad Fatigue in 10 Days</span>
+            </div>
+            <div class="text-center text-neutral-600 text-sm">↓</div>
+            <div class="p-3 rounded-xl bg-red-950/30 border border-red-500/40 text-red-300 font-bold text-center">
+              Result: Cost per purchase doubles every 2 weeks
+            </div>
+          </div>
+        </div>
+
+        <!-- New Diagram: Creative-First Engine -->
+        <div class="p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-neutral-900 to-blue-950/50 border border-blue-500/40">
+          <div class="flex items-center justify-between pb-3 mb-4 border-b border-neutral-800 text-xs font-mono">
+            <span class="text-blue-400 font-bold uppercase">The ANGLE Way (2026)</span>
+            <span class="px-2 py-0.5 rounded bg-blue-600/30 text-blue-300 text-[10px] border border-blue-400/30">Consolidated Scale</span>
+          </div>
+          <div class="space-y-3 font-mono text-xs text-neutral-300">
+            <div class="p-3 rounded-xl bg-neutral-950 border border-blue-500/30 flex items-center justify-between">
+              <span>Broad Consolidated Campaign</span>
+              <span class="text-emerald-400">Algorithm Auto-Routes</span>
+            </div>
+            <div class="text-center text-blue-400 text-sm">↓</div>
+            <div class="p-3 rounded-xl bg-neutral-950 border border-blue-500/30 flex items-center justify-between">
+              <span>20+ Diverse Hooks & Visual Formats</span>
+              <span class="text-emerald-400">Fresh Signal Every Week</span>
+            </div>
+            <div class="text-center text-blue-400 text-sm">↓</div>
+            <div class="p-3 rounded-xl bg-blue-950/40 border border-blue-500/50 text-blue-200 font-bold text-center">
+              Result: Lower CPAs, higher ROAS, zero ad fatigue
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- 3 Key Rules -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         <div class="p-8 rounded-3xl bg-neutral-900 border border-neutral-800">
           <div class="text-blue-400 font-mono text-sm font-bold mb-3">01</div>
           <h3 class="text-xl font-bold font-heading text-white mb-2">The Ad Finds the Buyer</h3>
           <p class="text-xs text-neutral-400 leading-relaxed">
-            The platform reads your video, your text, and what's on screen. If your ad shows a solution for back pain, the algorithm finds people who have back pain. You don't have to guess the audience — your ad *is* the audience.
+            The platform scans your video frames, audio, and on-screen text. If your ad shows a solution for joint pain, the algorithm finds people with joint pain. Your creative *is* your targeting.
           </p>
         </div>
 
@@ -246,7 +303,7 @@
           <div class="text-blue-400 font-mono text-sm font-bold mb-3">02</div>
           <h3 class="text-xl font-bold font-heading text-white mb-2">Tiny Tweaks Don't Work</h3>
           <p class="text-xs text-neutral-400 leading-relaxed">
-            Just changing a button from red to green doesn't count as a new ad. The algorithm sees it as the same thing and stops spending on it. You need completely different hooks, different stories, and different visual styles.
+            Just changing a button from red to green doesn't count as a new ad. The algorithm sees it as the same thing and stops spending. You need completely different hooks and stories.
           </p>
         </div>
 
@@ -257,13 +314,12 @@
             Brands that launch 15 to 20 fresh creative angles every month keep their advertising costs low. Brands that run the same 2 ads get ad fatigue, and their sales drop.
           </p>
         </div>
-
       </div>
 
     </div>
   </section>
 
-  <!-- SECTION 2: THE 3 THINGS THAT WIN (PERSONA, ANGLE, OFFER) -->
+  <!-- SECTION 2: THE 3 THINGS THAT WIN (WITH MULTIPLIER MATH CALLOUT) -->
   <section id="strategy" class="py-24 bg-white border-b border-neutral-200/80">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
@@ -277,7 +333,7 @@
         </p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
         
         <!-- Pillar 1: Persona -->
         <div class="p-8 rounded-3xl bg-neutral-50 border border-neutral-200/80 flex flex-col justify-between">
@@ -377,10 +433,16 @@
 
       </div>
 
+      <!-- The Multiplier Math Pill Banner -->
+      <div class="p-6 rounded-2xl bg-blue-50 border border-blue-200 text-center max-w-3xl mx-auto flex flex-col sm:flex-row items-center justify-center gap-3">
+        <span class="px-3 py-1 rounded-full bg-blue-600 text-white font-bold text-xs">The Multiplier Effect</span>
+        <span class="text-xs sm:text-sm text-neutral-800 font-medium"><strong>3 Personas &times; 3 Angles &times; 3 Offers = 27 unique ad variations</strong> tested from a single brief.</span>
+      </div>
+
     </div>
   </section>
 
-  <!-- SECTION 3: FULL-FUNNEL ADS (TOFU, MOFU, BOFU MADE SIMPLE) -->
+  <!-- SECTION 3: FULL-FUNNEL ADS (COLOR-CODED BY STAGE) -->
   <section id="funnel" class="py-24 bg-neutral-950 text-white relative overflow-hidden">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       
@@ -390,32 +452,32 @@
           Different ads for different stages.
         </h2>
         <p class="text-neutral-400 text-base sm:text-lg leading-relaxed">
-          You wouldn't ask someone to marry you on the first date. In the same way, you can't show a direct sales pitch to someone who has never heard of you. Here is how we guide them from stranger to buyer:
+          You wouldn't ask someone to marry you on the first date. You can't show a direct sales pitch to someone who has never heard of you. Here is how we guide them from stranger to buyer:
         </p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         
-        <!-- Stage 1: Cold (TOFU) -->
-        <div class="p-8 rounded-3xl bg-neutral-900 border border-neutral-800 flex flex-col justify-between">
+        <!-- Stage 1: Cold (TOFU) - Ice Blue -->
+        <div class="p-8 rounded-3xl bg-neutral-900/90 border border-sky-500/40 flex flex-col justify-between shadow-lg">
           <div>
-            <div class="text-xs font-mono text-blue-400 font-bold uppercase mb-2">Stage 01 • Cold Audience</div>
+            <div class="text-xs font-mono text-sky-400 font-bold uppercase mb-2">Stage 01 • Cold Audience</div>
             <h3 class="text-2xl font-bold font-heading text-white mb-2">Stop The Scroll</h3>
             <p class="text-xs text-neutral-400 mb-6">People who don't know you yet.</p>
             <p class="text-xs text-neutral-300 leading-relaxed mb-6">
               <strong>What we make:</strong> Eye-catching 3D visuals, relatable problem videos, and quick questions that interrupt their mindless scrolling.
             </p>
-            <div class="p-4 rounded-2xl bg-neutral-950/80 border border-neutral-800 text-xs text-neutral-300">
+            <div class="p-4 rounded-2xl bg-sky-950/40 border border-sky-500/30 text-xs text-sky-200">
               <em>Goal: Get their attention in under 3 seconds.</em>
             </div>
           </div>
-          <div class="mt-8 pt-4 border-t border-neutral-800 text-xs text-blue-400 font-semibold">
+          <div class="mt-8 pt-4 border-t border-neutral-800 text-xs text-sky-400 font-semibold">
             Format: Fast Social Video & Hook Statics
           </div>
         </div>
 
-        <!-- Stage 2: Warm (MOFU) -->
-        <div class="p-8 rounded-3xl bg-neutral-900 border border-neutral-800 flex flex-col justify-between">
+        <!-- Stage 2: Warm (MOFU) - Emerald Green -->
+        <div class="p-8 rounded-3xl bg-neutral-900/90 border border-emerald-500/40 flex flex-col justify-between shadow-lg">
           <div>
             <div class="text-xs font-mono text-emerald-400 font-bold uppercase mb-2">Stage 02 • Interested Audience</div>
             <h3 class="text-2xl font-bold font-heading text-white mb-2">Prove Why You're Better</h3>
@@ -423,7 +485,7 @@
             <p class="text-xs text-neutral-300 leading-relaxed mb-6">
               <strong>What we make:</strong> Side-by-side comparison cards, 3D exploded views showing how it's built, and real proof that dissolves skepticism.
             </p>
-            <div class="p-4 rounded-2xl bg-neutral-950/80 border border-neutral-800 text-xs text-neutral-300">
+            <div class="p-4 rounded-2xl bg-emerald-950/40 border border-emerald-500/30 text-xs text-emerald-200">
               <em>Goal: Answer "Why should I pick you over others?"</em>
             </div>
           </div>
@@ -432,20 +494,20 @@
           </div>
         </div>
 
-        <!-- Stage 3: Ready to Buy (BOFU) -->
-        <div class="p-8 rounded-3xl bg-neutral-900 border border-neutral-800 flex flex-col justify-between">
+        <!-- Stage 3: Ready to Buy (BOFU) - Deep Violet -->
+        <div class="p-8 rounded-3xl bg-neutral-900/90 border border-violet-500/40 flex flex-col justify-between shadow-lg">
           <div>
-            <div class="text-xs font-mono text-purple-400 font-bold uppercase mb-2">Stage 03 • Ready-to-Buy Audience</div>
+            <div class="text-xs font-mono text-violet-400 font-bold uppercase mb-2">Stage 03 • Ready-to-Buy Audience</div>
             <h3 class="text-2xl font-bold font-heading text-white mb-2">Close The Order</h3>
             <p class="text-xs text-neutral-400 mb-6">People who want the product and need a final reason to click buy.</p>
             <p class="text-xs text-neutral-300 leading-relaxed mb-6">
               <strong>What we make:</strong> Clean bundle offers, risk-free guarantees, review roundups, and clear checkout buttons.
             </p>
-            <div class="p-4 rounded-2xl bg-neutral-950/80 border border-neutral-800 text-xs text-neutral-300">
+            <div class="p-4 rounded-2xl bg-violet-950/40 border border-violet-500/30 text-xs text-violet-200">
               <em>Goal: Drive immediate, confident purchases.</em>
             </div>
           </div>
-          <div class="mt-8 pt-4 border-t border-neutral-800 text-xs text-purple-400 font-semibold">
+          <div class="mt-8 pt-4 border-t border-neutral-800 text-xs text-violet-400 font-semibold">
             Format: High-Converting Offer Graphics & Landers
           </div>
         </div>
@@ -629,7 +691,7 @@
     </div>
   </section>
 
-  <!-- SECTION 6: SELECTED AD CREATIVES VAULT (PINTEREST & 3D HIGH-PERFORMANCE CREATIVES) -->
+  <!-- SECTION 6: SELECTED AD CREATIVES VAULT (EXPANDED TO 9 CARDS) -->
   <section id="work" class="py-24 bg-white border-b border-neutral-200/80">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
@@ -655,7 +717,7 @@
         </div>
       </div>
 
-      <!-- Creatives Grid -->
+      <!-- Creatives Grid (9 Robust Formats) -->
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
         <!-- Item 1: Heavyweight Streetwear 3D -->
@@ -796,6 +858,75 @@
           </div>
         </div>
 
+        <!-- Item 7: Minimalist Luxury Watch -->
+        <div class="vault-item fashion creative-card rounded-3xl bg-neutral-50 border border-neutral-200/90 overflow-hidden shadow-xs cursor-pointer" onclick="openLightbox('ad-watch')">
+          <div class="relative aspect-[4/5] bg-neutral-100 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=800&q=80" alt="Luxury Timepiece Ad" class="w-full h-full object-cover">
+            <div class="absolute top-3 left-3 flex gap-2">
+              <span class="px-2.5 py-1 rounded-full text-[10px] font-bold tracking-wider uppercase bg-black/70 backdrop-blur-md text-white border border-white/20">Luxury Ad</span>
+              <span class="px-2.5 py-1 rounded-full text-[10px] font-bold tracking-wider uppercase bg-amber-600 text-white">High AOV</span>
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center justify-between text-xs text-neutral-400 mb-1 font-mono">
+              <span>HOOK: HOROLOGICAL CRAFT</span>
+              <span>24H SLA</span>
+            </div>
+            <h3 class="text-base font-bold text-neutral-950 font-heading">Monochrome Precision Timepiece</h3>
+            <p class="text-xs text-neutral-600 mt-1">Sapphire crystal anti-reflective lighting paired with clean minimal aesthetic for high-AOV orders.</p>
+            <div class="mt-4 pt-3 border-t border-neutral-200 flex items-center justify-between text-xs font-semibold text-blue-600">
+              <span>Inspect Ad Strategy</span>
+              <span>&rarr;</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 8: Studio Acoustic Wireless Headphones -->
+        <div class="vault-item 3d creative-card rounded-3xl bg-neutral-50 border border-neutral-200/90 overflow-hidden shadow-xs cursor-pointer" onclick="openLightbox('ad-headphones')">
+          <div class="relative aspect-[4/5] bg-neutral-900 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=800&q=80" alt="Headphones Product Ad" class="w-full h-full object-cover">
+            <div class="absolute top-3 left-3 flex gap-2">
+              <span class="px-2.5 py-1 rounded-full text-[10px] font-bold tracking-wider uppercase bg-black/70 backdrop-blur-md text-white border border-white/20">Tech Hardware</span>
+              <span class="px-2.5 py-1 rounded-full text-[10px] font-bold tracking-wider uppercase bg-cyan-600 text-white">43% Hook</span>
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center justify-between text-xs text-neutral-400 mb-1 font-mono">
+              <span>HOOK: ACOUSTIC CLARITY</span>
+              <span>48H SLA</span>
+            </div>
+            <h3 class="text-base font-bold text-neutral-950 font-heading">Studio ANC Wireless Pods</h3>
+            <p class="text-xs text-neutral-600 mt-1">Exploded acoustic chamber showing dual-driver noise cancellation and memory foam seal.</p>
+            <div class="mt-4 pt-3 border-t border-neutral-200 flex items-center justify-between text-xs font-semibold text-blue-600">
+              <span>Inspect Ad Strategy</span>
+              <span>&rarr;</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 9: Kinetic Design System & Ad Matrix -->
+        <div class="vault-item 3d creative-card rounded-3xl bg-neutral-50 border border-neutral-200/90 overflow-hidden shadow-xs cursor-pointer" onclick="openLightbox('ad-matrix')">
+          <div class="relative aspect-[4/5] bg-neutral-900 overflow-hidden">
+            <img src="https://cdn.sanity.io/images/k0dlbavy/production/e6d424323b337be2e81d6dda2d974e2dce50d273-1440x1380.png?w=800&q=95&auto=format" alt="Kinetic Ad System" class="w-full h-full object-cover">
+            <div class="absolute top-3 left-3 flex gap-2">
+              <span class="px-2.5 py-1 rounded-full text-[10px] font-bold tracking-wider uppercase bg-black/70 backdrop-blur-md text-white border border-white/20">Ad System</span>
+              <span class="px-2.5 py-1 rounded-full text-[10px] font-bold tracking-wider uppercase bg-purple-600 text-white">Multi-Angle</span>
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center justify-between text-xs text-neutral-400 mb-1 font-mono">
+              <span>HOOK: SYSTEM ARCHITECTURE</span>
+              <span>24H SLA</span>
+            </div>
+            <h3 class="text-base font-bold text-neutral-950 font-heading">Generative Creative Matrix</h3>
+            <p class="text-xs text-neutral-600 mt-1">High-velocity multi-format grid showing rapid deployment of 20+ aspect ratios and typography hooks.</p>
+            <div class="mt-4 pt-3 border-t border-neutral-200 flex items-center justify-between text-xs font-semibold text-blue-600">
+              <span>Inspect Ad Strategy</span>
+              <span>&rarr;</span>
+            </div>
+          </div>
+        </div>
+
       </div>
 
     </div>
@@ -902,9 +1033,9 @@
           </div>
 
           <div class="mt-8">
-            <a href="mailto:anupam@anglestudio.com?subject=Inquiry:%20Creative%20Pilot%20Sprint" class="w-full inline-flex items-center justify-center py-3.5 px-6 rounded-full text-xs font-bold text-neutral-900 bg-white border border-neutral-300 hover:border-neutral-900 transition">
+            <button onclick="openBookingModal('Creative Pilot Sprint')" class="w-full inline-flex items-center justify-center py-3.5 px-6 rounded-full text-xs font-bold text-neutral-900 bg-white border border-neutral-300 hover:border-neutral-900 transition cursor-pointer">
               Book Pilot Sprint &rarr;
-            </a>
+            </button>
           </div>
         </div>
 
@@ -937,9 +1068,9 @@
           </div>
 
           <div class="mt-8">
-            <a href="mailto:anupam@anglestudio.com?subject=Inquiry:%20Dedicated%20Creative%20Engine" class="w-full inline-flex items-center justify-center py-3.5 px-6 rounded-full text-xs font-bold text-white bg-blue-600 hover:bg-blue-500 transition shadow-lg">
+            <button onclick="openBookingModal('Dedicated Creative Engine')" class="w-full inline-flex items-center justify-center py-3.5 px-6 rounded-full text-xs font-bold text-white bg-blue-600 hover:bg-blue-500 transition shadow-lg cursor-pointer">
               Start Dedicated Engine &rarr;
-            </a>
+            </button>
           </div>
         </div>
 
@@ -967,9 +1098,9 @@
           </div>
 
           <div class="mt-8">
-            <a href="mailto:anupam@anglestudio.com?subject=Inquiry:%20Scale%20White-Label%20Partnership" class="w-full inline-flex items-center justify-center py-3.5 px-6 rounded-full text-xs font-bold text-neutral-900 bg-white border border-neutral-300 hover:border-neutral-900 transition">
+            <button onclick="openBookingModal('Scale & White-Label')" class="w-full inline-flex items-center justify-center py-3.5 px-6 rounded-full text-xs font-bold text-neutral-900 bg-white border border-neutral-300 hover:border-neutral-900 transition cursor-pointer">
               Inquire for Scale &rarr;
-            </a>
+            </button>
           </div>
         </div>
 
@@ -978,9 +1109,9 @@
     </div>
   </section>
 
-  <!-- SECTION 9: FREQUENTLY ASKED QUESTIONS -->
+  <!-- SECTION 9: ACCORDION FREQUENTLY ASKED QUESTIONS -->
   <section class="py-24 bg-white border-t border-neutral-200/80">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <div class="text-center mb-16">
         <span class="text-xs font-bold uppercase tracking-wider text-blue-600">Frequently Asked Questions</span>
@@ -989,35 +1120,57 @@
         </h2>
       </div>
 
-      <div class="space-y-6">
+      <div class="space-y-4">
 
-        <div class="p-6 rounded-2xl bg-neutral-50 border border-neutral-200/80">
-          <h3 class="text-base font-bold text-neutral-950 font-heading">How does the 72-hour turnaround work?</h3>
-          <p class="text-xs sm:text-sm text-neutral-600 mt-2 leading-relaxed">
+        <details class="group p-6 rounded-2xl bg-neutral-50 border border-neutral-200/80 cursor-pointer" open>
+          <summary class="flex items-center justify-between font-bold text-base text-neutral-950 font-heading">
+            <span>How does the 72-hour turnaround work?</span>
+            <span class="w-6 h-6 rounded-full bg-neutral-200 text-neutral-700 flex items-center justify-center text-xs group-open:rotate-180 transition">▼</span>
+          </summary>
+          <p class="text-xs sm:text-sm text-neutral-600 mt-3 leading-relaxed">
             Once you drop your brief into Slack, our team gets to work immediately. Static ad angle sets and social video cuts are delivered within 48 to 72 hours. Complex custom 3D animations are shared in visual stages so you always see progress.
           </p>
-        </div>
+        </details>
 
-        <div class="p-6 rounded-2xl bg-neutral-50 border border-neutral-200/80">
-          <h3 class="text-base font-bold text-neutral-950 font-heading">What kind of assets do we need to give you?</h3>
-          <p class="text-xs sm:text-sm text-neutral-600 mt-2 leading-relaxed">
+        <details class="group p-6 rounded-2xl bg-neutral-50 border border-neutral-200/80 cursor-pointer">
+          <summary class="flex items-center justify-between font-bold text-base text-neutral-950 font-heading">
+            <span>What kind of assets do we need to give you?</span>
+            <span class="w-6 h-6 rounded-full bg-neutral-200 text-neutral-700 flex items-center justify-center text-xs group-open:rotate-180 transition">▼</span>
+          </summary>
+          <p class="text-xs sm:text-sm text-neutral-600 mt-3 leading-relaxed">
             You don't need a huge production folder. A link to your website, raw customer reviews, your existing photo folder, or a quick 2-minute Loom walkthrough is plenty. If you have brand guidelines, we follow them to the pixel.
           </p>
-        </div>
+        </details>
 
-        <div class="p-6 rounded-2xl bg-neutral-50 border border-neutral-200/80">
-          <h3 class="text-base font-bold text-neutral-950 font-heading">What if we need revisions?</h3>
-          <p class="text-xs sm:text-sm text-neutral-600 mt-2 leading-relaxed">
+        <details class="group p-6 rounded-2xl bg-neutral-50 border border-neutral-200/80 cursor-pointer">
+          <summary class="flex items-center justify-between font-bold text-base text-neutral-950 font-heading">
+            <span>What if we need revisions?</span>
+            <span class="w-6 h-6 rounded-full bg-neutral-200 text-neutral-700 flex items-center justify-center text-xs group-open:rotate-180 transition">▼</span>
+          </summary>
+          <p class="text-xs sm:text-sm text-neutral-600 mt-3 leading-relaxed">
             Revisions are unlimited. If an asset isn't exactly what you wanted, simply drop a comment in Figma or Slack. We make the adjustments quickly until you are completely satisfied.
           </p>
-        </div>
+        </details>
 
-        <div class="p-6 rounded-2xl bg-neutral-50 border border-neutral-200/80">
-          <h3 class="text-base font-bold text-neutral-950 font-heading">Do we own the source files?</h3>
-          <p class="text-xs sm:text-sm text-neutral-600 mt-2 leading-relaxed">
+        <details class="group p-6 rounded-2xl bg-neutral-50 border border-neutral-200/80 cursor-pointer">
+          <summary class="flex items-center justify-between font-bold text-base text-neutral-950 font-heading">
+            <span>Do we own the source files?</span>
+            <span class="w-6 h-6 rounded-full bg-neutral-200 text-neutral-700 flex items-center justify-center text-xs group-open:rotate-180 transition">▼</span>
+          </summary>
+          <p class="text-xs sm:text-sm text-neutral-600 mt-3 leading-relaxed">
             Yes, 100%. You own everything we create: open Figma files, After Effects project packages, 4K MP4 video exports, and static PNG assets.
           </p>
-        </div>
+        </details>
+
+        <details class="group p-6 rounded-2xl bg-neutral-50 border border-neutral-200/80 cursor-pointer">
+          <summary class="flex items-center justify-between font-bold text-base text-neutral-950 font-heading">
+            <span>Can I pause or cancel my subscription?</span>
+            <span class="w-6 h-6 rounded-full bg-neutral-200 text-neutral-700 flex items-center justify-center text-xs group-open:rotate-180 transition">▼</span>
+          </summary>
+          <p class="text-xs sm:text-sm text-neutral-600 mt-3 leading-relaxed">
+            Yes. You can pause your subscription anytime with zero penalty. If your product is out of stock or you want to pause ad spend, you never pay for unused time.
+          </p>
+        </details>
 
       </div>
 
@@ -1037,9 +1190,9 @@
         Book a 20-minute strategy call with ANGLE. We’ll review your active ads and deliver 3 custom high-converting hook concepts within 72 hours.
       </p>
       <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-        <a href="mailto:anupam@anglestudio.com?subject=Request:%20ANGLE%2072-Hour%20Creative%20Sprint" class="w-full sm:w-auto px-8 py-4 rounded-full text-base font-bold text-neutral-950 bg-white hover:bg-neutral-100 transition shadow-xl">
+        <button onclick="openBookingModal('Footer Banner CTA')" class="w-full sm:w-auto px-8 py-4 rounded-full text-base font-bold text-neutral-950 bg-white hover:bg-neutral-100 transition shadow-xl cursor-pointer">
           Claim Your 72-Hour Creative Sprint &rarr;
-        </a>
+        </button>
       </div>
     </div>
   </section>
@@ -1048,6 +1201,9 @@
   <footer class="bg-white border-t border-neutral-200 py-12 text-xs text-neutral-500">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-6">
       <div class="flex items-center gap-2">
+        <div class="w-6 h-6 rounded bg-neutral-950 text-white flex items-center justify-center font-bold text-xs">
+          <svg class="w-3.5 h-3.5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4 20h16M4 20L20 4"/></svg>
+        </div>
         <span class="font-heading font-black text-xl tracking-tighter text-neutral-950">ANGLE.</span>
         <span>&copy; 2026 ANGLE Performance Creative Studio. Built for growing brands.</span>
       </div>
@@ -1057,7 +1213,7 @@
         <a href="#formats" class="hover:text-neutral-950 transition">Ad Formats</a>
         <a href="#work" class="hover:text-neutral-950 transition">Vault</a>
         <a href="#pilot" class="hover:text-neutral-950 transition">Pricing</a>
-        <a href="mailto:anupam@anglestudio.com" class="hover:text-neutral-950 transition">Contact</a>
+        <button onclick="openBookingModal('Footer Contact')" class="hover:text-neutral-950 transition cursor-pointer">Contact</button>
       </div>
     </div>
   </footer>
@@ -1067,7 +1223,7 @@
     <div class="bg-white rounded-3xl max-w-4xl w-full max-h-[92vh] overflow-y-auto shadow-2xl border border-neutral-200 relative flex flex-col md:flex-row overflow-hidden" onclick="event.stopPropagation()">
       
       <!-- Close Button -->
-      <button onclick="closeLightbox()" class="absolute top-4 right-4 z-20 w-9 h-9 rounded-full bg-neutral-900/80 text-white flex items-center justify-center hover:bg-neutral-900 transition">
+      <button onclick="closeLightbox()" class="absolute top-4 right-4 z-20 w-9 h-9 rounded-full bg-neutral-900/80 text-white flex items-center justify-center hover:bg-neutral-900 transition cursor-pointer">
         ✕
       </button>
 
@@ -1115,9 +1271,9 @@
 
         <div class="mt-8 pt-4 border-t border-neutral-100 flex items-center justify-between">
           <span class="text-xs text-neutral-400">Want ads like this for your brand?</span>
-          <a href="#pilot" onclick="closeLightbox()" class="px-4 py-2 rounded-full text-xs font-bold text-white bg-neutral-950 hover:bg-blue-600 transition">
+          <button onclick="closeLightbox(); openBookingModal('Modal CTA')" class="px-4 py-2 rounded-full text-xs font-bold text-white bg-neutral-950 hover:bg-blue-600 transition cursor-pointer">
             Start a Sprint &rarr;
-          </a>
+          </button>
         </div>
 
       </div>
@@ -1125,7 +1281,66 @@
     </div>
   </div>
 
-  <!-- JAVASCRIPT: FILTER & LIGHTBOX CONTROLLER -->
+  <!-- INTERACTIVE BOOKING & CONSULTATION MODAL (CRO FIX FOR MAILTO) -->
+  <div id="bookingModal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden flex items-center justify-center p-4 sm:p-6" onclick="closeBookingModalOnBackdrop(event)">
+    <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl border border-neutral-200 relative" onclick="event.stopPropagation()">
+      
+      <!-- Close Button -->
+      <button onclick="closeBookingModal()" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-neutral-100 text-neutral-600 flex items-center justify-center hover:bg-neutral-200 transition cursor-pointer">
+        ✕
+      </button>
+
+      <div class="text-left">
+        <div class="inline-block px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-blue-50 text-blue-700 border border-blue-200 mb-3">
+          72-Hour Creative Sprint
+        </div>
+        <h3 class="text-2xl font-bold font-heading text-neutral-950 mb-1">Let's build your next winning ads.</h3>
+        <p class="text-xs text-neutral-500 mb-6">Drop your details below. We’ll review your store or website and reply in your Slack within 24 hours.</p>
+
+        <form id="leadForm" onsubmit="handleBookingSubmit(event)" class="space-y-4">
+          <div>
+            <label class="block text-xs font-bold text-neutral-700 mb-1">Your Name</label>
+            <input type="text" id="leadName" required placeholder="e.g. Sarah Jenkins" class="w-full px-4 py-2.5 rounded-xl border border-neutral-300 text-xs focus:ring-2 focus:ring-blue-600 focus:outline-none">
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold text-neutral-700 mb-1">Work Email</label>
+            <input type="email" id="leadEmail" required placeholder="sarah@yourbrand.com" class="w-full px-4 py-2.5 rounded-xl border border-neutral-300 text-xs focus:ring-2 focus:ring-blue-600 focus:outline-none">
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold text-neutral-700 mb-1">Brand Website or Store URL</label>
+            <input type="text" id="leadWebsite" required placeholder="https://yourbrand.com" class="w-full px-4 py-2.5 rounded-xl border border-neutral-300 text-xs focus:ring-2 focus:ring-blue-600 focus:outline-none">
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold text-neutral-700 mb-1">Monthly Paid Ad Spend</label>
+            <select id="leadSpend" class="w-full px-4 py-2.5 rounded-xl border border-neutral-300 text-xs focus:ring-2 focus:ring-blue-600 focus:outline-none bg-white">
+              <option value="under20k">Under $20K / month</option>
+              <option value="20k-50k" selected>$20K to $50K / month</option>
+              <option value="50k-100k">$50K to $100K / month</option>
+              <option value="100k+">$100K+ / month</option>
+            </select>
+          </div>
+
+          <button type="submit" class="w-full py-3.5 px-6 rounded-full text-xs font-bold text-white bg-neutral-950 hover:bg-blue-600 transition shadow-md cursor-pointer mt-2">
+            Submit & Reserve 72h Sprint &rarr;
+          </button>
+        </form>
+
+        <div id="bookingSuccess" class="hidden text-center py-8">
+          <div class="w-12 h-12 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-xl font-bold mx-auto mb-3">✓</div>
+          <h4 class="text-lg font-bold text-neutral-900 font-heading">Sprint Request Received!</h4>
+          <p class="text-xs text-neutral-600 mt-1">We're reviewing your website right now. You’ll receive 3 custom ad hook concepts in your inbox within 24 hours.</p>
+          <button onclick="closeBookingModal()" class="mt-4 px-6 py-2 rounded-full text-xs font-bold bg-neutral-100 hover:bg-neutral-200 transition">Close Window</button>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <!-- JAVASCRIPT: CONTROLLER -->
   <script>
     const creativeDatabase = {
       'ad-streetwear': {
@@ -1193,6 +1408,39 @@
         mechanism: 'Primes ownership dopamine before purchase, leading to higher cart values and lower return rates.',
         statHook: '39.8%',
         statRoas: '3.8x'
+      },
+      'ad-watch': {
+        category: 'Luxury Ad',
+        metric: 'High AOV Order',
+        title: 'Monochrome Precision Timepiece',
+        type: 'image',
+        src: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=1000&q=80',
+        hook: 'Sapphire crystal anti-reflective lighting paired with clean minimal aesthetic for high-AOV orders.',
+        mechanism: 'Positions watch as a timeless investment piece, removing hesitation on premium $280+ checkout carts.',
+        statHook: '36.5%',
+        statRoas: '4.1x'
+      },
+      'ad-headphones': {
+        category: 'Tech Hardware',
+        metric: '43% Hook Rate',
+        title: 'Studio ANC Wireless Pods',
+        type: 'image',
+        src: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=1000&q=80',
+        hook: 'Exploded acoustic chamber showing dual-driver noise cancellation and memory foam seal.',
+        mechanism: 'Visualizes pure silence by demonstrating ambient frequency isolation waves in slow motion.',
+        statHook: '43.2%',
+        statRoas: '3.3x'
+      },
+      'ad-matrix': {
+        category: 'Ad System',
+        metric: 'Multi-Angle Testing',
+        title: 'Generative Creative Matrix',
+        type: 'image',
+        src: 'https://cdn.sanity.io/images/k0dlbavy/production/e6d424323b337be2e81d6dda2d974e2dce50d273-1440x1380.png?w=1000&q=95&auto=format',
+        hook: 'High-velocity multi-format grid showing rapid deployment of 20+ aspect ratios and typography hooks.',
+        mechanism: 'Proves to clients how one product concept branches into 20+ ready-to-run variations in 48 hours.',
+        statHook: '40.0%',
+        statRoas: '3.5x'
       }
     };
 
@@ -1254,9 +1502,37 @@
       }
     }
 
+    // BOOKING MODAL LOGIC
+    function openBookingModal(source) {
+      const modal = document.getElementById('bookingModal');
+      document.getElementById('leadForm').classList.remove('hidden');
+      document.getElementById('bookingSuccess').classList.add('hidden');
+      modal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeBookingModal() {
+      const modal = document.getElementById('bookingModal');
+      modal.classList.add('hidden');
+      document.body.style.overflow = '';
+    }
+
+    function closeBookingModalOnBackdrop(e) {
+      if (e.target.id === 'bookingModal') {
+        closeBookingModal();
+      }
+    }
+
+    function handleBookingSubmit(e) {
+      e.preventDefault();
+      document.getElementById('leadForm').classList.add('hidden');
+      document.getElementById('bookingSuccess').classList.remove('hidden');
+    }
+
     document.addEventListener('keydown', function(e) {
       if (e.key === 'Escape') {
         closeLightbox();
+        closeBookingModal();
       }
     });
   </script>
