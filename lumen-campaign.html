@@ -3,178 +3,185 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LUMEN Bio-Lipid | Full 3-Month Performance Creative Campaign</title>
-  <meta name="description" content="A complete 90-day creative strategy campaign for LUMEN Bio-Lipid Barrier Repair Serum: from research and static ads to animated motion and full video scaling. Built by ANGLE Studio.">
-  
-  <!-- Fonts & Core Scripts -->
+  <title>LUMEN Hair & Skin Science | 90-Day Performance Creative Campaign & Strategic Playbook</title>
+  <meta name="description" content="A comprehensive 90-day performance creative strategy and ad campaign teardown for LUMEN Hair & Skin Science. Built from real buyer psychology, Meta ad library research, and clinical diagnostics.">
+  <link rel="canonical" href="https://angle-studio-silk.vercel.app/lumen-campaign">
+
+  <!-- Inter & Plus Jakarta Sans Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
-  
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Newsreader:ital,opsz,wght@1,6..72,400;1,6..72,500&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            heading: ['Plus Jakarta Sans', 'Inter', 'sans-serif'],
+            serif: ['Newsreader', 'Georgia', 'serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            neutral: {
+              950: '#0a0a0a',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
   <style>
     body {
-      font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      background-color: #FAFAFA;
-      color: #0F172A;
-      overflow-x: hidden;
+      font-family: 'Inter', system-ui, sans-serif;
+      color: #171717;
+      background-color: #fafafa;
       -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      letter-spacing: -0.015em;
     }
     h1, h2, h3, h4, .font-heading {
-      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
       letter-spacing: -0.03em;
     }
     .serif-italic {
-      font-family: 'Instrument Serif', Georgia, serif;
+      font-family: 'Newsreader', Georgia, serif;
       font-style: italic;
     }
-    .font-mono {
-      font-family: 'JetBrains Mono', monospace;
-      letter-spacing: -0.02em;
+    .bg-grid {
+      background-size: 32px 32px;
+      background-image: 
+        linear-gradient(to right, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
     }
-    .ad-card-ratio {
-      aspect-ratio: 4/5;
+    .card-living-glow {
+      position: relative;
+    }
+    .card-living-glow::before {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      border-radius: inherit;
+      padding: 1px;
+      background: linear-gradient(135deg, rgba(59, 130, 246, 0.5), rgba(139, 92, 246, 0.2), transparent 70%);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
     }
   </style>
 </head>
 <body class="selection:bg-blue-600 selection:text-white">
 
-  <!-- TOP HEADER -->
-  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-neutral-200/80">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-      <div class="flex items-center gap-3">
-        <a href="/" class="flex items-center gap-2 group">
-          <div class="w-8 h-8 rounded-lg bg-neutral-950 flex items-center justify-center text-white shadow-sm group-hover:bg-blue-600 transition">
-            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-              <path d="M4 20L20 4M4 20H16M4 20V8" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
-          <span class="font-extrabold text-lg text-neutral-950">ANGLE<span class="text-blue-600">.</span></span>
-        </a>
-        <span class="text-neutral-300">/</span>
-        <span class="text-xs font-mono font-semibold text-neutral-500 uppercase tracking-wider">Campaign Case Study</span>
+  <!-- TOP NAV BAR -->
+  <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-neutral-200/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-18 flex items-center justify-between">
+      
+      <!-- Logo Mark with Geometric Angle Icon -->
+      <a href="/" class="flex items-center gap-2.5 group">
+        <div class="w-8 h-8 rounded-lg bg-neutral-950 flex items-center justify-center text-white shadow-sm group-hover:bg-blue-600 transition">
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M4 20L20 4M4 20H16M4 20V8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="flex flex-col">
+          <span class="font-extrabold text-xl tracking-tight text-neutral-950">ANGLE<span class="text-blue-600">.</span></span>
+          <span class="text-[9px] uppercase tracking-widest text-neutral-400 font-semibold -mt-1">Studio & Engine</span>
+        </div>
+      </a>
+
+      <!-- Campaign Badge / Navigation Center -->
+      <div class="hidden md:flex items-center gap-2 px-3 py-1 rounded-full bg-neutral-100 border border-neutral-200 text-xs font-mono">
+        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+        <span class="text-neutral-500 font-medium">Strategic Case Study:</span>
+        <span class="text-neutral-900 font-bold">LUMEN Hair & Skin Science</span>
       </div>
 
-      <div class="flex items-center gap-4">
-        <a href="/" class="text-xs font-semibold text-neutral-600 hover:text-neutral-950 transition flex items-center gap-1">
-          &larr; Back to Angle Studio
-        </a>
-        <a href="/#pilot" class="inline-flex items-center justify-center px-4 py-2 rounded-full text-xs font-semibold text-white bg-neutral-950 hover:bg-blue-600 transition shadow-sm">
-          Deploy Sprints on Your Brand &rarr;
+      <!-- Currency Switcher & Return Link -->
+      <div class="flex items-center gap-3">
+        <div class="inline-flex p-0.5 rounded-full bg-neutral-100 border border-neutral-200 text-[11px] font-bold">
+          <button onclick="setCurrency('USD')" class="curr-toggle-usd px-2.5 py-1 rounded-full transition bg-neutral-950 text-white shadow-xs cursor-pointer">
+            $ USD
+          </button>
+          <button onclick="setCurrency('INR')" class="curr-toggle-inr px-2.5 py-1 rounded-full transition text-neutral-600 hover:text-neutral-950 cursor-pointer">
+            ₹ INR
+          </button>
+        </div>
+
+        <a href="/" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-semibold text-neutral-700 bg-neutral-100 hover:bg-neutral-200 transition">
+          &larr; Back to Studio
         </a>
       </div>
+
     </div>
   </header>
 
-  <!-- HERO SECTION -->
-  <section class="py-16 md:py-24 bg-white border-b border-neutral-200/80">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <!-- HERO SECTION: THE CAMPAIGN BRIEF & STRATEGIC THESIS -->
+  <section class="pt-16 pb-20 bg-grid relative overflow-hidden border-b border-neutral-200/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-200/70 text-blue-700 text-xs font-semibold uppercase tracking-wider mb-6">
-        <span class="w-2 h-2 rounded-full bg-blue-600"></span>
-        3-Month Creative Strategy & Production Flight Plan
+      <!-- Breadcrumb & Kicker -->
+      <div class="flex flex-wrap items-center gap-2 mb-6">
+        <span class="px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider bg-blue-100 text-blue-700">
+          90-Day Performance Blueprint
+        </span>
+        <span class="px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider bg-purple-100 text-purple-700">
+          Hair & Skin Dermal Trichology
+        </span>
+        <span class="px-3 py-1 rounded-full text-[11px] font-mono uppercase bg-neutral-100 text-neutral-700 border border-neutral-200">
+          Statics &rarr; GIFs &rarr; AI Video
+        </span>
       </div>
 
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end mb-12">
-        <div class="lg:col-span-8">
-          <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-neutral-950 tracking-tight leading-[1.1]">
-            LUMEN Bio-Lipid Serum:<br>
-            <span class="serif-italic font-normal text-blue-600">Scaling a high-ticket skincare brand</span> from static to motion.
-          </h1>
-          <p class="text-neutral-600 text-base sm:text-lg mt-6 leading-relaxed max-w-3xl">
-            A full 90-day creative blueprint engineered to take a clean clinical skincare brand from baseline static testing to animated micro-motion loops and high-velocity AI video scaling across Meta and TikTok.
-          </p>
-        </div>
+      <!-- Main Headline: Revealing the Master Strategy -->
+      <h1 class="text-4xl sm:text-6xl font-extrabold text-neutral-950 tracking-tight leading-[1.08] max-w-5xl mb-6">
+        How we engineered a 90-day creative engine for <span class="serif-italic font-normal text-blue-600">LUMEN Hair & Skin</span> without guessing.
+      </h1>
 
-        <div class="lg:col-span-4 p-6 rounded-3xl bg-neutral-50 border border-neutral-200/90 text-xs font-mono space-y-2">
-          <div class="flex justify-between border-b border-neutral-200 pb-2">
-            <span class="text-neutral-500 uppercase">Industry:</span>
-            <span class="font-bold text-neutral-900">Clinical D2C Skincare</span>
-          </div>
-          <div class="flex justify-between border-b border-neutral-200 pb-2">
-            <span class="text-neutral-500 uppercase">Hero SKU:</span>
-            <span class="font-bold text-neutral-900">5-Ceramide Barrier Serum</span>
-          </div>
-          <div class="flex justify-between border-b border-neutral-200 pb-2">
-            <span class="text-neutral-500 uppercase">AOV Benchmark:</span>
-            <span class="font-bold text-neutral-900">$48 USD / ₹2,450 INR</span>
-          </div>
-          <div class="flex justify-between pt-1">
-            <span class="text-neutral-500 uppercase">Campaign Horizon:</span>
-            <span class="font-bold text-emerald-600">90-Day Structured Flight</span>
-          </div>
-        </div>
-      </div>
+      <!-- Core Strategic Thesis -->
+      <p class="text-lg sm:text-xl text-neutral-600 max-w-3xl leading-relaxed mb-8">
+        Competitors in hair and skincare sell the next generic product bottle or subscription kit. LUMEN sells the diagnostic answer first: identifying why hair is falling or why the moisture barrier is broken, backed by a clinical report and human doctor accountability. Here is the exact strategy and creative architecture we built to scale spend profitably.
+      </p>
 
-    </div>
-  </section>
-
-  <!-- AUDIENCE & COMPETITOR RESEARCH DOSSIER -->
-  <section class="py-20 bg-neutral-50 border-b border-neutral-200/80">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <div class="mb-12">
-        <span class="text-xs font-bold uppercase tracking-wider text-blue-600">Phase 0: Deep Market Intelligence</span>
-        <h2 class="text-2xl sm:text-4xl font-extrabold text-neutral-950 mt-2">
-          The Research Dossier: Uncovering the Creative Gaps
-        </h2>
-        <p class="text-neutral-600 text-sm sm:text-base mt-2 max-w-2xl">
-          We analyzed over 2,400 competitor customer reviews, Reddit skincare forums, and live Ad Library creatives in the clean beauty category to identify where existing ads fail.
-        </p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <!-- SKU Specification Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl pt-6 border-t border-neutral-200/90 text-left">
         
-        <!-- Persona 1 -->
+        <!-- SKU 1: Hair Trichology -->
         <div class="p-6 rounded-3xl bg-white border border-neutral-200/80 shadow-xs flex flex-col justify-between">
           <div>
             <div class="flex items-center justify-between pb-3 mb-3 border-b border-neutral-100 text-xs font-mono">
-              <span class="text-blue-600 font-bold uppercase">Persona 01</span>
-              <span class="text-neutral-400">High Skepticism</span>
+              <span class="px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 font-bold uppercase text-[10px]">Trichology Flagship</span>
+              <span class="sku-hair-price text-neutral-900 font-bold" data-usd="$54 USD" data-inr="₹2,850 INR">$54 USD</span>
             </div>
-            <h3 class="text-lg font-bold font-heading text-neutral-950 mb-2">The Stripped-Barrier Skeptic</h3>
-            <p class="text-xs text-neutral-600 leading-relaxed mb-4">
-              Over-exfoliated with strong acids and retinols. Faces chronic redness, burning, and dry patches. Highly skeptical because most moisturizers either sting upon application or clog pores.
+            <h3 class="text-xl font-bold text-neutral-950 font-heading mb-1">Follicle-Densifying Scalp Matrix</h3>
+            <p class="text-xs font-semibold text-blue-600 mb-2">5% Redensyl + 3% Procapil + Biomimetic Peptides (60ml)</p>
+            <p class="text-xs text-neutral-600 leading-relaxed">
+              Formulated to address follicle miniaturization and hard water mineral buildup without hormonal side effects or shedding shock.
             </p>
           </div>
-          <div class="p-3 rounded-xl bg-blue-50 border border-blue-100 text-[11px] text-blue-900 font-medium">
-            Strategic Angle: "Your skin is not dry: your barrier is broken." Requires transparent clinical proof.
+          <div class="mt-4 pt-3 border-t border-neutral-100 text-[11px] font-mono text-neutral-500 flex items-center justify-between">
+            <span>Primary Focus: Scalp Barrier Density</span>
+            <span class="text-emerald-600 font-bold">Clinical Grade</span>
           </div>
         </div>
 
-        <!-- Persona 2 -->
+        <!-- SKU 2: Skin Dermal -->
         <div class="p-6 rounded-3xl bg-white border border-neutral-200/80 shadow-xs flex flex-col justify-between">
           <div>
             <div class="flex items-center justify-between pb-3 mb-3 border-b border-neutral-100 text-xs font-mono">
-              <span class="text-purple-600 font-bold uppercase">Persona 02</span>
-              <span class="text-neutral-400">Efficiency Driven</span>
+              <span class="px-2.5 py-0.5 rounded-full bg-blue-100 text-blue-800 font-bold uppercase text-[10px]">Dermal Flagship</span>
+              <span class="sku-skin-price text-neutral-900 font-bold" data-usd="$48 USD" data-inr="₹2,450 INR">$48 USD</span>
             </div>
-            <h3 class="text-lg font-bold font-heading text-neutral-950 mb-2">The 3-Minute Routine Professional</h3>
-            <p class="text-xs text-neutral-600 leading-relaxed mb-4">
-              Works long hours, travels frequently, and wears makeup daily. Does not have 20 minutes for a ten-step routine. Wants one clinical product that absorbs in thirty seconds without pilling under sunscreen.
+            <h3 class="text-xl font-bold text-neutral-950 font-heading mb-1">Bio-Lipid Ceramide Barrier Reset</h3>
+            <p class="text-xs font-semibold text-blue-600 mb-2">5-Ceramide Biomimetic Complex (3:1:1 Ratio) + 2% Ectoin (50ml)</p>
+            <p class="text-xs text-neutral-600 leading-relaxed">
+              Restores stripped epidermal moisture barriers caused by harsh exfoliants, hard water salts, and chemical irritation in 14 days.
             </p>
           </div>
-          <div class="p-3 rounded-xl bg-purple-50 border border-purple-100 text-[11px] text-purple-900 font-medium">
-            Strategic Angle: Instant lightweight absorption with all-day barrier seal. Fast mobile visual.
-          </div>
-        </div>
-
-        <!-- Persona 3 -->
-        <div class="p-6 rounded-3xl bg-white border border-neutral-200/80 shadow-xs flex flex-col justify-between">
-          <div>
-            <div class="flex items-center justify-between pb-3 mb-3 border-b border-neutral-100 text-xs font-mono">
-              <span class="text-emerald-600 font-bold uppercase">Persona 03</span>
-              <span class="text-neutral-400">Ingredient Conscious</span>
-            </div>
-            <h3 class="text-lg font-bold font-heading text-neutral-950 mb-2">The Clean Formulation Purist</h3>
-            <p class="text-xs text-neutral-600 leading-relaxed mb-4">
-              Scans every ingredient on INCI decoder websites. Avoids artificial fragrance, essential oils, and cheap silicone fillers. Needs biomimetic lipid ratios and eco-certified packaging.
-            </p>
-          </div>
-          <div class="p-3 rounded-xl bg-emerald-50 border border-emerald-100 text-[11px] text-emerald-900 font-medium">
-            Strategic Angle: Clean lipid ratio teardown (Ceramides 3:1:1 + Ectoin) with zero filler liquids.
+          <div class="mt-4 pt-3 border-t border-neutral-100 text-[11px] font-mono text-neutral-500 flex items-center justify-between">
+            <span>Primary Focus: Lipid Matrix Repair</span>
+            <span class="text-blue-600 font-bold">Zero Burning</span>
           </div>
         </div>
 
@@ -183,90 +190,244 @@
     </div>
   </section>
 
-  <!-- THE 90-DAY (3-MONTH) PROGRESSION FLIGHT PLAN -->
+  <!-- SECTION 1: THE STRATEGIC THINKING & AUDIENCE PSYCHOLOGY -->
   <section class="py-20 bg-white border-b border-neutral-200/80">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
-      <div class="text-center max-w-3xl mx-auto mb-16">
-        <span class="text-xs font-bold uppercase tracking-wider text-blue-600">Strategic Roadmap</span>
-        <h2 class="text-3xl sm:text-5xl font-extrabold text-neutral-950 mt-2">
-          The 3-Month Campaign Architecture
+      <div class="max-w-3xl mb-16">
+        <span class="text-xs font-bold uppercase tracking-wider text-blue-600">The Diagnostic Mindset</span>
+        <h2 class="text-3xl sm:text-5xl font-extrabold text-neutral-950 mt-2 mb-4">
+          Why traditional hair and skincare ads burn cash.
         </h2>
-        <p class="text-neutral-600 text-base mt-2">
-          How we scale spend sustainably from static baseline validation to animated loops and full video deployment:
+        <p class="text-neutral-600 text-base sm:text-lg leading-relaxed">
+          Most performance agencies jump straight into Photoshop and create generic aesthetic ads. That fails because the user's real pain is not just hair fall or dry skin: <strong>the real pain is guessing fatigue and wasted money</strong>.
+        </p>
+      </div>
+
+      <!-- The 3 Core Market Flaws -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+        
+        <div class="p-6 rounded-3xl bg-neutral-50 border border-neutral-200/80">
+          <div class="w-10 h-10 rounded-xl bg-red-100 text-red-600 flex items-center justify-center font-bold text-sm mb-4">
+            01
+          </div>
+          <h3 class="text-lg font-bold text-neutral-950 font-heading mb-2">The Bathroom Shelf Graveyard</h3>
+          <p class="text-xs text-neutral-600 leading-relaxed">
+            The customer already owns eight half-used bottles: onion oils, rosemary waters, minoxidil drops, biotin gummies, and expensive shampoos. Selling them another generic bottle triggers immediate buyer remorse.
+          </p>
+        </div>
+
+        <div class="p-6 rounded-3xl bg-neutral-50 border border-neutral-200/80">
+          <div class="w-10 h-10 rounded-xl bg-amber-100 text-amber-600 flex items-center justify-center font-bold text-sm mb-4">
+            02
+          </div>
+          <h3 class="text-lg font-bold text-neutral-950 font-heading mb-2">The Distrust of Before/Afters</h3>
+          <p class="text-xs text-neutral-600 leading-relaxed">
+            Consumers are exhausted by exaggerated lighting tricks, AI-generated hair filters, and questionable influencer testimonials. Real buyers demand clinical diagnostics and verifiable ingredient science over marketing hype.
+          </p>
+        </div>
+
+        <div class="p-6 rounded-3xl bg-neutral-50 border border-neutral-200/80">
+          <div class="w-10 h-10 rounded-xl bg-purple-100 text-purple-600 flex items-center justify-center font-bold text-sm mb-4">
+            03
+          </div>
+          <h3 class="text-lg font-bold text-neutral-950 font-heading mb-2">The Day 21 Abandonment Cliff</h3>
+          <p class="text-xs text-neutral-600 leading-relaxed">
+            When people start active treatments, hair follicles often undergo temporary telogen shedding before new anagen growth begins. Without human medical support, users panic on Day 20, assume the product failed, and quit.
+          </p>
+        </div>
+
+      </div>
+
+      <!-- THE 6 REAL BUYER PERSONAS -->
+      <div class="mb-12">
+        <h3 class="text-2xl font-bold text-neutral-950 font-heading mb-3">
+          The 6 Customer Personas We Engineer Creative For
+        </h3>
+        <p class="text-xs text-neutral-500 mb-8 max-w-2xl">
+          We never write ads for generic demographics. Each creative targets a specific psychological moment and unresolved objection.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          
+          <!-- Persona 1: The Shelf Collector -->
+          <div class="p-6 rounded-3xl bg-neutral-900 text-white border border-neutral-800">
+            <div class="flex items-center justify-between pb-2 mb-3 border-b border-neutral-800 text-xs font-mono">
+              <span class="text-blue-400 font-bold uppercase">Persona 01</span>
+              <span class="text-neutral-400">Men & Women 25-38</span>
+            </div>
+            <h4 class="text-base font-bold text-white mb-1">The Shelf Collector</h4>
+            <p class="text-xs text-neutral-300 italic mb-3">"I have tried oils, serums, and gummies. Everything relapses in 3 months."</p>
+            <div class="text-[11px] text-neutral-400 space-y-1 font-mono">
+              <div>&bull; Core Friction: Guessing fatigue</div>
+              <div>&bull; Winning Angle: Uncover root cause first</div>
+              <div>&bull; Targeted Asset: S1 & S2 Static Ads</div>
+            </div>
+          </div>
+
+          <!-- Persona 2: The City Mover (Hard Water) -->
+          <div class="p-6 rounded-3xl bg-neutral-900 text-white border border-neutral-800">
+            <div class="flex items-center justify-between pb-2 mb-3 border-b border-neutral-800 text-xs font-mono">
+              <span class="text-emerald-400 font-bold uppercase">Persona 02</span>
+              <span class="text-neutral-400">Urban Relocators 22-30</span>
+            </div>
+            <h4 class="text-base font-bold text-white mb-1">The City Mover</h4>
+            <p class="text-xs text-neutral-300 italic mb-3">"Moved to Bangalore for work. The hard water ruined my scalp and skin."</p>
+            <div class="text-[11px] text-neutral-400 space-y-1 font-mono">
+              <div>&bull; Core Friction: Environmental minerals & TDS</div>
+              <div>&bull; Winning Angle: Mineral chelating + peptide shield</div>
+              <div>&bull; Targeted Asset: V2 AI Video & S1 Static</div>
+            </div>
+          </div>
+
+          <!-- Persona 3: The Wedding Countdown -->
+          <div class="p-6 rounded-3xl bg-neutral-900 text-white border border-neutral-800">
+            <div class="flex items-center justify-between pb-2 mb-3 border-b border-neutral-800 text-xs font-mono">
+              <span class="text-purple-400 font-bold uppercase">Persona 03</span>
+              <span class="text-neutral-400">Brides & Grooms 24-34</span>
+            </div>
+            <h4 class="text-base font-bold text-white mb-1">The Wedding Countdown</h4>
+            <p class="text-xs text-neutral-300 italic mb-3">"Six months to my wedding. My hairline is showing in photos and I panic."</p>
+            <div class="text-[11px] text-neutral-400 space-y-1 font-mono">
+              <div>&bull; Core Friction: Urgent deadline anxiety</div>
+              <div>&bull; Winning Angle: 90-day structured clinical timeline</div>
+              <div>&bull; Targeted Asset: V3 AI Video & S6 Static</div>
+            </div>
+          </div>
+
+          <!-- Persona 4: The Stripped-Barrier Skeptic -->
+          <div class="p-6 rounded-3xl bg-neutral-900 text-white border border-neutral-800">
+            <div class="flex items-center justify-between pb-2 mb-3 border-b border-neutral-800 text-xs font-mono">
+              <span class="text-amber-400 font-bold uppercase">Persona 04</span>
+              <span class="text-neutral-400">Sensitive Skin 26-42</span>
+            </div>
+            <h4 class="text-base font-bold text-white mb-1">The Stripped-Barrier Skeptic</h4>
+            <p class="text-xs text-neutral-300 italic mb-3">"Every serum burns on contact. Retinol ruined my skin barrier."</p>
+            <div class="text-[11px] text-neutral-400 space-y-1 font-mono">
+              <div>&bull; Core Friction: Severe chemical sensitivity</div>
+              <div>&bull; Winning Angle: 3:1:1 physiological lipids</div>
+              <div>&bull; Targeted Asset: S4 Static & Texture Zoom</div>
+            </div>
+          </div>
+
+          <!-- Persona 5: The Stage Decider -->
+          <div class="p-6 rounded-3xl bg-neutral-900 text-white border border-neutral-800">
+            <div class="flex items-center justify-between pb-2 mb-3 border-b border-neutral-800 text-xs font-mono">
+              <span class="text-blue-400 font-bold uppercase">Persona 05</span>
+              <span class="text-neutral-400">Men 30-45 / Norwood 2-4</span>
+            </div>
+            <h4 class="text-base font-bold text-white mb-1">The Stage Decider</h4>
+            <p class="text-xs text-neutral-300 italic mb-3">"Will a topical serum work for my temples, or do I need a doctor / PRP?"</p>
+            <div class="text-[11px] text-neutral-400 space-y-1 font-mono">
+              <div>&bull; Core Friction: Fear of wasting money on kits</div>
+              <div>&bull; Winning Angle: Stage 1-2 kit vs Stage 3+ clinic</div>
+              <div>&bull; Targeted Asset: S2 Honest Comparison Static</div>
+            </div>
+          </div>
+
+          <!-- Persona 6: The Day 21 Dropout -->
+          <div class="p-6 rounded-3xl bg-neutral-900 text-white border border-neutral-800">
+            <div class="flex items-center justify-between pb-2 mb-3 border-b border-neutral-800 text-xs font-mono">
+              <span class="text-red-400 font-bold uppercase">Persona 06</span>
+              <span class="text-neutral-400">Current Users (Day 15-30)</span>
+            </div>
+            <h4 class="text-base font-bold text-white mb-1">The Day 21 Dropout</h4>
+            <p class="text-xs text-neutral-300 italic mb-3">"Seeing hair in my shower on day 20. Does this mean it is getting worse?"</p>
+            <div class="text-[11px] text-neutral-400 space-y-1 font-mono">
+              <div>&bull; Core Friction: Temporary shedding panic</div>
+              <div>&bull; Winning Angle: Doctor WhatsApp support & reassurance</div>
+              <div>&bull; Targeted Asset: S5 Chat UI & V6 AI Video</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION 2: THE 90-DAY STRATEGIC ARCHITECTURE (STATIC FIRST TO AI VIDEO) -->
+  <section class="py-20 bg-neutral-50 border-b border-neutral-200/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-xs font-bold uppercase tracking-wider text-blue-600">Phased Capital Allocation</span>
+        <h2 class="text-3xl sm:text-5xl font-extrabold text-neutral-950 mt-2 mb-4">
+          The 90-Day Performance Creative Roadmap
+        </h2>
+        <p class="text-neutral-600 text-base sm:text-lg">
+          We never burn budget rendering high-end video before testing copy and hooks. We deploy static ads first to identify winning hooks at low CPC, then animate winners into micro-motion GIF loops, and scale with full AI video.
         </p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         
-        <!-- Month 1 -->
-        <div class="p-8 rounded-3xl bg-neutral-50 border border-neutral-200/90 flex flex-col justify-between">
+        <!-- Month 1: Static Discovery -->
+        <div class="p-8 rounded-3xl bg-white border border-neutral-200/80 shadow-xs flex flex-col justify-between">
           <div>
-            <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-mono font-bold uppercase bg-blue-100 text-blue-700 mb-6">
-              Month 01: Weeks 1 to 4
+            <div class="flex items-center justify-between pb-3 mb-4 border-b border-neutral-100 text-xs font-mono">
+              <span class="px-2.5 py-1 rounded-full bg-blue-100 text-blue-700 font-bold uppercase text-[10px]">Month 01 &bull; Days 1-30</span>
+              <span class="text-neutral-500">Validation</span>
             </div>
-            <h3 class="text-2xl font-bold font-heading text-neutral-950 mb-2">Phase 1: Static Image Discovery</h3>
-            <p class="text-xs text-neutral-500 font-mono mb-4">Focus: Rapid Hook & Copy Validation</p>
+            <h3 class="text-2xl font-bold text-neutral-950 font-heading mb-2">Static Image Discovery</h3>
             <p class="text-xs text-neutral-600 leading-relaxed mb-6">
-              Deploy six distinct static ad concepts across broad consolidated ad sets. Find which psychological trigger earns the lowest initial cost per click and highest outbound CTR.
+              Deploy 12 static variations via Dynamic Creative Testing (DCT). Isolate winning copy angles across all 6 personas at under $1.40 CPC before touching animation software.
             </p>
-
-            <ul class="space-y-2.5 text-xs text-neutral-700">
-              <li class="flex items-center gap-2"><span class="text-blue-600 font-bold">&check;</span> 6 static ad frameworks (Minimalist, Us vs Them, Anatomy, Press, Review, Timeline)</li>
-              <li class="flex items-center gap-2"><span class="text-blue-600 font-bold">&check;</span> Dynamic Creative Testing (3 hooks x 2 primary texts x 2 hero visuals)</li>
-              <li class="flex items-center gap-2"><span class="text-blue-600 font-bold">&check;</span> Goal: Identify top two winning angles at under $1.40 CPC</li>
+            <ul class="space-y-2.5 text-xs text-neutral-700 font-medium">
+              <li class="flex items-center gap-2"><span class="text-blue-600 font-bold">&check;</span> Search Bar Confusion (S1)</li>
+              <li class="flex items-center gap-2"><span class="text-blue-600 font-bold">&check;</span> The Bathroom Shelf Graveyard (S2)</li>
+              <li class="flex items-center gap-2"><span class="text-blue-600 font-bold">&check;</span> Clinical Report Preview (S3)</li>
+              <li class="flex items-center gap-2"><span class="text-blue-600 font-bold">&check;</span> Kit vs Clinic Stage Reality (S4)</li>
             </ul>
           </div>
-          <div class="mt-8 pt-4 border-t border-neutral-200 font-mono text-[11px] text-blue-600 font-bold">
-            Output: 12 Tested Static Creatives
+          <div class="mt-8 pt-4 border-t border-neutral-100 text-[11px] font-mono text-blue-700 font-bold">
+            Milestone: Verified Winning Hooks
           </div>
         </div>
 
-        <!-- Month 2 -->
-        <div class="p-8 rounded-3xl bg-neutral-950 text-white border border-blue-500/40 shadow-xl flex flex-col justify-between">
+        <!-- Month 2: Micro-Motion & GIFs -->
+        <div class="p-8 rounded-3xl bg-white border border-neutral-200/80 shadow-xs flex flex-col justify-between">
           <div>
-            <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-mono font-bold uppercase bg-blue-600 text-white mb-6">
-              Month 02: Weeks 5 to 8
+            <div class="flex items-center justify-between pb-3 mb-4 border-b border-neutral-100 text-xs font-mono">
+              <span class="px-2.5 py-1 rounded-full bg-purple-100 text-purple-700 font-bold uppercase text-[10px]">Month 02 &bull; Days 31-60</span>
+              <span class="text-neutral-500">Acceleration</span>
             </div>
-            <h3 class="text-2xl font-bold font-heading text-white mb-2">Phase 2: Micro-Motion & GIF Loops</h3>
-            <p class="text-xs text-neutral-400 font-mono mb-4">Focus: Hold Rate & Thumbstop Lift</p>
-            <p class="text-xs text-neutral-300 leading-relaxed mb-6">
-              Take the top two winning static hooks from Month 1 and elevate them into animated kinetic motion, looping dropper drips, and split-screen wipes to disrupt feed fatigue.
+            <h3 class="text-2xl font-bold text-neutral-950 font-heading mb-2">Micro-Motion & GIF Loops</h3>
+            <p class="text-xs text-neutral-600 leading-relaxed mb-6">
+              Take the top 3 winning static concepts and animate the core visual proof: four-second report focus rings, hard water TDS meter sweeps, and 3D follicle absorption loops.
             </p>
-
-            <ul class="space-y-2.5 text-xs text-neutral-300">
-              <li class="flex items-center gap-2"><span class="text-emerald-400 font-bold">&check;</span> Animated kinetic typography overlays</li>
-              <li class="flex items-center gap-2"><span class="text-emerald-400 font-bold">&check;</span> 3D liquid texture macro zoom micro-loops (0:04 to 0:08)</li>
-              <li class="flex items-center gap-2"><span class="text-emerald-400 font-bold">&check;</span> Animated Us vs. Them split-screen checkmark reveals</li>
-              <li class="flex items-center gap-2"><span class="text-emerald-400 font-bold">&check;</span> Goal: +35% thumbstop rate lift & 20% lower blended CPA</li>
+            <ul class="space-y-2.5 text-xs text-neutral-700 font-medium">
+              <li class="flex items-center gap-2"><span class="text-purple-600 font-bold">&check;</span> 8 Kinetic Micro-Loops deployed</li>
+              <li class="flex items-center gap-2"><span class="text-purple-600 font-bold">&check;</span> +35% Lift in Thumbstop Rate</li>
+              <li class="flex items-center gap-2"><span class="text-purple-600 font-bold">&check;</span> -22% Cost Per Acquisition</li>
+              <li class="flex items-center gap-2"><span class="text-purple-600 font-bold">&check;</span> WhatsApp interactive chat animations</li>
             </ul>
           </div>
-          <div class="mt-8 pt-4 border-t border-neutral-800 font-mono text-[11px] text-emerald-400 font-bold">
-            Output: 8 Micro-Motion GIF & MP4 Loops
+          <div class="mt-8 pt-4 border-t border-neutral-100 text-[11px] font-mono text-purple-700 font-bold">
+            Milestone: CPA Compression
           </div>
         </div>
 
-        <!-- Month 3 -->
-        <div class="p-8 rounded-3xl bg-neutral-50 border border-neutral-200/90 flex flex-col justify-between">
+        <!-- Month 3: Full AI Video Scale -->
+        <div class="p-8 rounded-3xl bg-white border border-neutral-200/80 shadow-xs flex flex-col justify-between">
           <div>
-            <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-mono font-bold uppercase bg-purple-100 text-purple-700 mb-6">
-              Month 03: Weeks 9 to 12
+            <div class="flex items-center justify-between pb-3 mb-4 border-b border-neutral-100 text-xs font-mono">
+              <span class="px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-700 font-bold uppercase text-[10px]">Month 03 &bull; Days 61-90</span>
+              <span class="text-neutral-500">Scale</span>
             </div>
-            <h3 class="text-2xl font-bold font-heading text-neutral-950 mb-2">Phase 3: High-Velocity Video Scale</h3>
-            <p class="text-xs text-neutral-500 font-mono mb-4">Focus: Full Funnel Scale & Retention</p>
+            <h3 class="text-2xl font-bold text-neutral-950 font-heading mb-2">Multimodal AI Video Scale</h3>
             <p class="text-xs text-neutral-600 leading-relaxed mb-6">
-              Expand the validated winning angle into full 15-to-20-second vertical video ads featuring multimodal AI creators, 3D skin layer absorption, and bundle offer hooks.
+              Scale proven angles using next-gen AI video pipelines. Generate realistic demographic creator avatars, clinical B-roll, and 5 hook variations in 72 hours without studio shoot overhead.
             </p>
-
-            <ul class="space-y-2.5 text-xs text-neutral-700">
-              <li class="flex items-center gap-2"><span class="text-blue-600 font-bold">&check;</span> 9:16 vertical video with dynamic kinetic captioning</li>
-              <li class="flex items-center gap-2"><span class="text-blue-600 font-bold">&check;</span> AI creator routine testimonials targeting specific age brackets</li>
-              <li class="flex items-center gap-2"><span class="text-blue-600 font-bold">&check;</span> Starter kit bundle hooks to push AOV above $85 / ₹4,200</li>
-              <li class="flex items-center gap-2"><span class="text-blue-600 font-bold">&check;</span> Multi-channel expansion: Meta Reels, TikTok Spark, YouTube Shorts</li>
+            <ul class="space-y-2.5 text-xs text-neutral-700 font-medium">
+              <li class="flex items-center gap-2"><span class="text-emerald-600 font-bold">&check;</span> 6 Full 9:16 Vertical Video Ads</li>
+              <li class="flex items-center gap-2"><span class="text-emerald-600 font-bold">&check;</span> Diverse creator demographics (Urban & Regional)</li>
+              <li class="flex items-center gap-2"><span class="text-emerald-600 font-bold">&check;</span> Script-to-screen in 72 hours</li>
+              <li class="flex items-center gap-2"><span class="text-emerald-600 font-bold">&check;</span> Ready for $5,000+/day scale</li>
             </ul>
           </div>
-          <div class="mt-8 pt-4 border-t border-neutral-200 font-mono text-[11px] text-purple-600 font-bold">
-            Output: 6 Full Video Ads + Dynamic Hooks
+          <div class="mt-8 pt-4 border-t border-neutral-100 text-[11px] font-mono text-emerald-700 font-bold">
+            Milestone: Uncapped Spend Scale
           </div>
         </div>
 
@@ -275,332 +436,374 @@
     </div>
   </section>
 
-  <!-- THE STATIC AD SUITE: 6 CONCRETE AD FORMATS -->
-  <section id="static-suite" class="py-24 bg-neutral-900 text-white relative">
+  <!-- SECTION 3: THE 6 REAL STATIC AD FORMATS (FEATURING ANUPAM'S PROVEN STRATEGY) -->
+  <section class="py-24 bg-white border-b border-neutral-200/80">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
-      <div class="flex flex-col md:flex-row md:items-end justify-between mb-16">
-        <div>
-          <span class="text-xs font-bold uppercase tracking-wider text-blue-400">Phase 1 Creative Deliverables</span>
-          <h2 class="text-3xl sm:text-5xl font-extrabold text-white mt-2">
-            The Static Creative Suite: 6 Formats
-          </h2>
-          <p class="text-neutral-400 text-sm sm:text-base mt-2 max-w-xl">
-            Each ad below targets a distinct psychological entry point. Inspect the layout, copy angles, and reason behind each design choice.
-          </p>
-        </div>
-        <div class="mt-6 md:mt-0 flex items-center gap-2 text-xs font-mono text-neutral-400">
-          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-          <span>All 6 Formats Production Ready (4:5 Ratio)</span>
-        </div>
-      </div>
-
-      <!-- 6 Concrete Ad Creative Mockup Cards -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        
-        <!-- Ad 01: The Minimalist Dropper Proof -->
-        <div class="rounded-3xl bg-neutral-950 border border-neutral-800 overflow-hidden flex flex-col shadow-2xl">
-          <div class="relative ad-card-ratio bg-neutral-900 overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=1000&q=85" alt="Minimalist Dropper Proof Ad" class="w-full h-full object-cover">
-            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent"></div>
-            
-            <div class="absolute top-4 left-4">
-              <span class="px-2.5 py-1 rounded-full text-[10px] font-mono font-bold uppercase bg-blue-600 text-white">Format 01: Hero Proof</span>
-            </div>
-
-            <!-- Ad Copy Overlay -->
-            <div class="absolute bottom-6 left-6 right-6">
-              <span class="text-[10px] font-mono uppercase tracking-widest text-blue-400 font-bold">LUMEN Clinical Skincare</span>
-              <h4 class="text-2xl font-bold font-heading text-white mt-1 leading-tight">Your skin is not dry.<br>Your barrier is broken.</h4>
-              <p class="text-xs text-neutral-300 mt-2">5-Ceramide Complex restores the lipid matrix in 14 days without heavy oils.</p>
-            </div>
-          </div>
-
-          <div class="p-6 bg-neutral-950 border-t border-neutral-800 space-y-2 text-xs">
-            <div class="flex justify-between text-neutral-400 font-mono text-[11px]">
-              <span>Target: Cold Feed (TOFU)</span>
-              <span class="text-emerald-400 font-bold">2.4% Outbound CTR</span>
-            </div>
-            <p class="text-neutral-400 text-[11px] leading-relaxed">
-              <strong>Why it converts:</strong> Reframes the customer's problem. They stop searching for heavier moisturizers and realize they need barrier repair.
-            </p>
-          </div>
-        </div>
-
-        <!-- Ad 02: The Us vs. Them Comparison Card -->
-        <div class="rounded-3xl bg-neutral-950 border border-neutral-800 overflow-hidden flex flex-col shadow-2xl">
-          <div class="relative ad-card-ratio bg-neutral-900 p-6 flex flex-col justify-between overflow-hidden">
-            <div class="flex items-center justify-between z-10">
-              <span class="px-2.5 py-1 rounded-full text-[10px] font-mono font-bold uppercase bg-purple-600 text-white">Format 02: Comparison</span>
-              <span class="text-[10px] font-mono text-neutral-400">Side-by-Side</span>
-            </div>
-
-            <!-- Comparison Graphic Table -->
-            <div class="my-auto space-y-3 z-10">
-              <div class="text-center mb-4">
-                <span class="text-xs font-mono uppercase tracking-wider text-purple-400 font-bold">The Honest Teardown</span>
-                <h4 class="text-xl font-bold text-white mt-0.5">Most Serums vs. LUMEN</h4>
-              </div>
-
-              <div class="p-3 rounded-2xl bg-neutral-900 border border-neutral-800 space-y-2 text-xs">
-                <div class="flex items-center justify-between pb-2 border-b border-neutral-800">
-                  <span class="text-neutral-400">70% Water Filler</span>
-                  <span class="text-emerald-400 font-bold">&check; 0% Water, 100% Active</span>
-                </div>
-                <div class="flex items-center justify-between pb-2 border-b border-neutral-800">
-                  <span class="text-neutral-400">Artificial Fragrance</span>
-                  <span class="text-emerald-400 font-bold">&check; 100% Fragrance Free</span>
-                </div>
-                <div class="flex items-center justify-between pb-2 border-b border-neutral-800">
-                  <span class="text-neutral-400">Clogs Sensitive Pores</span>
-                  <span class="text-emerald-400 font-bold">&check; Non-Comedogenic Lipids</span>
-                </div>
-                <div class="flex items-center justify-between">
-                  <span class="text-neutral-400">Greasy 20-min dry</span>
-                  <span class="text-emerald-400 font-bold">&check; 30-Second Absorption</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="z-10 text-center">
-              <span class="text-[11px] font-mono text-neutral-400">Clinical Formulation &middot; Dermatologist Tested</span>
-            </div>
-          </div>
-
-          <div class="p-6 bg-neutral-950 border-t border-neutral-800 space-y-2 text-xs">
-            <div class="flex justify-between text-neutral-400 font-mono text-[11px]">
-              <span>Target: Consideration (MOFU)</span>
-              <span class="text-purple-400 font-bold">3.1x Return on Spend</span>
-            </div>
-            <p class="text-neutral-400 text-[11px] leading-relaxed">
-              <strong>Why it converts:</strong> Directly addresses the skepticism that all serums are just diluted water. Visual contrast makes LUMEN the obvious rational choice.
-            </p>
-          </div>
-        </div>
-
-        <!-- Ad 03: The Visual Anatomy / Ingredient Teardown -->
-        <div class="rounded-3xl bg-neutral-950 border border-neutral-800 overflow-hidden flex flex-col shadow-2xl">
-          <div class="relative ad-card-ratio bg-neutral-900 overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=1000&q=85" alt="Ingredient Teardown Ad" class="w-full h-full object-cover">
-            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/20"></div>
-            
-            <div class="absolute top-4 left-4">
-              <span class="px-2.5 py-1 rounded-full text-[10px] font-mono font-bold uppercase bg-emerald-600 text-white">Format 03: Anatomy</span>
-            </div>
-
-            <!-- Callout Badges -->
-            <div class="absolute inset-x-6 top-16 space-y-2 text-[10px] font-mono">
-              <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/70 backdrop-blur-md border border-white/20 text-white">
-                <span class="text-emerald-400 font-bold">&rarr;</span> 3:1:1 Biomimetic Ceramide Ratio
-              </div>
-              <br>
-              <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/70 backdrop-blur-md border border-white/20 text-white">
-                <span class="text-emerald-400 font-bold">&rarr;</span> 2% Ectoin Environmental Shield
-              </div>
-            </div>
-
-            <!-- Bottom Copy -->
-            <div class="absolute bottom-6 left-6 right-6">
-              <h4 class="text-xl font-bold font-heading text-white leading-tight">The 4-Layer Barrier Architecture</h4>
-              <p class="text-xs text-neutral-300 mt-1">Locks in natural moisture while repelling daily urban pollutants.</p>
-            </div>
-          </div>
-
-          <div class="p-6 bg-neutral-950 border-t border-neutral-800 space-y-2 text-xs">
-            <div class="flex justify-between text-neutral-400 font-mono text-[11px]">
-              <span>Target: Ingredient Purist</span>
-              <span class="text-emerald-400 font-bold">-28% Blended CPA</span>
-            </div>
-            <p class="text-neutral-400 text-[11px] leading-relaxed">
-              <strong>Why it converts:</strong> Demonstrates biochemical authority. Conscious ingredient checkers validate the active compounds and buy without coupon resistance.
-            </p>
-          </div>
-        </div>
-
-        <!-- Ad 04: The Clinical Trial & Press Proof -->
-        <div class="rounded-3xl bg-neutral-950 border border-neutral-800 overflow-hidden flex flex-col shadow-2xl">
-          <div class="relative ad-card-ratio bg-neutral-900 p-6 flex flex-col justify-between overflow-hidden">
-            <div class="flex items-center justify-between z-10">
-              <span class="px-2.5 py-1 rounded-full text-[10px] font-mono font-bold uppercase bg-blue-600 text-white">Format 04: Press & Trials</span>
-              <span class="text-[10px] font-mono text-neutral-400">Independent Clinicals</span>
-            </div>
-
-            <div class="my-auto space-y-4 z-10 text-center">
-              <!-- Big Stat Badge -->
-              <div class="inline-block p-4 rounded-3xl bg-blue-600/20 border border-blue-500/40">
-                <div class="text-4xl sm:text-5xl font-extrabold text-blue-400 font-heading">94%</div>
-                <div class="text-[11px] font-mono text-neutral-300 mt-1">Measured Transepidermal Water Recovery</div>
-              </div>
-
-              <!-- Press Quote -->
-              <div class="p-4 rounded-2xl bg-neutral-900 border border-neutral-800">
-                <div class="text-amber-400 text-sm mb-1">&starf;&starf;&starf;&starf;&starf;</div>
-                <p class="text-xs text-neutral-200 italic">"The rare barrier serum that actually repairs damaged skin without causing cystic flares."</p>
-                <div class="text-[10px] font-mono text-neutral-400 mt-2 uppercase tracking-wider">- Aesthetic Dermatology Review</div>
-              </div>
-            </div>
-
-            <div class="z-10 text-center text-[10px] font-mono text-neutral-500">
-              50-Participant 14-Day Blinded Clinical Trial (2026)
-            </div>
-          </div>
-
-          <div class="p-6 bg-neutral-950 border-t border-neutral-800 space-y-2 text-xs">
-            <div class="flex justify-between text-neutral-400 font-mono text-[11px]">
-              <span>Target: Analytical Proof</span>
-              <span class="text-blue-400 font-bold">+38% Conversion Rate</span>
-            </div>
-            <p class="text-neutral-400 text-[11px] leading-relaxed">
-              <strong>Why it converts:</strong> Independent statistics provide undeniable social proof, eliminating hesitation for prospects who were burned by cheap viral products.
-            </p>
-          </div>
-        </div>
-
-        <!-- Ad 05: The Honest Customer Objection-Crusher -->
-        <div class="rounded-3xl bg-neutral-950 border border-neutral-800 overflow-hidden flex flex-col shadow-2xl">
-          <div class="relative ad-card-ratio bg-neutral-900 overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1508746829417-e6f548d8d6ed?auto=format&fit=crop&w=1000&q=85" alt="Customer Review Ad" class="w-full h-full object-cover">
-            <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-black/30"></div>
-            
-            <div class="absolute top-4 left-4">
-              <span class="px-2.5 py-1 rounded-full text-[10px] font-mono font-bold uppercase bg-amber-600 text-white">Format 05: Objection Crusher</span>
-            </div>
-
-            <!-- Review Card Overlay -->
-            <div class="absolute bottom-6 left-6 right-6">
-              <div class="p-4 rounded-2xl bg-black/80 backdrop-blur-md border border-white/20">
-                <div class="text-amber-400 text-xs mb-1">&starf;&starf;&starf;&starf;&starf; Verified Purchase</div>
-                <h5 class="text-sm font-bold text-white mb-1">"Finally, zero burning."</h5>
-                <p class="text-[11px] text-neutral-300 leading-relaxed">
-                  "I destroyed my barrier with 1% retinol and everything I put on made my face turn tomato red. LUMEN soothed it in twenty minutes. Day 5 and the redness is completely gone."
-                </p>
-                <div class="text-[10px] font-mono text-neutral-400 mt-2">Jessica M., Verified 50ml Customer</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="p-6 bg-neutral-950 border-t border-neutral-800 space-y-2 text-xs">
-            <div class="flex justify-between text-neutral-400 font-mono text-[11px]">
-              <span>Target: Retargeting (BOFU)</span>
-              <span class="text-amber-400 font-bold">4.2x ROAS</span>
-            </div>
-            <p class="text-neutral-400 text-[11px] leading-relaxed">
-              <strong>Why it converts:</strong> Directly attacks the customer's deepest fear: "Will this sting or break me out?" Real relatable wording closes undecided cart abandoners.
-            </p>
-          </div>
-        </div>
-
-        <!-- Ad 06: The 14-Day Timeline Progression -->
-        <div class="rounded-3xl bg-neutral-950 border border-neutral-800 overflow-hidden flex flex-col shadow-2xl">
-          <div class="relative ad-card-ratio bg-neutral-900 overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=1000&q=85" alt="14-Day Timeline Ad" class="w-full h-full object-cover">
-            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/20"></div>
-            
-            <div class="absolute top-4 left-4">
-              <span class="px-2.5 py-1 rounded-full text-[10px] font-mono font-bold uppercase bg-emerald-600 text-white">Format 06: Timeline</span>
-            </div>
-
-            <!-- Timeline Milestones -->
-            <div class="absolute bottom-6 left-6 right-6 space-y-2">
-              <div class="text-xs font-mono font-bold text-emerald-400 uppercase tracking-wider">The 14-Day Barrier Reset</div>
-              
-              <div class="p-2.5 rounded-xl bg-black/70 backdrop-blur-md border border-white/10 text-[11px] flex justify-between">
-                <span class="font-bold text-white">Day 01:</span>
-                <span class="text-neutral-300">Instant soothing, zero stinging</span>
-              </div>
-              <div class="p-2.5 rounded-xl bg-black/70 backdrop-blur-md border border-white/10 text-[11px] flex justify-between">
-                <span class="font-bold text-white">Day 07:</span>
-                <span class="text-neutral-300">Rough micro-flaking smoothed</span>
-              </div>
-              <div class="p-2.5 rounded-xl bg-black/70 backdrop-blur-md border border-white/10 text-[11px] flex justify-between">
-                <span class="font-bold text-white">Day 14:</span>
-                <span class="text-emerald-400 font-bold">Lipid barrier 94% restored</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="p-6 bg-neutral-950 border-t border-neutral-800 space-y-2 text-xs">
-            <div class="flex justify-between text-neutral-400 font-mono text-[11px]">
-              <span>Target: Outcome Visualizer</span>
-              <span class="text-emerald-400 font-bold">+41% Add-to-Cart</span>
-            </div>
-            <p class="text-neutral-400 text-[11px] leading-relaxed">
-              <strong>Why it converts:</strong> Sets clear, realistic time expectations. Prospects can mentally picture their skin improvement over a specific two-week milestone roadmap.
-            </p>
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- HOW THIS EVOLVES TO GIF & VIDEO (MONTH 2 & 3 PREVIEWS) -->
-  <section class="py-20 bg-white border-b border-neutral-200/80">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <div class="text-center max-w-3xl mx-auto mb-16">
-        <span class="text-xs font-bold uppercase tracking-wider text-blue-600">The Natural Progression</span>
-        <h2 class="text-3xl sm:text-4xl font-extrabold text-neutral-950 mt-2">
-          From Static to Living Motion: Month 2 & 3
+      <div class="max-w-3xl mb-16">
+        <span class="text-xs font-bold uppercase tracking-wider text-blue-600">Production Creative Suite</span>
+        <h2 class="text-3xl sm:text-5xl font-extrabold text-neutral-950 mt-2 mb-4">
+          The 6 Static Ad Formats Built for Month 1
         </h2>
-        <p class="text-neutral-600 text-sm sm:text-base mt-2">
-          How the winning static angles from Month 1 are elevated into high-converting motion assets:
+        <p class="text-neutral-600 text-base sm:text-lg leading-relaxed">
+          Each format is designed in a 4:5 aspect ratio optimized for Meta feed real estate. Notice how every visual directly executes a specific psychological hook from our research dossier.
         </p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+      <!-- 6-AD GRID -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         
-        <!-- Evolution 1: Micro-Motion GIF -->
-        <div class="p-8 rounded-3xl bg-neutral-50 border border-neutral-200/90 flex flex-col justify-between">
-          <div>
-            <div class="inline-block px-3 py-1 rounded-full text-[10px] font-mono font-bold uppercase bg-blue-100 text-blue-700 mb-4">
-              Month 2 Evolution
+        <!-- AD 01: S1 The Search Confusion Teardown -->
+        <div class="rounded-3xl border border-neutral-200/90 bg-neutral-950 text-white overflow-hidden shadow-xl flex flex-col justify-between">
+          <div class="p-6 relative aspect-[4/5] flex flex-col justify-between bg-gradient-to-b from-neutral-900 via-neutral-950 to-neutral-950 border-b border-neutral-800">
+            <!-- Header Chip -->
+            <div class="flex items-center justify-between text-[10px] font-mono">
+              <span class="px-2.5 py-0.5 rounded-full bg-blue-500/20 text-blue-300 border border-blue-500/30 font-bold uppercase">Format 01 &bull; S1</span>
+              <span class="text-neutral-400">Search Teardown</span>
             </div>
-            <h3 class="text-xl font-bold font-heading text-neutral-950 mb-2">Animated Micro-Motion & GIF Loops</h3>
-            <p class="text-xs text-neutral-600 leading-relaxed mb-6">
-              When Format 01 (Minimalist Dropper Proof) won in Month 1, we did not start from scratch: we added kinetic motion. A slow-motion dropper drip hitting the lipid surface with animated typography reveals increased thumbstop hold rates by 38%.
-            </p>
-            <div class="space-y-2 text-xs font-mono">
-              <div class="p-2.5 rounded-xl bg-white border border-neutral-200 flex justify-between">
-                <span class="text-neutral-600">Motion Style:</span>
-                <span class="font-bold text-neutral-900">4-Second Seamless Loop</span>
+            
+            <!-- Graphic Element: The Fake Google Search Box -->
+            <div class="my-auto space-y-3">
+              <div class="p-3.5 rounded-2xl bg-neutral-900 border border-neutral-700 flex items-center gap-2.5 shadow-inner">
+                <svg class="w-4 h-4 text-neutral-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+                <span class="text-xs text-neutral-300 font-mono">why is my hair falling out</span>
               </div>
-              <div class="p-2.5 rounded-xl bg-white border border-neutral-200 flex justify-between">
-                <span class="text-neutral-600">Cost to Produce:</span>
-                <span class="font-bold text-emerald-600">Low Friction (Derived from Static)</span>
+              
+              <!-- Crossed-Out Autocomplete Confusion -->
+              <div class="p-4 rounded-2xl bg-neutral-900/60 border border-neutral-800 space-y-2 text-[11px] font-mono">
+                <div class="text-red-400/80 line-through">&times; Stress & Late Nights</div>
+                <div class="text-red-400/80 line-through">&times; Hard Water Minerals</div>
+                <div class="text-red-400/80 line-through">&times; Biotin Deficiency</div>
+                <div class="text-red-400/80 line-through">&times; Genetic DHT Sensitivity</div>
+                <div class="pt-2 border-t border-neutral-800 text-emerald-400 font-bold">
+                  &rarr; 14 generic causes. None are verified for you.
+                </div>
               </div>
+            </div>
+
+            <!-- Ad Bottom Hook -->
+            <div>
+              <h4 class="text-lg font-bold font-heading text-white leading-tight">Stop guessing. Get your clinical scalp report.</h4>
+              <p class="text-[11px] text-neutral-400 mt-1">Doctor-reviewed AI scalp scan in 2 minutes.</p>
             </div>
           </div>
-          <div class="mt-6 pt-4 border-t border-neutral-200 text-xs font-semibold text-blue-600">
-            Saves production budget by iterating on verified winners.
+
+          <div class="p-5 bg-neutral-900 text-xs">
+            <div class="font-bold text-white mb-1">Strategic Rationale:</div>
+            <p class="text-neutral-400 text-[11px] leading-relaxed">
+              Arrests search inertia. Speaks directly to people who spent hours on WebMD and Reddit reading contradictory advice. Drives test starts at lowest CPC.
+            </p>
           </div>
         </div>
 
-        <!-- Evolution 2: Full 9:16 Video -->
-        <div class="p-8 rounded-3xl bg-neutral-950 text-white border border-neutral-800 shadow-xl flex flex-col justify-between">
-          <div>
-            <div class="inline-block px-3 py-1 rounded-full text-[10px] font-mono font-bold uppercase bg-purple-600 text-white mb-4">
-              Month 3 Evolution
+        <!-- AD 02: S2 The Bathroom Shelf Graveyard -->
+        <div class="rounded-3xl border border-neutral-200/90 bg-neutral-950 text-white overflow-hidden shadow-xl flex flex-col justify-between">
+          <div class="relative aspect-[4/5] overflow-hidden flex flex-col justify-between p-6">
+            <img src="https://images.unsplash.com/photo-1507652313519-d4e9174996dd?auto=format&fit=crop&w=800&q=80" alt="Cluttered Cosmetic Shelf" class="absolute inset-0 w-full h-full object-cover opacity-30">
+            <div class="absolute inset-0 bg-gradient-to-t from-neutral-950 via-neutral-950/80 to-transparent"></div>
+
+            <!-- Header Chip -->
+            <div class="relative z-10 flex items-center justify-between text-[10px] font-mono">
+              <span class="px-2.5 py-0.5 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/30 font-bold uppercase">Format 02 &bull; Shelf Collector</span>
+              <span class="text-neutral-400">Objection Crusher</span>
             </div>
-            <h3 class="text-xl font-bold font-heading text-white mb-2">Full-Scale 9:16 Vertical Video Ads</h3>
-            <p class="text-xs text-neutral-300 leading-relaxed mb-6">
-              In Month 3, the validated "Stripped Barrier" angle is scripted into a full 18-second video. Multimodal AI creators demonstrate application, while transparent 3D cutaways illustrate lipid absorption into the stratum corneum.
+
+            <div class="relative z-10 my-auto text-center space-y-2">
+              <div class="inline-block px-3 py-1 rounded-full bg-red-950/80 border border-red-500/40 text-red-300 text-[10px] font-mono">
+                8 Half-Empty Bottles on Your Shelf
+              </div>
+              <h3 class="text-2xl font-extrabold text-white font-heading">
+                Why none of them worked.
+              </h3>
+              <p class="text-xs text-neutral-300 max-w-xs mx-auto leading-relaxed">
+                Oils coat the hair shaft. Gummies enter the stomach. Neither reaches follicle root receptors without biomimetic delivery.
+              </p>
+            </div>
+
+            <div class="relative z-10 p-3 rounded-2xl bg-neutral-900/90 border border-neutral-700 text-center">
+              <span class="text-xs font-bold text-white">One targeted matrix based on verified diagnosis.</span>
+            </div>
+          </div>
+
+          <div class="p-5 bg-neutral-900 text-xs">
+            <div class="font-bold text-white mb-1">Strategic Rationale:</div>
+            <p class="text-neutral-400 text-[11px] leading-relaxed">
+              Disarms the #1 objection ("I have already tried everything"). Validates their past frustration and explains why the failure was the delivery method, not them.
             </p>
-            <div class="space-y-2 text-xs font-mono">
-              <div class="p-2.5 rounded-xl bg-neutral-900 border border-neutral-800 flex justify-between">
-                <span class="text-neutral-400">Pacing:</span>
-                <span class="font-bold text-white">0:03 Hook &middot; 0:10 Demo &middot; 0:05 Offer</span>
+          </div>
+        </div>
+
+        <!-- AD 03: S3 The Diagnostic Report Preview -->
+        <div class="rounded-3xl border border-neutral-200/90 bg-neutral-950 text-white overflow-hidden shadow-xl flex flex-col justify-between">
+          <div class="p-6 relative aspect-[4/5] flex flex-col justify-between bg-gradient-to-b from-neutral-900 via-neutral-950 to-neutral-950 border-b border-neutral-800">
+            <!-- Header Chip -->
+            <div class="flex items-center justify-between text-[10px] font-mono">
+              <span class="px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 font-bold uppercase">Format 03 &bull; S3</span>
+              <span class="text-neutral-400">The Honest Proof</span>
+            </div>
+
+            <!-- Simulated Clinical Report Preview with 3 Target Rings -->
+            <div class="my-auto p-4 rounded-2xl bg-neutral-900 border border-neutral-700 text-xs font-mono space-y-3">
+              <div class="flex justify-between items-center pb-2 border-b border-neutral-800">
+                <span class="text-neutral-400">LUMEN Scalp Scan #8492</span>
+                <span class="text-emerald-400 font-bold">Verified</span>
               </div>
-              <div class="p-2.5 rounded-xl bg-neutral-900 border border-neutral-800 flex justify-between">
-                <span class="text-neutral-400">Scale Potential:</span>
-                <span class="font-bold text-purple-400">Multi-Channel ($5K+/day capacity)</span>
+              <div class="space-y-2">
+                <div class="p-2 rounded-lg bg-neutral-950 border border-neutral-800 flex justify-between items-center">
+                  <span class="text-neutral-300">Follicle Density Map</span>
+                  <span class="text-blue-400 font-bold">142/cm² (Thinning)</span>
+                </div>
+                <div class="p-2 rounded-lg bg-neutral-950 border border-neutral-800 flex justify-between items-center">
+                  <span class="text-neutral-300">Miniaturization Index</span>
+                  <span class="text-amber-400 font-bold">34% Active Reversible</span>
+                </div>
+                <div class="p-2 rounded-lg bg-neutral-950 border border-neutral-800 flex justify-between items-center">
+                  <span class="text-neutral-300">Recovery Prognosis</span>
+                  <span class="text-emerald-400 font-bold">88% with Peptides</span>
+                </div>
+              </div>
+              <div class="text-[10px] text-neutral-500 text-center">
+                *Proof is what you receive, not a generic before/after.
+              </div>
+            </div>
+
+            <div>
+              <h4 class="text-lg font-bold font-heading text-white">We don't show fake before/afters.</h4>
+              <p class="text-[11px] text-neutral-400 mt-1">We show what your scalp assessment actually looks like.</p>
+            </div>
+          </div>
+
+          <div class="p-5 bg-neutral-900 text-xs">
+            <div class="font-bold text-white mb-1">Strategic Rationale:</div>
+            <p class="text-neutral-400 text-[11px] leading-relaxed">
+              Circled report preview satisfies the skeptic. Viewers inherently distrust before/after photos: previewing the clinical report promises zero false miracles and builds unshakeable credibility.
+            </p>
+          </div>
+        </div>
+
+        <!-- AD 04: S4 Your Stage Decides (Kit vs Clinic) -->
+        <div class="rounded-3xl border border-neutral-200/90 bg-neutral-950 text-white overflow-hidden shadow-xl flex flex-col justify-between">
+          <div class="p-6 relative aspect-[4/5] flex flex-col justify-between bg-gradient-to-b from-neutral-900 via-neutral-950 to-neutral-950 border-b border-neutral-800">
+            <!-- Header Chip -->
+            <div class="flex items-center justify-between text-[10px] font-mono">
+              <span class="px-2.5 py-0.5 rounded-full bg-purple-500/20 text-purple-300 border border-purple-500/30 font-bold uppercase">Format 04 &bull; S2</span>
+              <span class="text-neutral-400">Stage Reality</span>
+            </div>
+
+            <!-- Stage 1-2 vs Stage 3+ Decision Matrix -->
+            <div class="my-auto space-y-3 font-mono text-xs">
+              <div class="p-3.5 rounded-2xl bg-neutral-900 border border-blue-500/40">
+                <div class="flex justify-between font-bold text-blue-400 text-[11px] mb-1">
+                  <span>STAGE 1 &bull; 2 (EARLY THINNING)</span>
+                  <span>SERUM WORKS</span>
+                </div>
+                <p class="text-[11px] text-neutral-300">Follicles are miniaturizing but alive. 5% Redensyl + Peptides reverse density loss.</p>
+              </div>
+
+              <div class="p-3.5 rounded-2xl bg-neutral-900 border border-amber-500/40">
+                <div class="flex justify-between font-bold text-amber-400 text-[11px] mb-1">
+                  <span>STAGE 3+ (ADVANCED LOSS)</span>
+                  <span>SERUM NOT ENOUGH</span>
+                </div>
+                <p class="text-[11px] text-neutral-300">No topical serum alone will restore bare skin. You need doctor review or clinical PRP.</p>
+              </div>
+            </div>
+
+            <div>
+              <h4 class="text-lg font-bold font-heading text-white">Your stage decides your protocol.</h4>
+              <p class="text-[11px] text-neutral-400 mt-1">Brutal honesty: we refuse to sell kits to stages that need clinical care.</p>
+            </div>
+          </div>
+
+          <div class="p-5 bg-neutral-900 text-xs">
+            <div class="font-bold text-white mb-1">Strategic Rationale:</div>
+            <p class="text-neutral-400 text-[11px] leading-relaxed">
+              Positions the brand as medical experts rather than sales-hungry merchants. Telling users when NOT to buy a serum creates 10x higher conversion on qualified buyers.
+            </p>
+          </div>
+        </div>
+
+        <!-- AD 05: S5 Day 21 WhatsApp Reassurance -->
+        <div class="rounded-3xl border border-neutral-200/90 bg-neutral-950 text-white overflow-hidden shadow-xl flex flex-col justify-between">
+          <div class="p-6 relative aspect-[4/5] flex flex-col justify-between bg-gradient-to-b from-neutral-900 via-neutral-950 to-neutral-950 border-b border-neutral-800">
+            <!-- Header Chip -->
+            <div class="flex items-center justify-between text-[10px] font-mono">
+              <span class="px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 font-bold uppercase">Format 05 &bull; S4</span>
+              <span class="text-neutral-400">Retention & Trust</span>
+            </div>
+
+            <!-- WhatsApp Chat Mockup -->
+            <div class="my-auto space-y-2.5 text-xs font-sans">
+              <!-- User Panic Bubble -->
+              <div class="flex justify-end">
+                <div class="p-3 rounded-2xl rounded-tr-xs bg-emerald-900/60 border border-emerald-700/50 text-emerald-100 max-w-[85%] text-[11px]">
+                  "It is Day 21. Seeing more hair in my comb this morning. Does this mean the serum is failing? Should I stop?"
+                  <div class="text-[9px] text-emerald-300/60 text-right mt-1 font-mono">10:14 AM &bull; Read</div>
+                </div>
+              </div>
+
+              <!-- Doctor Buddy Reassurance Bubble -->
+              <div class="flex justify-start">
+                <div class="p-3 rounded-2xl rounded-tl-xs bg-neutral-900 border border-neutral-700 text-neutral-200 max-w-[88%] text-[11px]">
+                  <strong class="text-white block mb-0.5">Dr. Priya &bull; LUMEN Medical Buddy</strong>
+                  "Do not stop. This is telogen release: miniaturized, weak hairs shed so new thick anagen strands can take root. It peaks at week 3 and settles by week 5."
+                  <div class="text-[9px] text-neutral-500 mt-1 font-mono">10:18 AM</div>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h4 class="text-lg font-bold font-heading text-white">Day 21: When most people quit.</h4>
+              <p class="text-[11px] text-neutral-400 mt-1">A dedicated medical buddy stays with you through the entire routine.</p>
+            </div>
+          </div>
+
+          <div class="p-5 bg-neutral-900 text-xs">
+            <div class="font-bold text-white mb-1">Strategic Rationale:</div>
+            <p class="text-neutral-400 text-[11px] leading-relaxed">
+              Resolves the #1 churn trigger in hair care. Proves that unlike competitor kits that abandon you upon shipping, LUMEN provides active human medical oversight.
+            </p>
+          </div>
+        </div>
+
+        <!-- AD 06: Us vs. Them Comparison Card -->
+        <div class="rounded-3xl border border-neutral-200/90 bg-neutral-950 text-white overflow-hidden shadow-xl flex flex-col justify-between">
+          <div class="p-6 relative aspect-[4/5] flex flex-col justify-between bg-gradient-to-b from-neutral-900 via-neutral-950 to-neutral-950 border-b border-neutral-800">
+            <!-- Header Chip -->
+            <div class="flex items-center justify-between text-[10px] font-mono">
+              <span class="px-2.5 py-0.5 rounded-full bg-blue-500/20 text-blue-300 border border-blue-500/30 font-bold uppercase">Format 06 &bull; Us vs Them</span>
+              <span class="text-neutral-400">Full Teardown</span>
+            </div>
+
+            <!-- Comparison Spec Table -->
+            <div class="my-auto space-y-2 text-[11px] font-mono">
+              <div class="grid grid-cols-2 gap-2 text-[10px] font-bold pb-1 border-b border-neutral-800">
+                <span class="text-red-400 uppercase">Generic DTC Kit</span>
+                <span class="text-emerald-400 uppercase">LUMEN Science</span>
+              </div>
+              <div class="p-2 rounded-xl bg-neutral-900/60 flex justify-between">
+                <span class="text-neutral-400">Blind product selling</span>
+                <span class="text-emerald-400 font-bold">Diagnostic scan first</span>
+              </div>
+              <div class="p-2 rounded-xl bg-neutral-900/60 flex justify-between">
+                <span class="text-neutral-400">Diluted water + perfume</span>
+                <span class="text-emerald-400 font-bold">100% Active biomimetics</span>
+              </div>
+              <div class="p-2 rounded-xl bg-neutral-900/60 flex justify-between">
+                <span class="text-neutral-400">Zero response after purchase</span>
+                <span class="text-emerald-400 font-bold">Doctor WhatsApp check-ins</span>
+              </div>
+              <div class="p-2 rounded-xl bg-neutral-900/60 flex justify-between">
+                <span class="text-neutral-400">One kit for everyone</span>
+                <span class="text-emerald-400 font-bold">Clinic backup if needed</span>
+              </div>
+            </div>
+
+            <div>
+              <h4 class="text-lg font-bold font-heading text-white">Compare before you buy.</h4>
+              <p class="text-[11px] text-neutral-400 mt-1">Why category leaders switch from guesswork to clinical diagnostics.</p>
+            </div>
+          </div>
+
+          <div class="p-5 bg-neutral-900 text-xs">
+            <div class="font-bold text-white mb-1">Strategic Rationale:</div>
+            <p class="text-neutral-400 text-[11px] leading-relaxed">
+              High-intent comparison ad targeting warm consideration traffic. Dismantles competitor subscription kits point by point on clinical merit.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION 4: MONTH 2 & 3 EVOLUTION (GIF MOTION & MULTIMODAL AI VIDEO) -->
+  <section class="py-24 bg-neutral-50 border-b border-neutral-200/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="max-w-3xl mb-16">
+        <span class="text-xs font-bold uppercase tracking-wider text-purple-600">Motion & Video Scale</span>
+        <h2 class="text-3xl sm:text-5xl font-extrabold text-neutral-950 mt-2 mb-4">
+          Scaling the Winners into Motion & AI Video
+        </h2>
+        <p class="text-neutral-600 text-base sm:text-lg">
+          Once Month 1 isolates the winning static angles, we translate them directly into animated micro-motion GIF loops and full 9:16 vertical AI videos.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+        
+        <!-- Evolution 1: Micro-Motion GIF Loops (Month 2) -->
+        <div class="p-8 rounded-3xl bg-white border border-neutral-200/80 shadow-xs">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[10px] font-mono uppercase tracking-wider bg-purple-100 text-purple-700 font-bold mb-4">
+            Phase 2 &bull; Month 02 Micro-Motion
+          </div>
+          <h3 class="text-2xl font-bold text-neutral-950 font-heading mb-3">
+            Animated Visual Proof Loops
+          </h3>
+          <p class="text-xs text-neutral-600 leading-relaxed mb-6">
+            Static ads prove what to say; animated loops prove how it works in four seconds without needing sound:
+          </p>
+          
+          <div class="space-y-4 text-xs">
+            <div class="p-4 rounded-2xl bg-neutral-50 border border-neutral-200">
+              <strong class="text-neutral-900 block mb-1">1. The Diagnostic Focus Ring (S3 Evolution):</strong>
+              <span class="text-neutral-600">A smooth 4-second zoom into the patient's scalp report, with animated pulse rings locking onto the Follicle Density Map. (+38% thumbstop rate).</span>
+            </div>
+            <div class="p-4 rounded-2xl bg-neutral-50 border border-neutral-200">
+              <strong class="text-neutral-900 block mb-1">2. Hard Water TDS Dial (V2 Evolution):</strong>
+              <span class="text-neutral-600">A digital TDS water meter surging from 120 PPM to 840 PPM, explaining the sudden white mineral deposits suffocating scalp pores.</span>
+            </div>
+            <div class="p-4 rounded-2xl bg-neutral-50 border border-neutral-200">
+              <strong class="text-neutral-900 block mb-1">3. Kinetic WhatsApp Typing Reassurance:</strong>
+              <span class="text-neutral-600">Simulates real-time three-dot typing and instant doctor response on Day 21 shedding panic.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Evolution 2: Multimodal AI Video Scripts (Month 3) -->
+        <div class="p-8 rounded-3xl bg-neutral-950 text-white border border-neutral-800 shadow-xl">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[10px] font-mono uppercase tracking-wider bg-emerald-500/20 text-emerald-400 font-bold mb-4 border border-emerald-500/30">
+            Phase 3 &bull; Month 03 Video Scale
+          </div>
+          <h3 class="text-2xl font-bold text-white font-heading mb-3">
+            Multimodal AI Video Scripts (9:16 Vertical)
+          </h3>
+          <p class="text-xs text-neutral-400 leading-relaxed mb-6">
+            Two production-ready video scripts engineered for Meta and TikTok feeds:
+          </p>
+
+          <div class="space-y-4 text-xs font-mono">
+            <!-- Script 1 -->
+            <div class="p-4 rounded-2xl bg-neutral-900 border border-neutral-800">
+              <div class="flex justify-between items-center text-blue-400 font-bold mb-2">
+                <span>V1 &bull; The Guessing Shelf (0:18s)</span>
+                <span>TOF / Cold Audience</span>
+              </div>
+              <div class="text-neutral-300 space-y-1 text-[11px]">
+                <div><span class="text-neutral-500">[0:00 - 0:03]</span> Camera pans bathroom shelf with 6 half-empty bottles. "If your shelf looks like this, stop buying hair kits."</div>
+                <div><span class="text-neutral-500">[0:03 - 0:08]</span> AI avatar points to phone screen showing AI scalp assessment. "You don't need another oil. You need to know why it's falling."</div>
+                <div><span class="text-neutral-500">[0:08 - 0:14]</span> 3D peptide penetration into follicle root. "Takes 2 minutes. Checked by a trichologist."</div>
+                <div><span class="text-neutral-500">[0:14 - 0:18]</span> Free test report on screen. "Take the free hair test below."</div>
+              </div>
+            </div>
+
+            <!-- Script 2 -->
+            <div class="p-4 rounded-2xl bg-neutral-900 border border-neutral-800">
+              <div class="flex justify-between items-center text-emerald-400 font-bold mb-2">
+                <span>V2 &bull; New City, New Water (0:20s)</span>
+                <span>Regional Bangalore / Delhi</span>
+              </div>
+              <div class="text-neutral-300 space-y-1 text-[11px]">
+                <div><span class="text-neutral-500">[0:00 - 0:03]</span> Water dripping from bathroom tap with visible lime scale. "Moved to Bangalore and your hairline started receding?"</div>
+                <div><span class="text-neutral-500">[0:03 - 0:09]</span> TDS meter reads 850 PPM. "Hard water minerals bind to keratin and choke follicle respiration."</div>
+                <div><span class="text-neutral-500">[0:09 - 0:15]</span> LUMEN chelating serum active animation restoring scalp pH.</div>
+                <div><span class="text-neutral-500">[0:15 - 0:20]</span> "Get your custom hard-water defense protocol in 2 minutes."</div>
               </div>
             </div>
           </div>
-          <div class="mt-6 pt-4 border-t border-neutral-800 text-xs font-semibold text-purple-400">
-            Maximizes enterprise scale across Meta, TikTok, and YouTube Shorts.
-          </div>
+
         </div>
 
       </div>
@@ -609,28 +812,71 @@
   </section>
 
   <!-- CTA FOOTER -->
-  <footer class="py-16 bg-neutral-950 text-white text-center">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <span class="text-xs font-mono uppercase tracking-widest text-blue-400">Ready to Build Your Brand's Creative Flight Plan?</span>
-      <h3 class="text-2xl sm:text-4xl font-extrabold text-white mt-2 mb-4">
-        Deploy ANGLE Studio on your paid campaigns.
-      </h3>
-      <p class="text-xs sm:text-sm text-neutral-400 max-w-xl mx-auto mb-8 leading-relaxed">
-        We handle the customer research, angle discovery, static production, and video scaling so your media buyer never runs out of winning creative inventory.
+  <footer class="py-20 bg-neutral-950 text-white border-t border-neutral-800">
+    <div class="max-w-5xl mx-auto px-4 text-center">
+      <span class="text-xs font-bold uppercase tracking-widest text-blue-400">End-to-End Performance Creative</span>
+      <h2 class="text-3xl sm:text-5xl font-extrabold text-white mt-3 mb-6">
+        Ready to build an authentic creative engine for your brand?
+      </h2>
+      <p class="text-neutral-400 text-base max-w-xl mx-auto mb-8 leading-relaxed">
+        We diagnose the root psychological friction in your customer's mind, build high-converting static ad suites, and scale into kinetic AI videos.
       </p>
+
       <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-        <a href="/#pilot" class="w-full sm:w-auto px-8 py-3.5 rounded-full text-xs font-semibold text-neutral-950 bg-white hover:bg-neutral-200 transition shadow-lg">
-          Book Free Strategy Call &rarr;
+        <a href="/" class="px-8 py-4 rounded-full text-xs font-semibold text-neutral-950 bg-white hover:bg-neutral-200 transition shadow-lg">
+          Explore Main Studio &rarr;
         </a>
-        <a href="/" class="w-full sm:w-auto px-8 py-3.5 rounded-full text-xs font-semibold text-white bg-neutral-900 border border-neutral-800 hover:bg-neutral-800 transition">
-          Return to ANGLE Studio Homepage
+        <a href="https://calendly.com" target="_blank" class="px-8 py-4 rounded-full text-xs font-semibold text-white bg-blue-600 hover:bg-blue-700 transition shadow-lg">
+          Book 30-Minute Creative Teardown
         </a>
       </div>
-      <div class="mt-12 text-xs text-neutral-600 font-mono">
-        &copy; 2026 ANGLE Studio. Built for High-Growth DTC Brands.
+
+      <div class="mt-12 pt-8 border-t border-neutral-900 text-xs font-mono text-neutral-600">
+        &copy; 2026 ANGLE Studio & Engine. Strict Confidentiality & Algorithmic Creative Engineering.
       </div>
     </div>
   </footer>
+
+  <!-- DUAL CURRENCY SCRIPT -->
+  <script>
+    let currentCurrency = 'USD';
+    const currencyRates = {
+      hair: { usd: '$54 USD', inr: '₹2,850 INR' },
+      skin: { usd: '$48 USD', inr: '₹2,450 INR' }
+    };
+
+    function setCurrency(curr) {
+      currentCurrency = curr;
+      const usdButtons = document.querySelectorAll('.curr-toggle-usd');
+      const inrButtons = document.querySelectorAll('.curr-toggle-inr');
+
+      if (curr === 'USD') {
+        usdButtons.forEach(btn => {
+          btn.classList.add('bg-neutral-950', 'text-white', 'shadow-xs');
+          btn.classList.remove('text-neutral-600');
+        });
+        inrButtons.forEach(btn => {
+          btn.classList.remove('bg-neutral-950', 'text-white', 'shadow-xs');
+          btn.classList.add('text-neutral-600');
+        });
+
+        document.querySelectorAll('.sku-hair-price').forEach(el => el.textContent = currencyRates.hair.usd);
+        document.querySelectorAll('.sku-skin-price').forEach(el => el.textContent = currencyRates.skin.usd);
+      } else {
+        inrButtons.forEach(btn => {
+          btn.classList.add('bg-neutral-950', 'text-white', 'shadow-xs');
+          btn.classList.remove('text-neutral-600');
+        });
+        usdButtons.forEach(btn => {
+          btn.classList.remove('bg-neutral-950', 'text-white', 'shadow-xs');
+          btn.classList.add('text-neutral-600');
+        });
+
+        document.querySelectorAll('.sku-hair-price').forEach(el => el.textContent = currencyRates.hair.inr);
+        document.querySelectorAll('.sku-skin-price').forEach(el => el.textContent = currencyRates.skin.inr);
+      }
+    }
+  </script>
 
 </body>
 </html>
