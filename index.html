@@ -9,7 +9,7 @@
   <!-- Fonts & Core Scripts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/@tailwindcss/browser@4">
     // Interactive Currency Switcher (USD / INR)
     let currentCurrency = 'USD';
@@ -86,11 +86,18 @@
   
   <style>
     body {
-      font-family: 'Inter Tight', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       background-color: #FFFFFF;
-      color: #171717;
+      color: #0F172A;
       overflow-x: hidden;
       -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+      letter-spacing: -0.015em;
+    }
+    h1, h2, h3, h4, .font-heading {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      letter-spacing: -0.03em;
     }
     .serif-italic {
       font-family: 'Instrument Serif', Georgia, serif;
@@ -98,15 +105,38 @@
     }
     .font-mono {
       font-family: 'JetBrains Mono', monospace;
+      letter-spacing: -0.02em;
     }
     .bg-grid {
       background-size: 32px 32px;
       background-image: 
-        linear-gradient(to right, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+        linear-gradient(to right, rgba(15, 23, 42, 0.04) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(15, 23, 42, 0.04) 1px, transparent 1px);
     }
     .glow-radial {
-      background: radial-gradient(circle at 50% 0%, rgba(37, 99, 235, 0.08) 0%, transparent 65%);
+      background: radial-gradient(circle at 50% -10%, rgba(37, 99, 235, 0.12) 0%, rgba(99, 102, 241, 0.04) 35%, transparent 70%);
+    }
+    .card-living-glow {
+      position: relative;
+    }
+    .card-living-glow::before {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      border-radius: inherit;
+      padding: 1px;
+      background: linear-gradient(135deg, rgba(59, 130, 246, 0.5), rgba(139, 92, 246, 0.2), transparent 70%);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+    }
+    @keyframes pulse-subtle {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.85; transform: scale(1.02); }
+    }
+    .animate-pulse-subtle {
+      animation: pulse-subtle 3s ease-in-out infinite;
     }
     details summary::-webkit-details-marker {
       display: none;
@@ -118,19 +148,22 @@
 </head>
 <body class="selection:bg-blue-600 selection:text-white">
 
-  <!-- TOP ANNOUNCEMENT TICKER -->
-  <div class="bg-neutral-950 text-white text-[11px] font-mono py-2 px-4 border-b border-neutral-800">
+  <!-- TOP ANNOUNCEMENT TICKER (LIVING TELEMETRY) -->
+  <div class="bg-neutral-950 text-white text-[11px] font-mono py-2.5 px-4 border-b border-neutral-800/80">
     <div class="max-w-7xl mx-auto flex items-center justify-between">
-      <div class="flex items-center gap-2">
-        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-        <span class="text-neutral-300">Q2 Sprint Intake: <strong>2 Partner Slots Available</strong> for Scaling Indian & Global DTC Brands</span>
+      <div class="flex items-center gap-3">
+        <div class="flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          <span class="font-bold text-[10px] uppercase tracking-wider">Engine Live</span>
+        </div>
+        <span class="text-neutral-300 hidden sm:inline">Sprint Intake: <strong>2 Dedicated Slots Available</strong> for Indian & Global Brands</span>
       </div>
-      <div class="hidden md:flex items-center gap-6 text-neutral-400">
-        <span>The Angle Engine v2.6</span>
-        <span>•</span>
-        <span>3D Motion + AI Video + Statics</span>
-        <span>•</span>
-        <span class="text-emerald-400">Strategy in 24h</span>
+      <div class="flex items-center gap-4 text-neutral-400 text-[10px] sm:text-[11px]">
+        <span class="flex items-center gap-1 text-neutral-300"><span class="text-blue-400 font-bold">14</span> Sprints in Active Render</span>
+        <span class="hidden md:inline text-neutral-600">•</span>
+        <span class="hidden md:flex items-center gap-1"><span class="text-emerald-400 font-bold">99.4%</span> On-Time SLA</span>
+        <span class="hidden md:inline text-neutral-600">•</span>
+        <span class="text-emerald-400 font-semibold">24h Strategy Guarantee</span>
       </div>
     </div>
   </div>
@@ -210,7 +243,7 @@
       </p>
 
       <!-- Action Buttons -->
-      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
         <button onclick="openBookingModal('Hero Primary CTA')" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 rounded-full text-base font-semibold text-white bg-neutral-950 hover:bg-blue-600 transition shadow-lg hover:shadow-xl cursor-pointer">
           Book Free Strategy Call
           <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
@@ -219,6 +252,23 @@
           <svg class="w-4 h-4 mr-2 text-neutral-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
           Explore High-Converting Ads
         </a>
+      </div>
+
+      <!-- Algorithmic Feed Compatibility Badges -->
+      <div class="flex items-center justify-center gap-2 flex-wrap text-xs text-neutral-500 font-medium mb-12">
+        <span class="text-neutral-400">Engineered for:</span>
+        <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-blue-50 border border-blue-200/60 text-blue-700 font-semibold text-[11px]">
+          <span class="w-1.5 h-1.5 rounded-full bg-blue-600"></span> Meta Andromeda
+        </span>
+        <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-neutral-100 border border-neutral-200 text-neutral-800 font-semibold text-[11px]">
+          <span class="w-1.5 h-1.5 rounded-full bg-neutral-950"></span> TikTok Spark Ads
+        </span>
+        <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-red-50 border border-red-200/60 text-red-700 font-semibold text-[11px]">
+          <span class="w-1.5 h-1.5 rounded-full bg-red-600"></span> YouTube Shorts
+        </span>
+        <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200/60 text-emerald-700 font-semibold text-[11px]">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span> Google Demand Gen
+        </span>
       </div>
 
       <!-- Telemetry Strip: Differentiated & Grounded Metrics -->
@@ -251,42 +301,81 @@
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
           
           <!-- Card 1: 3D Kinetic Motion -->
-          <div class="relative rounded-2xl overflow-hidden bg-neutral-900 group aspect-[4/5] flex flex-col justify-end p-6 text-white cursor-pointer" onclick="openLightbox('ad-streetwear')">
+          <div class="relative rounded-3xl overflow-hidden bg-neutral-900 group aspect-[4/5] flex flex-col justify-end p-6 text-white cursor-pointer shadow-xl transition-all duration-300 hover:shadow-2xl hover:-translate-y-1" onclick="openLightbox('ad-streetwear')">
             <img src="https://cdn.sanity.io/images/k0dlbavy/production/88031f8e9b23fd0f9e4520a0d9e46fa51d61abd8-1920x1920.png?w=800&q=95&auto=format" alt="3D Kinetic Motion Ad" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition duration-500 opacity-90">
-            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent"></div>
+            <!-- Live Metadata Chips -->
+            <div class="absolute top-4 left-4 right-4 flex items-center justify-between">
+              <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-bold tracking-wider uppercase bg-blue-600 text-white shadow-md">
+                <span class="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></span>
+                3D Kinetic Motion
+              </span>
+              <span class="px-2.5 py-0.5 rounded-md text-[10px] font-mono bg-black/60 backdrop-blur-md text-neutral-300 border border-white/10">
+                9:16 &middot; 4K UHD
+              </span>
+            </div>
             <div class="relative z-10">
-              <span class="inline-block px-2.5 py-1 rounded-full text-[10px] font-bold tracking-wider uppercase bg-blue-600 text-white mb-2">3D Kinetic Motion</span>
-              <h3 class="text-xl font-bold font-heading">Heavyweight Apparel 3D</h3>
+              <div class="flex items-center gap-2 mb-1.5 text-[11px] font-mono text-emerald-400">
+                <span>&bull; Cold TOFU Winner</span>
+                <span>&bull; +3.2x Thumbstop</span>
+              </div>
+              <h3 class="text-xl font-bold font-heading text-white">Heavyweight Apparel 3D</h3>
               <p class="text-xs text-neutral-300 mt-1 line-clamp-2">Macro zoom on fabric weave. Establishes product quality in the opening two seconds.</p>
-              <div class="mt-3 flex items-center gap-2 text-xs font-semibold text-blue-400">
+              <div class="mt-3 flex items-center gap-2 text-xs font-semibold text-blue-400 group-hover:text-blue-300">
                 <span>Inspect Strategic Angle</span> &rarr;
               </div>
             </div>
           </div>
 
           <!-- Card 2: Next-Gen AI Video -->
-          <div class="relative rounded-2xl overflow-hidden bg-neutral-900 group aspect-[4/5] flex flex-col justify-end p-6 text-white cursor-pointer" onclick="openLightbox('ad-ai-hook')">
+          <div class="relative rounded-3xl overflow-hidden bg-neutral-900 group aspect-[4/5] flex flex-col justify-end p-6 text-white cursor-pointer shadow-xl transition-all duration-300 hover:shadow-2xl hover:-translate-y-1" onclick="openLightbox('ad-ai-hook')">
             <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800&q=80" alt="Next-Gen AI Video Ad" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition duration-500 opacity-90">
-            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent"></div>
+            <!-- Live Metadata Chips -->
+            <div class="absolute top-4 left-4 right-4 flex items-center justify-between">
+              <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-bold tracking-wider uppercase bg-purple-600 text-white shadow-md">
+                <span class="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></span>
+                Next-Gen AI Video
+              </span>
+              <span class="px-2.5 py-0.5 rounded-md text-[10px] font-mono bg-black/60 backdrop-blur-md text-neutral-300 border border-white/10">
+                0:18 &middot; Dynamic Hooks
+              </span>
+            </div>
             <div class="relative z-10">
-              <span class="inline-block px-2.5 py-1 rounded-full text-[10px] font-bold tracking-wider uppercase bg-purple-600 text-white mb-2">Next-Gen AI Video</span>
-              <h3 class="text-xl font-bold font-heading">Synthetic UGC & Avatar Hooks</h3>
+              <div class="flex items-center gap-2 mb-1.5 text-[11px] font-mono text-purple-300">
+                <span>&bull; 5 Hooks Tested</span>
+                <span>&bull; -44% CPA Win</span>
+              </div>
+              <h3 class="text-xl font-bold font-heading text-white">Synthetic UGC & Avatar Hooks</h3>
               <p class="text-xs text-neutral-300 mt-1 line-clamp-2">Multimodal video testing with five distinct psychological hooks generated in 48 hours.</p>
-              <div class="mt-3 flex items-center gap-2 text-xs font-semibold text-purple-300">
+              <div class="mt-3 flex items-center gap-2 text-xs font-semibold text-purple-400 group-hover:text-purple-300">
                 <span>Inspect Strategic Angle</span> &rarr;
               </div>
             </div>
           </div>
 
           <!-- Card 3: High-Converting Static Ad -->
-          <div class="relative rounded-2xl overflow-hidden bg-neutral-900 group aspect-[4/5] flex flex-col justify-end p-6 text-white cursor-pointer" onclick="openLightbox('ad-beverage')">
+          <div class="relative rounded-3xl overflow-hidden bg-neutral-900 group aspect-[4/5] flex flex-col justify-end p-6 text-white cursor-pointer shadow-xl transition-all duration-300 hover:shadow-2xl hover:-translate-y-1" onclick="openLightbox('ad-beverage')">
             <img src="https://images.unsplash.com/photo-1556881286-fc6915169721?auto=format&fit=crop&w=800&q=80" alt="Beverage Product Ad" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition duration-500 opacity-90">
-            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent"></div>
+            <!-- Live Metadata Chips -->
+            <div class="absolute top-4 left-4 right-4 flex items-center justify-between">
+              <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-bold tracking-wider uppercase bg-emerald-600 text-white shadow-md">
+                <span class="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></span>
+                High-CTR Static Ad
+              </span>
+              <span class="px-2.5 py-0.5 rounded-md text-[10px] font-mono bg-black/60 backdrop-blur-md text-neutral-300 border border-white/10">
+                4:5 Editorial &middot; High Res
+              </span>
+            </div>
             <div class="relative z-10">
-              <span class="inline-block px-2.5 py-1 rounded-full text-[10px] font-bold tracking-wider uppercase bg-emerald-600 text-white mb-2">High-CTR Static Ad</span>
-              <h3 class="text-xl font-bold font-heading">Cold-Pressed Beverage</h3>
+              <div class="flex items-center gap-2 mb-1.5 text-[11px] font-mono text-emerald-300">
+                <span>&bull; Visceral Sensory</span>
+                <span>&bull; 2.8% Outbound CTR</span>
+              </div>
+              <h3 class="text-xl font-bold font-heading text-white">Cold-Pressed Beverage</h3>
               <p class="text-xs text-neutral-300 mt-1 line-clamp-2">Tactile sensory hook paired with clean editorial typography to arrest scrolling inertia.</p>
-              <div class="mt-3 flex items-center gap-2 text-xs font-semibold text-emerald-400">
+              <div class="mt-3 flex items-center gap-2 text-xs font-semibold text-emerald-400 group-hover:text-emerald-300">
                 <span>Inspect Strategic Angle</span> &rarr;
               </div>
             </div>
@@ -1358,20 +1447,28 @@
           <div class="p-4 rounded-2xl bg-neutral-900 border border-neutral-800">
             <div class="flex items-center justify-between pb-3 mb-3 border-b border-neutral-800 text-xs font-mono">
               <span class="text-purple-400 font-bold uppercase">2. Production Batch</span>
-              <span class="text-neutral-500">48-72h SLA</span>
+              <span class="text-emerald-400 font-semibold flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span> Rendering</span>
             </div>
             <div class="space-y-3">
-              <div class="p-3 rounded-xl bg-neutral-950 border border-purple-500/30 text-xs">
+              <div class="p-3 rounded-xl bg-neutral-950 border border-purple-500/40 text-xs shadow-md">
                 <div class="flex items-center justify-between mb-1">
                   <span class="font-bold text-white">3D Mechanism Exploder</span>
-                  <span class="text-[10px] text-purple-400">Rendering 4K</span>
+                  <span class="text-[10px] font-mono text-purple-400">88% Complete</span>
                 </div>
-                <p class="text-[11px] text-neutral-400">High-detail internal valve fluid dynamics simulation.</p>
+                <!-- Real-Time Progress Bar -->
+                <div class="w-full h-1.5 bg-neutral-800 rounded-full overflow-hidden my-2">
+                  <div class="h-full bg-gradient-to-r from-blue-500 to-purple-500 rounded-full" style="width: 88%"></div>
+                </div>
+                <p class="text-[11px] text-neutral-400">High-detail internal valve fluid dynamics simulation in 4K.</p>
               </div>
               <div class="p-3 rounded-xl bg-neutral-950 border border-purple-500/30 text-xs">
                 <div class="flex items-center justify-between mb-1">
                   <span class="font-bold text-white">AI Video Hook Set #2</span>
-                  <span class="text-[10px] text-purple-400">Voice Synthesis</span>
+                  <span class="text-[10px] text-purple-400 font-mono">Voice Mixed</span>
+                </div>
+                <!-- Real-Time Progress Bar -->
+                <div class="w-full h-1.5 bg-neutral-800 rounded-full overflow-hidden my-2">
+                  <div class="h-full bg-gradient-to-r from-purple-500 to-emerald-400 rounded-full" style="width: 100%"></div>
                 </div>
                 <p class="text-[11px] text-neutral-400">5 dynamic opening hooks engineered for paid social feeds.</p>
               </div>
